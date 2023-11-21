@@ -3,7 +3,14 @@ const express = require("express");
 const path = require("path");
 const cookieParser = require("cookie-parser");
 const logger = require("morgan");
-const mongoose = require("mongoose");
+//const mongoose = require("mongoose");
+const authRoutes = require("./routes/auth");
+
+// initialize dotenv
+require("dotenv").config();
+
+// import mongoose library
+require("./config/database");
 
 const indexRouter = require("./routes/index");
 const usersRouter = require("./routes/users");
@@ -14,6 +21,7 @@ const app = express();
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "ejs");
 
+//app.use("/auth", authRoutes);
 app.use(logger("dev"));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
@@ -22,6 +30,7 @@ app.use(express.static(path.join(__dirname, "public")));
 
 app.use("/", indexRouter);
 app.use("/users", usersRouter);
+app.use("/auth", authRoutes);
 
 // // connect to mongoose
 // mongoose
