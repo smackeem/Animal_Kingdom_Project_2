@@ -5,6 +5,7 @@ module.exports = {
     create,
     index,
     delete: deleteRecord,
+    show
 };
 
 function newRecord(req, res, next){
@@ -42,5 +43,14 @@ async function deleteRecord(req, res, next){
         res.redirect('/records');
     }catch(err){
         console.log(err);
+    }
+}
+
+async function show(req, res, next){
+    try{
+        const record = await Record.findById(req.params.id);
+        res.render('records/show',{title: 'Pet medical record', record});
+    }catch(err){
+        console.log(er)
     }
 }

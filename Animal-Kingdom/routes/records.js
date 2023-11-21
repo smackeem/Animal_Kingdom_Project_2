@@ -4,11 +4,13 @@ const router = express.Router();
 const recordsCtrl = require('../controllers/records');
 
 /* GET users listing. */
+router.get("/", recordsCtrl.index);
+
 router.get("/new",recordsCtrl.new);
 
 router.post("/", recordsCtrl.create);
 
-router.get("/", recordsCtrl.index);
+router.get("/:id", recordsCtrl.show);
 
 router.delete("/:id", recordsCtrl.delete);
 
