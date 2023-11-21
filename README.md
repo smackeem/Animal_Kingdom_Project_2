@@ -1,10 +1,11 @@
 # Animal Kingdom
 Animal Kingdom is a comprehensive and user-friendly web application designed to streamline and enhance the pet care experience for both pet owners and veterinarians. With a focus on providing a seamless and organized approach to managing pet health, appointments, and communication. Animal Kingdom is not just an application; it's a companion on your pet care journey, designed to make the process of managing your pet's health as enjoyable and stress-free as possible.
 
-# Wireframe
+## Wireframe
 https://tinyurl.com/5cy6dvvc
 
-# Technologies Used
+
+## Technologies Used
 1. JavaScript
 2. HTML
 3. CSS
@@ -12,12 +13,16 @@ https://tinyurl.com/5cy6dvvc
 5. Express.js
 6. MongoDB
 
-# Getting Started
-Explore our Animal Kingdom: 
-View our Trello Board: https://tinyurl.com/479yud33
-View the ERD for each Data Entity: https://tinyurl.com/5n8mtv5b
+## Getting Started
+Explore our Animal Kingdom:
+- View our Trello Board: https://tinyurl.com/479yud33
+- View the ERD for each Data Entity: https://tinyurl.com/5n8mtv5b
+  
+![erd](https://github.com/smackeem/Animal_Kingdom_Project_2/assets/51036021/47f08a21-6e7b-4fea-be11-cb56b77b103a)
 
-# Key Features
+
+
+## Key Features
 1. User-Friendly Pet Profiles:
 Pet owners can create personalized profiles for their furry friends, including essential details like species, breed, and medical history.
 
@@ -33,7 +38,7 @@ Facilitate communication between pet owners and veterinarians through a secure m
 5. Real-Time Notifications:
 Stay informed with real-time notifications for upcoming appointments, medication reminders, and important updates from your veterinarian.
 
-# Next Steps/Future Enhancements
+## Next Steps/Future Enhancements
 1. Digital prescription issuance and management.
 2. Educational content about pet health and wellness.
 3. Feature for pet owners to upload and share pet photos or milestones.
