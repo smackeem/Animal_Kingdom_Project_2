@@ -4,10 +4,8 @@ Animal Kingdom is a comprehensive and user-friendly web application designed to 
 ## Wireframe
 https://tinyurl.com/5cy6dvvc
 
-![Login](https://github.com/smackeem/Animal_Kingdom_Project_2/assets/51036021/b118e5f6-7e53-46d2-9431-da50328d0c68)
-![Landing-page](https://github.com/smackeem/Animal_Kingdom_Project_2/assets/51036021/c03fd59b-39f5-4602-bfb5-fe750ef41d42)
-
-
+![Login](https://github.com/smackeem/Animal_Kingdom_Project_2/assets/51036021/cbf9a258-8f8c-4c9d-9608-76cc2a982bd2)
+![LP](https://github.com/smackeem/Animal_Kingdom_Project_2/assets/51036021/721f02a9-242d-420a-bed0-c1ca41493b96)
 
 ## Technologies Used
 1. JavaScript
@@ -22,7 +20,8 @@ Explore our Animal Kingdom:
 - View our Trello Board: https://tinyurl.com/479yud33
 - View the ERD for each Data Entity: https://tinyurl.com/5n8mtv5b
   
-![erd](https://github.com/smackeem/Animal_Kingdom_Project_2/assets/51036021/c040b540-8ee5-4720-8c2d-2a6e46781865)
+![Animal Kingdom ERD](https://github.com/smackeem/Animal_Kingdom_Project_2/assets/51036021/2a3bfbc3-6d01-4e73-a37a-781d8448b97a)
+
 
 ## Key Features
 1. User-Friendly Pet Profiles:
