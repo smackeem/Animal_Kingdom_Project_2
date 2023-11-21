@@ -10,4 +10,6 @@ router.post("/", recordsCtrl.create);
 
 router.get("/", recordsCtrl.index);
 
+router.delete("/:id", recordsCtrl.delete);
+
 module.exports = router;

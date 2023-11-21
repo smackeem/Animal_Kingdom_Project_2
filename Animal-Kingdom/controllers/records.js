@@ -3,7 +3,8 @@ const Record = require('../models/record');
 module.exports = {
     new: newRecord,
     create,
-    index
+    index,
+    delete: deleteRecord,
 };
 
 function newRecord(req, res, next){
@@ -32,5 +33,14 @@ async function index(req, res, next){
     }catch(err){
         console.log(err);
         res.redirect('/');
+    }
+}
+
+async function deleteRecord(req, res, next){
+    try{
+        await Record.findByIdAndDelete(req.params.id);
+        res.redirect('/records');
+    }catch(err){
+        console.log(err);
     }
 }
