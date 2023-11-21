@@ -1,5 +1,5 @@
 # Animal Kingdom
-Description: Animal Kingdom is a comprehensive and user-friendly web application designed to streamline and enhance the pet care experience for both pet owners and veterinarians. With a focus on providing a seamless and organized approach to managing pet health, appointments, and communication. Animal Kingdom is not just an application; it's a companion on your pet care journey, designed to make the process of managing your pet's health as enjoyable and stress-free as possible.
+Animal Kingdom is a comprehensive and user-friendly web application designed to streamline and enhance the pet care experience for both pet owners and veterinarians. With a focus on providing a seamless and organized approach to managing pet health, appointments, and communication. Animal Kingdom is not just an application; it's a companion on your pet care journey, designed to make the process of managing your pet's health as enjoyable and stress-free as possible.
 
 # Wireframe
 https://www.figma.com/file/wcLOKEoMETUqQf7RerNjGl/Animal-Kingdom?type=design&node-id=0%3A1&mode=design&t=C90xtZ6ydygfEv4U-1
@@ -13,8 +13,8 @@ https://www.figma.com/file/wcLOKEoMETUqQf7RerNjGl/Animal-Kingdom?type=design&nod
 6. MongoDB
 
 # Getting Started
-Explore our Animal Kingdom: 
-View our Trello Board: https://trello.com/b/8kEIZJN9/animal-kingdom
+* Explore our Animal Kingdom: 
+* View our Trello Board: https://trello.com/b/8kEIZJN9/animal-kingdom
 
 # Key Features
 1. User-Friendly Pet Profiles:
