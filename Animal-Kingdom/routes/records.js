@@ -8,4 +8,6 @@ router.get("/new",recordsCtrl.new);
 
 router.post("/", recordsCtrl.create);
 
+router.get("/", recordsCtrl.index);
+
 module.exports = router;

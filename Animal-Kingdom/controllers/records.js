@@ -3,6 +3,7 @@ const Record = require('../models/record');
 module.exports = {
     new: newRecord,
     create,
+    index
 };
 
 function newRecord(req, res, next){
@@ -21,5 +22,15 @@ async function create(req, res, next){
     }catch(err){
         console.log(err)
         res.redirect('/records');
+    }
+}
+
+async function index(req, res, next){
+    try{
+        const records = await Record.find({});
+        res.render('records/index', {title: "All Medical Records", records});
+    }catch(err){
+        console.log(err);
+        res.redirect('/');
     }
 }
