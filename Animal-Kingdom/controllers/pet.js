@@ -28,7 +28,7 @@ async function create(req, res) {
     req.body.breed = req.body.breed.trim()
     let pet = await Pet.create(req.body)
     try {
-        pet.user = req.params.id
+        pet.owner = req.params.id
         pet.save()
         res.redirect('/pets')
     } catch (err) {
@@ -40,7 +40,7 @@ async function create(req, res) {
 async function show(req, res) {
     try {
         const pet = await Pet.findById(req.params.id)
-        res.render('pets/show', { title: 'Pet Profile'}, pet)
+        res.render('pets/show', {title: 'Pet Profile'}, pet)
     } catch (err) {
         console.log(err)
         res.redirect('/pets')

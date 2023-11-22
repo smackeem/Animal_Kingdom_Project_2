@@ -1,12 +1,42 @@
 <!--views/users/signup.js-->
+<!DOCTYPE html>
+<html>
+  <head>
+    <!-- other head elements like CSS links -->
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+  </head>
+  <body>
 
-<form action="/auth/signup" method="post">
-  <input type="text" name="firstName" placeholder="First Name" required />
-  <input type="text" name="lastName" placeholder="Last Name" required />
-  <input type="email" name="email" placeholder="Email Address" required />
-  <input type="text" name="username" placeholder="Username" required />
-  <input type="password" name="password" placeholder="Password" required />
-  <input type="text" name="address" placeholder="Address" />
-  <input type="tel" name="phone" placeholder="Phone Number" />
-  <button type="submit">Sign Up</button>
-</form>
+    <form action="/auth/signup" method="POST">
+      <label for="firstName">First Name: 
+        <input type="text" name="firstName" placeholder="First Name" required />
+      </label> <br/><br/>
+      
+      <label for="lastName">Last Name: 
+        <input type="text" name="lastName" placeholder="Last Name" required />
+      </label> <br/><br/>
+      
+      <label for="email">E-Mail: 
+        <input type="email" name="email" placeholder="Email Address" required />
+      </label><br/><br/>
+      
+      <label for="username">Username:
+        <input type="text" name="username" placeholder="Username" required />
+      </label><br/><br/>
+      
+      <label for="password">Password:
+        <input type="password" name="password" placeholder="Password" required />
+      </label><br/><br/>
+      
+      <label for="address">Address:
+        <input type="text" name="address" placeholder="Address" />
+      </label><br/><br/>
+      
+      <label for="phone">Phone Number:
+        <input type="tel" name="phone" placeholder="Phone Number" />
+      </label><br/><br/>
+
+      <button type="submit">Sign Up</button>
+    </form>
+
+<%- include('../partials/footer'); %>

@@ -5,12 +5,13 @@ const adminController = {
     try {
       // render admin dashboard view
       // pass addional data if needed?
-      res.render("admin-dashboard");
+      res.render("user/admin-dashboard");
     } catch (error) {
       res.status(500).send(error.message);
     }
   },
 };
+
 
 // you can add other admin-related functions here
 
