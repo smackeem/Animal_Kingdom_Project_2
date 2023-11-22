@@ -3,13 +3,14 @@ const express = require("express");
 const path = require("path");
 const cookieParser = require("cookie-parser");
 const logger = require("morgan");
-
 const methodOverride = require('method-override');
+
 require('dotenv').config();
 require('./config/database');
 
 const indexRouter = require("./routes/index");
 const recordsRouter = require("./routes/records");
+const petRouter = require('./routes/pet')
 
 const app = express();
 
@@ -26,6 +27,7 @@ app.use(methodOverride('_method'));
 
 app.use("/", indexRouter);
 app.use("/records", recordsRouter);
+app.use('/pet', petRouter)
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
