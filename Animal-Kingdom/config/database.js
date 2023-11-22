@@ -19,3 +19,11 @@ db.on("connected", function () {
 db.on("error", function (error) {
   console.log(`something went WRONG with the connection`);
 });
+
+// mongoose
+//   .connection("mongodb://localhost:27017/animals", {
+//     useNewUrlParser: true,
+//     useUnifiedTopology: true,
+//   })
+//   .then(() => console.log("MongoDB connected..."))
+//   .catch((err) => console.log(err));

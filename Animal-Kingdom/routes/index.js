@@ -3,7 +3,7 @@ const router = express.Router();
 
 /* GET home page. */
 router.get("/", function (req, res, next) {
-  res.render("index", { title: "The Animal Kingdom" });
+  res.render("index", { title: "Animal Kingdom" });
 });
 
 module.exports = router;
