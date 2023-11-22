@@ -11,6 +11,7 @@ require("./config/database");
 
 const indexRouter = require("./routes/index");
 const recordsRouter = require("./routes/records");
+const petRouter = require('./routes/pet')
 
 const app = express();
 
@@ -44,6 +45,7 @@ app.get("/login", (req, res) => res.redirect("/auth/login"));
 //   })
 //   .then(() => console.log("Connected to MongoDB..."))
 //   .catch((err) => console.error("Could not connect to MongoDB...", err));
+app.use('/pet', petRouter)
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
