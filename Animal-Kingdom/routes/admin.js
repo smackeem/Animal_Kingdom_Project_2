@@ -1,5 +1,6 @@
 const express = require("express");
 const router = express.Router();
+
 const adminController = require("../controllers/adminController");
 
 // Middleware to check if user is an admin
@@ -20,6 +21,6 @@ const isAdmin = (req, res, next) => {
 };
 
 // Routes for admin functionality
-router.get("/dashboard", isAdmin, adminController.dashboard);
+router.get("/dashboard", adminController.dashboard);
 
 module.exports = router;
