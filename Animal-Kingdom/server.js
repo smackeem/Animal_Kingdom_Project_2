@@ -14,7 +14,8 @@ require("./config/database");
 const authRoutes = require("./routes/auth");
 const indexRouter = require("./routes/index");
 const recordsRouter = require("./routes/records");
-const petRouter = require('./routes/pet')
+const petRouter = require('./routes/pet');
+const adminRouter = require('./routes/admin')
 
 const app = express();
 
@@ -38,9 +39,10 @@ app.use("/", indexRouter);
 app.use("/auth", authRoutes);
 app.use("/", recordsRouter);
 app.use('/pet', petRouter);
+app.use('/admin', adminRouter);
 
 //login route
-//app.get("/login", (req, res) => res.redirect("/auth/login"));
+app.get("/login", (req, res) => res.redirect("/auth/login"));
 
 
 

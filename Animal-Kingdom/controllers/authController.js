@@ -7,7 +7,7 @@ async function signup(req, res) {
     const newUser = new User(req.body); // Directly use req.body
 
     await newUser.save();
-    res.redirect("/login");
+    res.redirect("/auth/login");
   } catch (error) {
     console.log(error); // Log the error for debugging
     res.status(500).send("Error saving user: " + error.message);
@@ -32,9 +32,9 @@ async function login(req, res) {
     }
 
     if (user.isAdmin) {
-      res.redirect("/admin-dashboard");
+      res.redirect("/admin/dashboard");
     } else {
-      res.redirect("/");
+      res.redirect('/records');
     }
   } catch (error) {
     console.error("Login error:", error);
