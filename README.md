@@ -14,8 +14,8 @@ https://tinyurl.com/5cy6dvvc
 
 # Getting Started
 Explore our Animal Kingdom: 
-View our Trello Board: https://tinyurl.com/479yud33
-View the ERD for each Data Entity: https://tinyurl.com/5n8mtv5b
+- View our Trello Board: https://tinyurl.com/479yud33
+- View the ERD for each Data Entity: https://tinyurl.com/5n8mtv5b
 
 # Key Features
 1. User-Friendly Pet Profiles:
