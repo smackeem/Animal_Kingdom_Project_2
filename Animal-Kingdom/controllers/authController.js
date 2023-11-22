@@ -1,18 +1,10 @@
 const User = require("../models/users");
-const bcrypt = require("bcryptjs"); // Use bcryptjs if your model uses bcryptjs
+const bcrypt = require("bcryptjs");
 
+// Using an async function for signup
 async function signup(req, res) {
   try {
-    const plainTextPassword = req.body.password; // Changed to a more standard field name
-
-    const saltRounds = 10;
-    const hashedPassword = await bcrypt.hash(plainTextPassword, saltRounds);
-
-    const newUser = new User({
-      ...req.body,
-      password: hashedPassword,
-      isAdmin: true, // Ensure this is intended for all signups
-    });
+    const newUser = new User(req.body); // Directly use req.body
 
     await newUser.save();
     res.redirect("/login");
@@ -22,33 +14,34 @@ async function signup(req, res) {
   }
 }
 
-// Using an async arrow function for login
+// Using an async function for login
 async function login(req, res) {
   try {
+    console.log("Attempting login with:", req.body.username);
+
     const user = await User.findOne({ username: req.body.username }).exec();
     if (!user) {
       res.status(401).send("Invalid username");
       return;
     }
+
     const isMatch = await bcrypt.compare(req.body.password, user.password);
     if (!isMatch) {
       res.status(401).send("Invalid password");
       return;
     }
 
-    // Check if the user is an admin and redirect accordingly
     if (user.isAdmin) {
-      res.redirect("/admin-dashboard"); // Redirect to an admin-specific page
+      res.redirect("/admin-dashboard");
     } else {
-      res.redirect("/"); // Redirect to the home page for regular users
+      res.redirect("/");
     }
-    return; // Return to stop further execution
   } catch (error) {
+    console.error("Login error:", error);
     res.status(500).send(error.message);
   }
 }
 
-// Export all controller functions at the end
 module.exports = {
   signup,
   login,
