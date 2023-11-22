@@ -20,6 +20,6 @@ const isAdmin = (req, res, next) => {
 };
 
 // Routes for admin functionality
-router.get("/dashboard", isAdmin, adminController.dashboard);
+router.get("/dashboard", adminController.dashboard);
 
 module.exports = router;
