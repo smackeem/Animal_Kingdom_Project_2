@@ -32,7 +32,7 @@ async function login(req, res) {
     }
 
     if (user.isAdmin) {
-      res.redirect("/admin-dashboard");
+      res.redirect("/admin/dashboard");
     } else {
       res.redirect("/");
     }
