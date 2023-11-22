@@ -17,6 +17,9 @@ const usersRouter = require("./routes/users");
 
 const app = express();
 
+//test route
+app.get("/test", (req, res) => res.send("Test route is working"));
+
 // view engine setup
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "ejs");
@@ -32,6 +35,9 @@ app.use("/", indexRouter);
 app.use("/users", usersRouter);
 app.use("/auth", authRoutes);
 
+//login route
+app.get("/login", (req, res) => res.redirect("/auth/login"));
+
 // // connect to mongoose
 // mongoose
 //   .connect("mongodb://localhost:27017/yourDatabaseName", {
@@ -45,6 +51,11 @@ app.use("/auth", authRoutes);
 app.use(function (req, res, next) {
   next(createError(404));
 });
+
+// //error handling
+// app.use((req, res, next) => {
+//   next(new NotFoundError("Not Found")); // Or similar error handling
+// });
 
 // error handler
 app.use(function (err, req, res, next) {
