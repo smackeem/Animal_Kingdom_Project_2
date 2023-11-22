@@ -3,21 +3,11 @@ const express = require("express");
 const path = require("path");
 const cookieParser = require("cookie-parser");
 const logger = require("morgan");
-<<<<<<< HEAD
-//const mongoose = require("mongoose");
 const authRoutes = require("./routes/auth");
 
-// initialize dotenv
+const methodOverride = require("method-override");
 require("dotenv").config();
-
-// import mongoose library
 require("./config/database");
-=======
-
-const methodOverride = require('method-override');
-require('dotenv').config();
-require('./config/database');
->>>>>>> 01cf6268a87bf29254f8e161ff006b5bf8cbde76
 
 const indexRouter = require("./routes/index");
 const recordsRouter = require("./routes/records");
@@ -37,11 +27,10 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public")));
-app.use(methodOverride('_method'));
+app.use(methodOverride("_method"));
 
 app.use("/", indexRouter);
-<<<<<<< HEAD
-app.use("/users", usersRouter);
+//app.use("/users", usersRouter);
 app.use("/auth", authRoutes);
 
 //login route
@@ -55,9 +44,6 @@ app.get("/login", (req, res) => res.redirect("/auth/login"));
 //   })
 //   .then(() => console.log("Connected to MongoDB..."))
 //   .catch((err) => console.error("Could not connect to MongoDB...", err));
-=======
-app.use("/records", recordsRouter);
->>>>>>> 01cf6268a87bf29254f8e161ff006b5bf8cbde76
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
