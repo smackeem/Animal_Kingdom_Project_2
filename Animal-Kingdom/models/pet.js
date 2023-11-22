@@ -3,10 +3,11 @@ const Schema = mongoose.Schema
 
 const petSchema = new Schema(
 	{
+		user: { type: Schema.Types.ObjectId, ref: 'User' },
 		name: { type: String, required: true },
-		species: { type: String },
-		breed: { type: String },
-		DOB: { type: Date },
+		species: String,
+		breed: String,
+		DOB: Date,
 		//photo?
 	},
 	{ timestamps: true }
