@@ -1,0 +1,23 @@
+<%- include('../partials/header') %>
+
+<form action="/records" method="POST">
+    <label for="date">Date: 
+        <input type="datetime-local" name="date">
+    </label><br/><br/>
+
+    <label for="diagnosis">Diagnosis: 
+        <input type="text" name="diagnosis">
+    </label><br/><br/>
+
+    <label for="treament">Treament: 
+        <input type="text" name="treatment">
+    </label><br/><br/>
+
+    <label for="medication">Medication: 
+        <input type="text" name="medication">
+    </label><br/><br/>
+
+    <button type="submit">Create Record</button>
+</form>
+<%- include('../partials/footer') %>
+
