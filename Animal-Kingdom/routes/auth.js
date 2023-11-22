@@ -16,4 +16,7 @@ router.get("/login", (req, res) => {
 // Route to handle the signup form submission
 router.post("/signup", authController.signup);
 
+// Route to handle the login form submission
+router.post("/login", authController.login);
+
 module.exports = router;
