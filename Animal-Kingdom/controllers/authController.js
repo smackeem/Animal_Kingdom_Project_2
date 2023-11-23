@@ -34,7 +34,7 @@ async function login(req, res) {
     if (user.isAdmin) {
       res.redirect("/admin/dashboard");
     } else {
-      res.redirect("/");
+      res.redirect(`/user/${user._id}`);
     }
   } catch (error) {
     console.error("Login error:", error);

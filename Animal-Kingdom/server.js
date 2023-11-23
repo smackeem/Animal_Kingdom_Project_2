@@ -16,11 +16,9 @@ const recordsRouter = require("./routes/records");
 const petRouter = require("./routes/pet");
 const authRoutes = require("./routes/auth"); // Import auth routes
 const adminRoutes = require("./routes/admin"); // Import admin routes
+const userRoutes = require("./routes/user");
 
 const app = express();
-
-// Test route
-app.get("/test", (req, res) => res.send("Test route is working"));
 
 // View engine setup
 app.set("views", path.join(__dirname, "views"));
@@ -37,8 +35,9 @@ app.use("/", indexRouter);
 //app.use("/users", usersRouter);
 app.use("/auth", authRoutes);
 app.use("/", recordsRouter);
-app.use('/pet', petRouter);
+app.use('/', petRouter);
 app.use("/admin", adminRoutes); // Use admin routes
+app.use("/user", userRoutes);
 
 // Catch 404 and forward to error handler
 app.use(function (req, res, next) {

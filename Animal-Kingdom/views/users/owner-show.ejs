@@ -1,0 +1,22 @@
+<%- include('../partials/owner-header') %>
+
+<p><%= user.username %></p>
+
+<div>
+    <h3>Pets</h3>
+    <% pets.forEach(p => { %>
+    <div>
+        <form action="/user/<%= user._id %>/pets/<%= p._id %>?_method=DELETE" method="POST">
+        <button type="submit">X</button>
+            <h4><%= p.name %></h4>
+        <p>Species: <%= p.species %></p> <br/>
+        <p>Breed: <%= p.breed %></p> <br/>
+        <p>Age: <%= p.age %></p> <br/>
+        <p>DOB: <%= p.DOB %></p> <br/>
+        <a href="">Medical Records</a> | <a href="/user/<%= user._id %>/pets/<%= p._id %>/edit">EDIT</a>
+        </form>
+    </div>
+    <% }) %>
+</div>
+
+<%- include('../partials/footer') %>

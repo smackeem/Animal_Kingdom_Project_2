@@ -10,6 +10,7 @@ const userSchema = new mongoose.Schema({
   password: { type: String, required: true },
   address: String,
   phone: String,
+  userType: String,
   isAdmin: { type: Boolean, default: false }, //admin field added here
 });
 

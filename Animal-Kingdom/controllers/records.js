@@ -51,6 +51,6 @@ async function show(req, res, next){
         const record = await Record.findById(req.params.id);
         res.render('records/show',{title: 'Pet medical record', record});
     }catch(err){
-        console.log(er)
+        console.log(err)
     }
 }

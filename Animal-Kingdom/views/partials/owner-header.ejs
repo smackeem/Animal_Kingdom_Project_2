@@ -1,0 +1,14 @@
+<!-- views/partials/header.ejs -->
+<!DOCTYPE html>
+<html>
+  <head>
+    <!-- other head elements like CSS links -->
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+  </head>
+  <body>
+    <header>
+      <!-- Navigation bar, logo, etc. -->
+      <nav>
+        <a href="/user/<%= user._id %>/pets/new">Add Pet</a> |
+        <a href="/records"></a>
+      </nav>

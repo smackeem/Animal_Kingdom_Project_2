@@ -5,10 +5,11 @@ const petSchema = new Schema(
 	{
 		owner: { type: Schema.Types.ObjectId, ref: 'User' },
 		name: { type: String, required: true },
-		species: String,
+		species: {type: String, enum: ['Bird', 'Cat', 'Dog', 'Fish', 'Guinea Pig', 'Hamster', 'Lizard', 'Rabbit', 'Snake', 'Turtle'], required: true},
 		breed: String,
+		age: Number,
 		DOB: Date,
-		//photo?
+		photo: String
 	},
 	{ timestamps: true }
 )
