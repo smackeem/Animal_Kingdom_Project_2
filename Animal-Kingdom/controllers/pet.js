@@ -80,6 +80,7 @@ async function edit(req, res, next) {
       try {
         req.body.name = req.body.name.trim()
         req.body.breed = req.body.breed.trim()
+        const pet = await Pet.findById(req.params.id);
         await Pet.findByIdAndUpdate(req.params.id, req.body);
         res.redirect(`/user/${pet.owner._id}`);
       } catch (err) {

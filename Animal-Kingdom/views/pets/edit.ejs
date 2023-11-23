@@ -1,0 +1,36 @@
+<%- include('../partials/header') %>
+<form action="/user/<%= user._id%>/pets/<%= pet._id %>?_method=PUT" method="POST">
+    <label for="name">Pet name:
+        <input type="text" name="name" value="<%= pet.name %>">
+    </label><br><br>
+
+    <label for="species" default="<%= pet.species %>">
+        <select name="species">
+            <option value="Bird">Bird</option>
+            <option value="Cat">Cat</option>
+            <option value="Dog">Dog</option>
+            <option value="Fish">Fish</option>
+            <option value="Guninea Pig">Guniea Pig</option>
+            <option value="Hamster">Hamster</option>
+            <option value="Lizard">Lizard</option>
+            <option value="Rabbit">Rabbit</option>
+            <option value="Snake">Snake</option>
+            <option value="Turtle">Turtle</option>
+        </select>
+    </label>
+
+    <label for="breed">Breed:
+        <input type="text" name="breed" value="<%= pet.breed%>">
+    </label><br/><br/>
+
+    <label for="age">Age:
+        <input type="number" name="age" value="<%= pet.age %>">
+    </label><br/><br/>
+
+    <label for="DOB">DOB:
+        <input type="date" name="DOB" value="<%= pet.DOB %>">
+    </label><br/><br/>
+
+    <button type="submit">Edit Pet Profile</button>
+</form>
+<%- include('../partials/footer') %>

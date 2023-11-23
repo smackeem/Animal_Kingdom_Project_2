@@ -7,7 +7,7 @@ router.get("/user/:id/pets", petCtrl.index);
 
 router.get("/user/:id/pets/new",petCtrl.new);
 
-router.get("/user/:id/pets:id/edit", petCtrl.edit);
+router.get("/user/:id/pets/:id/edit", petCtrl.edit);
 
 router.post("/user/:id/pets", petCtrl.create);
 
