@@ -1,18 +1,17 @@
-<%- include('../partials/owner-header') %>
-
-<p><%= user.username %></p>
+<%- include('../partials/header') %>
 
 <div>
-    <h3>Pets</h3>
+    <h3>Your Pets</h3>
     <% pets.forEach(p => { %>
     <div>
+        <a href="/user/<%= user._id %>/pets/new">Add Pet</a>
         <form action="/user/<%= user._id %>/pets/<%= p._id %>?_method=DELETE" method="POST">
         <button type="submit">X</button>
             <h4><%= p.name %></h4>
-        <p>Species: <%= p.species %></p> <br/>
-        <p>Breed: <%= p.breed %></p> <br/>
-        <p>Age: <%= p.age %></p> <br/>
-        <p>DOB: <%= p.DOB %></p> <br/>
+        <p>Species: <%= p.species %></p> 
+        <p>Breed: <%= p.breed %></p> 
+        <p>Age: <%= p.age %></p>
+        <p>DOB: <%= p.DOB.toLocaleDateString() %></p> <br/>
         <a href="">Medical Records</a> | <a href="/user/<%= user._id %>/pets/<%= p._id %>/edit">EDIT</a>
         </form>
     </div>
