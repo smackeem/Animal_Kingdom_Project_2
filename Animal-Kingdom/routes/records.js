@@ -4,14 +4,18 @@ const router = express.Router();
 const recordsCtrl = require('../controllers/records');
 
 /* GET users listing. */
-router.get("/", recordsCtrl.index);
+router.get("/user/:id/records", recordsCtrl.index);
 
-router.get("/new",recordsCtrl.new);
+router.get("/user/:id/records/new",recordsCtrl.new);
 
-router.post("/", recordsCtrl.create);
+router.get("/user/:id/records/:id/edit", recordsCtrl.edit);
 
-router.get("/:id", recordsCtrl.show);
+router.post("/user/:id/records", recordsCtrl.create);
 
-router.delete("/:id", recordsCtrl.delete);
+router.get("/user/:id/records/:id", recordsCtrl.show);
+
+router.delete("/user/:id/records/:id", recordsCtrl.delete);
+
+router.put("/user/:id/records/:id", recordsCtrl.update);
 
 module.exports = router;

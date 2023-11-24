@@ -1,15 +1,27 @@
 const Record = require('../models/record');
+const Pet = require('../models/pet');
+const User = require('../models/users');
+
 
 module.exports = {
     new: newRecord,
     create,
     index,
     delete: deleteRecord,
-    show
+    show,
+    edit,
+    update
 };
 
-function newRecord(req, res, next){
-    res.render('records/new',{title: 'New Medical Record'});
+async function newRecord(req, res, next){
+    try{
+        const pets = await Pet.find({});
+        const user = await User.findById(req.params.id);
+        res.render('records/new',{title: 'New Medical Record', errMsg: '', pets, user});
+    }catch(err){
+        console.log(err);
+    }
+    
 }
 
 async function create(req, res, next){
@@ -18,12 +30,13 @@ async function create(req, res, next){
     req.body.medication = req.body.medication.trim();
     let record = await Record.create(req.body);
     try{
-        record.pet = req.params.id;
+        record.pet = req.body.pet;
+        record.vet = req.params.id;
         record.save();
-        res.redirect('/records');
+        res.redirect(`/user/${req.params.id}`);
     }catch(err){
         console.log(err)
-        res.redirect('/records');
+        res.redirect(`/user/${req.params.id}`);
     }
 }
 
@@ -53,4 +66,17 @@ async function show(req, res, next){
     }catch(err){
         console.log(err)
     }
+}
+
+async function edit(req, res, next){
+    try{
+        const record = await Record.findById(req.params.id);
+        res.render('records/edit', {title: 'Edit Medical Record', errMsg: '',record})
+    }catch(err){
+        console.log(err);
+    }
+}
+
+async function update(req, res, next){
+    
 }

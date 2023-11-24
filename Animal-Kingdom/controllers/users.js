@@ -2,6 +2,8 @@ const User = require("../models/users");
 const Pet = require("../models/pet");
 const Record = require("../models/record");
 
+const bcrypt = require("bcryptjs");
+
 module.exports = {
   create,
   login,
@@ -14,7 +16,7 @@ async function create(req, res, next) {
   console.log(newUser);
   try {
     await newUser.save();
-    res.redirect("/auth/login");
+    res.redirect("/user/login");
   } catch (error) {
     console.log(error); // Log the error for debugging
     res.status(500).send("Error saving user: " + error.message);
@@ -47,7 +49,11 @@ async function show(req, res, next) {
   try {
     const user = await User.findById(req.params.id);
     const pets = await Pet.find({ owner: { _id: user._id } });
-    res.render("users/show", { title: `${user.username} Profile`, user, pets });
+    const patients = await Pet.find({});
+    const petRecords = await Record.find({}).populate('pet').find({'pet.owner': user._id}).exec();
+    const vetRecords = await Record.find({vet: {_id: user._id}});
+    console.log(vetRecords)
+    res.render("users/show", { title: `${user.username} Profile`, user, pets, patients, petRecords, vetRecords});
   } catch (err) {
     console.log(err);
     res.redirect("/login");
