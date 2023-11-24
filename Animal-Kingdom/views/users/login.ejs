@@ -1,8 +1,8 @@
 <!--views/users/login.ejs-->
-<%- include('../partials/header', {title: 'Login'}) %>
+<%- include('../partials/owner-header') %>
 
 <h1>Login</h1>
-<form action="/auth/login" method="post">
+<form action="/user/login" method="post">
   <div>
     <label for="username">Username:</label>
     <input type="text" id="username" name="username" required />
@@ -14,6 +14,7 @@
   <button type="submit">Login</button>
 </form>
 
-<p>Don't have an account? <a href="/auth/signup">Sign up</a></p>
+<p>Don't have an account? <a href="/user/signup">Sign up</a></p><br/>
+<p><%= errMsg %></p>
 
 <%- include('../partials/footer') %>

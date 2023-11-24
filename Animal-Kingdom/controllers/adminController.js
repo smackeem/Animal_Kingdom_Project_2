@@ -1,23 +1,19 @@
-const adminController = {
-  // function to render admin dashboard
-  dashboard: async (req, res) => {
-    console.log("Admin Dashboard Function Called");
+const User = require('../models/users');
+const Pet = require('../models/pet');
+const Record = require('../models/record');
 
-    // Log details from req.user if available (assuming req.user is set after login)
-    console.log("Current User:", req.user);
-
-    try {
-      // render admin dashboard view
-      console.log("Rendering admin dashboard");
-      res.render("users/admin-dashboard");
-    } catch (error) {
-      console.error("Error rendering admin dashboard:", error);
-      res.status(500).send(error.message);
-    }
-  },
+module.exports = {
+  dashboard,
 };
 
-
-// you can add other admin-related functions here
-
-module.exports = adminController;
+async function dashboard(req, res, next) {
+  try {
+    console.log(req.params.id)
+    const user = await User.findById(req.params.id);
+    //const records = await Record.find({"vet": {_id: user._id}});
+    res.render("users/admin-dashboard", {title: "Dashbboard", user});
+  } catch (error) {
+    console.error("Error rendering admin dashboard:", error);
+    res.status(500).send(error.message);
+  }
+}

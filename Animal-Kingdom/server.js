@@ -14,8 +14,6 @@ require("./config/database");
 const indexRouter = require("./routes/index");
 const recordsRouter = require("./routes/records");
 const petRouter = require("./routes/pet");
-const authRoutes = require("./routes/auth"); // Import auth routes
-const adminRoutes = require("./routes/admin"); // Import admin routes
 const userRoutes = require("./routes/user");
 
 const app = express();
@@ -32,11 +30,8 @@ app.use(express.static(path.join(__dirname, "public")));
 app.use(methodOverride("_method"));
 
 app.use("/", indexRouter);
-//app.use("/users", usersRouter);
-app.use("/auth", authRoutes);
 app.use("/", recordsRouter);
 app.use('/', petRouter);
-app.use("/admin", adminRoutes); // Use admin routes
 app.use("/user", userRoutes);
 
 // Catch 404 and forward to error handler

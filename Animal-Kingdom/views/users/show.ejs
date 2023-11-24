@@ -1,6 +1,8 @@
 <%- include('../partials/header') %>
 
 <div>
+    <h1>Hello, <%= user.firstName %></h1>
+    <% if(user.userType === "Owner"){ %>
     <h3>Your Pets</h3>
     <% pets.forEach(p => { %>
     <div>
@@ -16,6 +18,11 @@
         </form>
     </div>
     <% }) %>
+    <% } %>
+
+    <% if(user.userType === "Veterinarian") { %>
+    
+    <% } %>
 </div>
 
 <%- include('../partials/footer') %>
