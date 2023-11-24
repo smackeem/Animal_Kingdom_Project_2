@@ -30,9 +30,9 @@ async function create(req, res, next){
     req.body.medication = req.body.medication.trim();
     let record = await Record.create(req.body);
     try{
-        record.pet = req.body.pet;
-        record.vet = req.params.id;
-        record.save();
+        record.pet = await Pet.findById(req.body.pet);
+        record.vet = await User.findById(req.params.id);
+        await record.save();
         res.redirect(`/user/${req.params.id}`);
     }catch(err){
         console.log(err)
@@ -52,8 +52,9 @@ async function index(req, res, next){
 
 async function deleteRecord(req, res, next){
     try{
+        const record = await Record.findById(req.params.id);
         await Record.findByIdAndDelete(req.params.id);
-        res.redirect('/records');
+        res.redirect(`/user/${record.vet._id}`);
     }catch(err){
         console.log(err);
     }
@@ -71,7 +72,8 @@ async function show(req, res, next){
 async function edit(req, res, next){
     try{
         const record = await Record.findById(req.params.id);
-        res.render('records/edit', {title: 'Edit Medical Record', errMsg: '',record})
+        const pets = await Pet.find({})
+        res.render('records/edit', {title: 'Edit Medical Record', errMsg: '',record, pets, user: record.vet})
     }catch(err){
         console.log(err);
     }

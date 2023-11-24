@@ -1,8 +1,9 @@
 <%- include('../partials/header') %>
 
-<form action="/user/<%=user._id %>/records" method="POST">
+<form action="/user/<%= user._id%>/records/<%= record._id %>?_method=PUT" method="POST">
+
     <label for="pet">Pet: 
-        <select name="pet" id="">
+        <select name="pet" default="<%= record.pet.name%> DOB: <%= record.pet.DOB %>">
             <% pets.forEach(p => { %>
                 <option value="<%= p._id %>">Name: <%= p.name%> DOB: <%= p.DOB.toLocaleDateString() %></option>
                 <% }) %>
@@ -14,18 +15,17 @@
     </label><br/><br/>
 
     <label for="diagnosis">Diagnosis: 
-        <input type="text" name="diagnosis">
+        <input type="text" name="diagnosis" value="<%= record.diagnosis %>">
     </label><br/><br/>
 
     <label for="treament">Treament: 
-        <input type="text" name="treatment">
+        <input type="text" name="treatment" value="<%= record.treatment %>">
     </label><br/><br/>
 
     <label for="medication">Medication: 
-        <input type="text" name="medication">
+        <input type="text" name="medication" value="<%= record.medication %>">
     </label><br/><br/>
 
     <button type="submit">Create Record</button>
 </form>
 <%- include('../partials/footer') %>
-

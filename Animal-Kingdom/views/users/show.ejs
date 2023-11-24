@@ -35,9 +35,9 @@
             <button type="submit">X</button>
                 <h4><%= vr.pet.name %></h4>
             <p>Species: <%= vr.pet.species %></p> 
-            <p>Breed: <%= vet.pet.breed %></p> 
+            <p>Breed: <%= vr.pet.breed %></p> 
             <p>Age: <%= vr.pet.age %></p>
-            <p>DOB: <%= vr.pet.DOB.toLocaleDateString() %></p> <br/>
+            <p>DOB: <%= vr.pet.DOB %></p> <br/>
             <a href="/user/<%= user._id %>/records/<%= vr._id %>">DETAILS</a> | <a href="/user/<%= user._id %>/records/<%= vr._id %>/edit">EDIT</a>
             </form>
         </div>
