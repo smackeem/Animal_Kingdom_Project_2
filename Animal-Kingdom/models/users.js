@@ -21,7 +21,6 @@ const userSchema = new Schema({
   address: addressSchema,
   phone: String,
   userType: String,
-  isAdmin: { type: Boolean, default: false }, //admin field added here
 });
 
 // Hash the user's password before saving to the database
