@@ -13,6 +13,11 @@ router.get("/login", (req, res, next) => {
   res.render("users/login", { errMsg: ""});
 });
 
+router.get('/logout', (req, res, next) => {
+  res.clearCookie('nToken');
+  return res.redirect('/');
+})
+
 //Route to handle user dashboard
 router.get("/:id", userCtrl.show);
 

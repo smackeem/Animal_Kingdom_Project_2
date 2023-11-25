@@ -11,8 +11,9 @@
       <nav>
           <a href="/user/<%=user._id%>">Home</a> |
           <% if(user.userType === "Veterinarian"){ %>
-            <a href="/user/<%=user._id%>/records/new">Create New Patient Record</a>
+            <a href="/user/<%=user._id%>/records/new">Create New Patient Record</a> |
           <% } %>
+          <a href="/"><button>Logout</button></a>
       </nav>
       </header>
       <main>
