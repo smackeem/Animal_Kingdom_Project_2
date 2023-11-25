@@ -5,6 +5,8 @@ const appointmentCtrl = require('../controllers/appointment');
 
 router.get('/user/:id/appointments/new', appointmentCtrl.new);
 
+router.get('/user/:id/appointments', appointmentCtrl.index);
+
 router.post('/user/:id/appointments', appointmentCtrl.create);
 
 
