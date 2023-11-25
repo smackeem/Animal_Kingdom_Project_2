@@ -57,7 +57,8 @@ async function show(req, res, next) {
     const user = await User.findById(req.params.id);
     const pets = await Pet.find({ owner: { _id: user._id } }).populate('owner');
     const vetRecords = await Record.find({vet: {_id: user._id}}).populate('pet');
-    console.log(vetRecords)
+    const patients = await vetRecords.pet;
+    console.log(patients)
     res.render("users/show", { title: `${user.username} Profile`, user, pets, vetRecords});
   } catch (err) {
     console.log(err);
