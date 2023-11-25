@@ -1,38 +1,43 @@
-<%- include('../partials/owner-header') %>
+<%- include('../partials/header') %>
 
 <form action="/user/<%= user._id %>/pets" method="POST">
-    <label for="name">Pet name:
-        <input type="text" name="name">
-    </label><br><br>
+  <label for="name"
+    >Pet name:
+    <input type="text" name="name" /> </label
+  ><br /><br />
 
-    <label for="species">
-        <select name="species">
-            <option value="Bird">Bird</option>
-            <option value="Cat">Cat</option>
-            <option value="Dog">Dog</option>
-            <option value="Fish">Fish</option>
-            <option value="Guninea Pig">Guniea Pig</option>
-            <option value="Hamster">Hamster</option>
-            <option value="Lizard">Lizard</option>
-            <option value="Rabbit">Rabbit</option>
-            <option value="Snake">Snake</option>
-            <option value="Turtle">Turtle</option>
-        </select>
-    </label>
+  <label for="species">
+    <select name="species">
+      <option value="Bird">Bird</option>
+      <option value="Cat">Cat</option>
+      <option value="Dog">Dog</option>
+      <option value="Fish">Fish</option>
+      <option value="Guninea Pig">Guniea Pig</option>
+      <option value="Hamster">Hamster</option>
+      <option value="Lizard">Lizard</option>
+      <option value="Rabbit">Rabbit</option>
+      <option value="Snake">Snake</option>
+      <option value="Turtle">Turtle</option>
+    </select>
+  </label>
 
-    <label for="breed">Breed:
-        <input type="text" name="breed">
-    </label><br/><br/>
+  <label for="breed"
+    >Breed:
+    <input type="text" name="breed" /> </label
+  ><br /><br />
 
-    <label for="age">Age:
-        <input type="number" name="age">
-    </label><br/><br/>
+  <label for="age"
+    >Age:
+    <input type="number" name="age" /> </label
+  ><br /><br />
 
-    <label for="DOB">DOB:
-        <input type="date" name="DOB" id="">
-    </label><br/><br/>
+  <label for="DOB"
+    >DOB:
+    <input type="date" name="DOB" id="" /> </label
+  ><br /><br />
 
-    <button type="submit">Create Pet Profile</button> <a href="/user/<%= user._id %>"><button>Cancel</button></a>
+  <button type="submit">Create Pet Profile</button>
+  <a href="/user/<%= user._id %>"><button>Cancel</button></a>
 </form>
 
 <%- include('../partials/footer') %>

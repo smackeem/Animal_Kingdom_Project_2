@@ -23,13 +23,15 @@
     </form>
   </div>
   <% }) %> <% } else{ %>
-  <p>No Pets Yet.</p>
+  <p>
+    No Pets Yet.
+    <a href="/user/<%= user._id %>/pets/new">Add Pet</a>
+  </p>
 
-  <% } %> <% } %> 
-  
-  <% if(user.userType === "Veterinarian") { %>
+  <% } %> <% } %> <% if(user.userType === "Veterinarian") { %>
   <h3>Your Patients</h3>
-  <% if(vetRecords.length){ %> <% vetRecords.forEach(vr => { %> <!-- Checks if the vet has an pet medical records -->
+  <% if(vetRecords.length){ %> <% vetRecords.forEach(vr => { %>
+  <!-- Checks if the vet has an pet medical records -->
   <div>
     <form
       action="/user/<%= user._id %>/records/<%= vr._id %>?_method=DELETE"
@@ -48,7 +50,10 @@
     </form>
   </div>
   <% }) %> <% } else{ %>
-  <p>No Pet Medical Records Yet. <a href="/user/<%= user._id %>/records/new">Create One</a></p>
+  <p>
+    No Pet Medical Records Yet.
+    <a href="/user/<%= user._id %>/records/new">Create One</a>
+  </p>
   <br />
   <% } %> <% } %>
 </div>
