@@ -10,11 +10,13 @@
       <%=title%>
     </title>
     <link rel='stylesheet' href='/stylesheets/style.css' />
+    <script src="/scripts/functions.js" defer></script>
 </head>
 
 <body>
   <header>
     <nav class="header-nav">
+
       <div class="nav-items">
         <img class='logo' src="/images/hedgehog.svg" alt="Animal Kingdom Logo">
         <a href="/user/<%=user._id%>">Home</a>
@@ -22,19 +24,26 @@
           <a href="/user/<%=user._id%>/records/new">Create New Patient Record</a>
           <% } %>
       </div>
+
       <div class="nav-user">
-        <ul class="">
+
+        <ul class="hidden">
           <li>My account</li>
           <li>Settings</li>
           <a href="/"><button>Logout</button></a>
         </ul>
+
         <div class="notification">
           <img class='bell' src="/images/bell.png" alt="Bell">
           <div class="dot"></div>
         </div>
         <img class='avatar' src="/images/avatar.jpg" alt="User Avatar">
-        <p>Hello, <%= user.firstName %></p>
+
+
+          <p>Hello, <%= user.firstName %>
+          </p>
       </div>
+
     </nav>
   </header>
   <main>
