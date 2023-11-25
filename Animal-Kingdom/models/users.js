@@ -1,16 +1,26 @@
 // models/users.js
 const mongoose = require("mongoose");
 const bcrypt = require("bcryptjs");
+const Schema = mongoose.Schema;
 
-const userSchema = new mongoose.Schema({
+const addressSchema = new Schema ({
+  streetAddress: String,
+  city: String,
+  state: String,
+  zip: String
+}, {
+  timestamps: true
+});
+
+const userSchema = new Schema({
   firstName: { type: String, required: true },
   lastName: { type: String, required: true },
   email: { type: String, required: true, unique: true },
   username: { type: String, unique: true, required: true },
   password: { type: String, required: true },
-  address: String,
+  address: addressSchema,
   phone: String,
-  isAdmin: { type: Boolean, default: false }, //admin field added here
+  userType: String,
 });
 
 // Hash the user's password before saving to the database
