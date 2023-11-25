@@ -1,0 +1,27 @@
+<%- include('../partials/header') %>
+
+    <table>
+        <thead>
+            <tr>
+                <th></th>
+                <th>Date</th>
+                <th>Time</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <% availabilities.forEach(a => { %> 
+            <tr>
+            <form action="/user/<%= user._id %>/appointments/<%= a._id %>/?_method=DELETE" method="POST">
+                <td><button type="submit">X</button></td>
+                <td><%= r.date.toLocaleDateString() %></td>
+                <td><%= r.date.toLocaleTimeString() %></td>
+                <td><a href="/user/<%=user._id %>/appointments/<%=a._id %>/edit">EDIT</a></td>
+            </form>
+            </tr>
+            <% }) %>
+        </tbody>
+    </table>
+
+
+<%- include('../partials/footer') %>
