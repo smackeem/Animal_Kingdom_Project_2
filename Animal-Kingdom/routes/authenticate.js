@@ -1,4 +1,4 @@
-// routes/auth.js
+// routes/authenticate.js
 const express = require("express");
 const router = express.Router();
 const authController = require("../controllers/authenticate");
@@ -10,7 +10,7 @@ router.get("/signup", (req, res) => {
 
 //router to render the login page
 router.get("/login", (req, res) => {
-  res.render("users/login", {errMsg: ''});
+  res.render("users/login", { errMsg: "" });
 });
 
 // Route to handle the signup form submission
