@@ -57,10 +57,34 @@ async function show(req, res, next) {
     const user = await User.findById(req.params.id);
     const pets = await Pet.find({ owner: { _id: user._id } }).populate('owner');
     const vetRecords = await Record.find({vet: {_id: user._id}}).populate('pet');
-    console.log(vetRecords)
-    res.render("users/show", { title: `${user.username} Profile`, user, pets, vetRecords});
+    const allPatients = vetRecords.map((record) => record.pet);
+    const patients = mergeDuplicates(allPatients, ['_id']);
+    res.render("users/show", { title: `${user.username} Profile`, user, pets, vetRecords, patients});
   } catch (err) {
     console.log(err);
-    res.redirect(`${req.params.id}`);
+    res.redirect(`/user/${req.params.id}`);
   }
+}
+
+function mergeDuplicates(arr, key) {
+  const uniqueMap = new Map();
+
+  // Iterate through the array
+  arr.forEach(item => {
+    // Generate a unique identifier based on the specified key(s)
+    const identifier = key.map((k) => item[k]).join('|');
+
+    // Check if the identifier is already in the map
+    if (uniqueMap.has(identifier)) {
+      // Merge the current item with the existing item in the map
+      Object.assign(uniqueMap.get(identifier), item);
+    } else {
+      // If not, add the item to the map
+      uniqueMap.set(identifier, { ...item });
+    }
+  });
+
+  // Convert the Map values back to an array
+  const mergedArray = Array.from(uniqueMap.values());
+  return mergedArray;
 }
