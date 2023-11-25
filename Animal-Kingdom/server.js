@@ -3,21 +3,20 @@ const express = require("express");
 const path = require("path");
 const cookieParser = require("cookie-parser");
 const logger = require("morgan");
-
+//method override
 const methodOverride = require("method-override");
+
+//Database config
 require("dotenv").config();
 require("./config/database");
 
+//Routes
 const indexRouter = require("./routes/index");
 const recordsRouter = require("./routes/records");
 const petRouter = require("./routes/pet");
-const authRoutes = require("./routes/auth"); // Import auth routes
-const adminRoutes = require("./routes/admin"); // Import admin routes
+const userRoutes = require("./routes/user");
 
 const app = express();
-
-// Test route
-app.get("/test", (req, res) => res.send("Test route is working"));
 
 // View engine setup
 app.set("views", path.join(__dirname, "views"));
@@ -31,16 +30,16 @@ app.use(express.static(path.join(__dirname, "public")));
 app.use(methodOverride("_method"));
 
 app.use("/", indexRouter);
-app.use("/auth", authRoutes); // Use auth routes
-app.use("/pet", petRouter);
-app.use("/admin", adminRoutes); // Use admin routes
+app.use("/", recordsRouter);
+app.use('/', petRouter);
+app.use("/user", userRoutes);
 
 // Catch 404 and forward to error handler
 app.use(function (req, res, next) {
   next(createError(404));
 });
 
-// Error handler
+// error handler
 app.use(function (err, req, res, next) {
   // Set locals, only providing error in development
   res.locals.message = err.message;

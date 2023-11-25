@@ -1,11 +1,12 @@
-<head>
-  <%- include('partials/header') %>
-  <title><%= title %></title>
-  <link rel="stylesheet" href="/stylesheets/style.css" />
-</head>
-<body>
-  <a href="/auth/login">Login</a> | <a href="/auth/signup">Signup</a>
-  <h1><%= title %></h1>
-  <!-- <p>Welcome to the <%= title %></p> -->
-  <footer><%- include('partials/footer') %></footer>
-</body>
+<!DOCTYPE html>
+<html>
+  <head>
+    <!-- other head elements like CSS links -->
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+  </head>
+  <body>
+    <main>
+ 
+    <a href="/user/login"><button>Login</button></a> | <a href="/user/signup"><button>Signup</button></a>
+
+<%- include('./partials/footer') %>
