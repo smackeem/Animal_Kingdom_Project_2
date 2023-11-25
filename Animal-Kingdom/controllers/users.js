@@ -1,3 +1,4 @@
+const jwt = require('jsonwebtoken');
 const User = require("../models/users");
 const Pet = require("../models/pet");
 const Record = require("../models/record");
@@ -15,8 +16,15 @@ async function create(req, res, next) {
   newUser.address = req.body;
   console.log(newUser);
   try {
-    await newUser.save();
-    res.redirect("/user/login");
+    await newUser.save().then((newUser) => {
+      const token = jwt.sign({_id: newUser._id}, process.env.SECRET, {expiresIn: '60 days'});
+      res.cookie('nToken', token, {maxAge: 900000, httpOnly: true});
+      return res.redirect('/user/login');
+    }).catch ((error) => {
+      console.log(error); // Log the error for debugging
+      res.status(500).send("Error saving user: " + error.message);
+    })
+   // res.redirect("/user/login");
   } catch (error) {
     console.log(error); // Log the error for debugging
     res.status(500).send("Error saving user: " + error.message);
