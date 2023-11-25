@@ -46,10 +46,11 @@ async function create(req, res) {
 
 async function show(req, res) {
     try {
-        const pet = await Pet.findById(req.params.id)
-        const records = await Record.find({'pet': pet._id})
-        console.log(records)
-        res.render('pets/show', {title: 'Pet Profile'}, pet, records)
+        const pet = await Pet.findById(req.params.id).populate('owner');
+        const user = await User.findById(pet.owner._id);
+        const records = await Record.find({'pet': pet._id});
+        console.log(pet)
+        res.render('pets/show', {title: 'Pet Profile', pet, records, user})
     } catch (err) {
         console.log(err)
         res.redirect(`/user/${pet.owner._id}`)
