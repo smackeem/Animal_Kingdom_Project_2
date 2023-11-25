@@ -80,5 +80,15 @@ async function edit(req, res, next){
 }
 
 async function update(req, res, next){
-    
+    try {
+        req.body.diagnosis = req.body.diagnosis.trim();
+        req.body.treatment = req.body.treatment.trim();
+        req.body.medication = req.body.medication.trim();
+        const record = await Record.findById(req.params.id);
+        await Record.findByIdAndUpdate(req.params.id, req.body);
+        res.redirect(`/user/${record.vet}`);
+      } catch (err) {
+        console.log(err);
+        res.redirect(`/user/${record.vet}`);
+      }
 }
