@@ -1,0 +1,19 @@
+<!--views/users/login.ejs-->
+<%- include('../partials/header', {title: 'Login'}) %>
+
+<h1>Login</h1>
+<form action="/auth/login" method="post">
+  <div>
+    <label for="username">Username:</label>
+    <input type="text" id="username" name="username" required />
+  </div>
+  <div>
+    <label for="password">Password:</label>
+    <input type="password" id="password" name="password" required />
+  </div>
+  <button type="submit">Login</button>
+</form>
+
+<p>Don't have an account? <a href="/auth/signup">Sign up</a></p>
+
+<%- include('../partials/footer') %>
