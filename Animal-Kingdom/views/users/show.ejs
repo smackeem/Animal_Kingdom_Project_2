@@ -4,7 +4,8 @@
   <h1>Hello, <%= user.firstName %></h1>
   <% if(user.userType === "Owner"){ %>
   <h3>Your Pets</h3>
-  <% if(pets.length){ %> <% pets.forEach(p => { %>
+  <% if(pets.length){ %>
+     <% pets.forEach(p => { %>
   <div>
     <a href="/user/<%= user._id %>/pets/new">Add Pet</a>
     <form
@@ -23,7 +24,7 @@
     </form>
   </div>
   <% }) %> <% } else{ %>
-  <p>No Pets Yet.</p>
+  <p>No Pets Yet. <a href="/user/<%= user._id %>/pets/new">Add Pet</a></p>
 
   <% } %> <% } %> 
   
