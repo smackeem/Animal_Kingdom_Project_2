@@ -24,7 +24,6 @@ async function create(req, res, next) {
       console.log(error); // Log the error for debugging
       res.status(500).send("Error saving user: " + error.message);
     })
-   // res.redirect("/user/login");
   } catch (error) {
     console.log(error); // Log the error for debugging
     res.status(500).send("Error saving user: " + error.message);
