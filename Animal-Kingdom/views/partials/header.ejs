@@ -9,5 +9,9 @@
     <header>
       <!-- Navigation bar, logo, etc. -->
       <nav>
-        
+          <a href="/user/<%=user._id%>">Home</a> |
+          <% if(user.userType === "Veterinarian"){ %>
+            <a href="/user/<%=user._id%>/records/new">Create New Patient Record</a>
+          <% } %>
       </nav>
+      <main>
