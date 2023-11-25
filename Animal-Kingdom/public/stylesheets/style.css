@@ -36,6 +36,7 @@ a {
   text-decoration: none;
 }
 
+/* Header Styles */
 .header-nav {
   display         : flex;
   justify-content : space-between;
@@ -69,10 +70,16 @@ a {
 }
 
 .nav-user p {
-  font-size: 0.875rem;
-  color    : #333333;
+  font-size     : 0.875rem;
+  color         : #333333;
+  text-transform: capitalize;
 }
 
+.nav-items {
+  display    : flex;
+  align-items: center;
+  gap        : 1rem;
+}
 
 .logo {
   max-height: 40px;
@@ -104,10 +111,11 @@ a {
   background-color: rgb(241, 2, 2);
 }
 
-.pet-section {
-  margin: 40px 24px 24px;
+/* Pet Overview - users/show.ejs */
+.pet-overview {
+  margin : 40px 24px 24px;
   display: flex;
-  gap: 2rem;
+  gap    : 2rem;
 }
 
 .card {
@@ -119,8 +127,16 @@ a {
 
 .card-edit {
   position : absolute;
-  right    : 1rem;
+  left    : 1rem;
   font-size: .75rem;
+}
+
+.card-delete {
+  position: absolute;
+  right: 1rem;
+  border: none;
+  background-color: transparent;
+  padding: 0;
 }
 
 .card-btn {
@@ -157,20 +173,24 @@ a {
 
 .add-pet {
   background-color: #dfdfdf;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-width: 10rem;
+  display : flex;
+  
+  justify-content : center;
+  align-items     : center;
+  min-width       : 11rem;
 }
 
-.add-pet:before {
-  content: url('/Animal-Kingdom/public/images/add.svg');
-  margin: 2px .25rem 0 0;
+.add-pet a:before {
+  content: url('/images/add.svg');
+  position: absolute;
+  left: -18px;
+  bottom: -2px;
 }
 
-.add-pet p {
+.add-pet a {
+  position: relative;
   font-size: .875rem;
-  color: #333333;
+  color    : #333333;
 }
 
 .hidden {
