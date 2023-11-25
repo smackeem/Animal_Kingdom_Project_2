@@ -12,21 +12,23 @@ module.exports = {
 async function newAppt(req, res, next){
     try{
         const user = await User.findById(req.params.id);
-        res.render('records/new',{title: 'New Medical Record', errMsg: '', user});
+        res.render('appointments/new',{title: 'New Medical Record', errMsg: '', user});
     }catch(err){
         console.log(err);
     }
 }
 
 async function create(req, res, next){
+    req.body.isAvailable = !!req.body.isAvailable;
+    console.log(req.body.isAvailable)
     const appointment = await Appointment.create(req.body);
     try{
         appointment.vet = await User.findById(req.params.id);
         await appointment.save();
-        res.redirect(`/user/${req.params}/appointments`);
+        res.redirect(`/user/${req.params.id}/appointments`);
     }catch(err){
         console.log(err)
-        res.redirect(`/user/${req.params}`);
+        res.redirect(`/user/${req.params.id}`);
     }
 }
 

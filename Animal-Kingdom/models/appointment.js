@@ -6,7 +6,7 @@ const appointmentSchema = new Schema({
     pet: {type: Schema.Types.ObjectId, ref: 'Pet'},
     date: Date,
     reason: String,
-    isAvailable: Boolean,
+    isAvailable: {type: Boolean, default: false}
 },{
     timestamps: true
 });
