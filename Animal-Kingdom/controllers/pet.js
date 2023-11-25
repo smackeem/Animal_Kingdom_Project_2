@@ -47,9 +47,8 @@ async function create(req, res) {
 async function show(req, res) {
     try {
         const pet = await Pet.findById(req.params.id).populate('owner');
-        const user = await User.findById(pet.owner._id);
+        const user = await User.findById(req.params.userId);
         const records = await Record.find({'pet': pet._id});
-        console.log(pet)
         res.render('pets/show', {title: 'Pet Profile', pet, records, user})
     } catch (err) {
         console.log(err)

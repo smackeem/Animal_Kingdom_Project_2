@@ -34,12 +34,7 @@
         <% if(patients.length){ %>
             <% patients.forEach(p => { %>
          <div>
-           <a href="/user/<%= user._id %>/pets/new">Add Pet</a>
-           <form
-             action="/user/<%= user._id %>/pets/<%= p._id %>?_method=DELETE"
-             method="POST"
-           >
-             <button type="submit">X</button>
+            <br />
              <h4><%= p._doc.name %></h4>
              <p>Species: <%= p._doc.species %></p>
              <p>Breed: <%= p._doc.breed %></p>
@@ -47,7 +42,6 @@
              <p>DOB: <%= p._doc.DOB.toLocaleDateString() %></p>
              <br />
              <a href="/user/<%= user._id %>/pets/<%= p._doc._id %>">Medical Records</a> |
-           </form>
          </div>
          <% }) %> <% } else{ %>
          <p>No Patients Yet. <a href="/user/<%= user._id %>/records/new">Create Medical Record</a></p></p>

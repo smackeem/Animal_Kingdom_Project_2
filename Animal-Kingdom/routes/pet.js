@@ -11,7 +11,7 @@ router.get("/user/:id/pets/:id/edit", petCtrl.edit);
 
 router.post("/user/:id/pets", petCtrl.create);
 
-router.get("/user/:id/pets/:id", petCtrl.show);
+router.get("/user/:userId/pets/:id", petCtrl.show);
 
 router.delete("/user/:id/pets/:id", petCtrl.delete);
 
