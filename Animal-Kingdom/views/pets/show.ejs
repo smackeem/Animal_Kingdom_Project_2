@@ -12,25 +12,40 @@
         <div>
             <thead>
                 <tr>
+                    <% if(user.userType === "Veterinarian"){ %>
+                    <th></th>
+                    <% } %>
                     <th>Date</th>
                     <th>Time</th>
                     <th>Diagnosis</th>
                     <th>Treatment</th>
                     <th>Medication</th>
+                    <% if(user.userType === "Veterinarian"){ %>
+                    <th></th>
+                    <% } %>
                     </tr>
                 </thead>
         </div>
         <% records.forEach(r => { %>
         <div>
             <tbody>
+                <form action="/user/<%= user._id %>/records/<%= r._id %>?_method=DELETE" method="POST">
                 <tr>
+                <% if(user.userType === "Veterinarian"){ %>
+                    <td><button type="submit">X</button></td> 
+                    <% } %>
                     <td><%= r.date.toLocaleDateString() %></td>
                     <td><%= r.date.toLocaleTimeString() %></td>
                     <td><%= r.diagnosis %></td>
                     <td><%= r.treatment %></td>
                     <td><%= r.medication %></td>
+                    <% if(user.userType === "Veterinarian"){ %>
+                    <td><a href="/user/<%= user._id %>/records/<%= r._id %>/edit">EDIT</a></td>
+                    <% } %>
                 </tr>
+            </form>
             </tbody>
+
         </div>
         </table>
         <% }) %>

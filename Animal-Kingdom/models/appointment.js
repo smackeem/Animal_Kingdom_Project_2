@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const Schema = mongose.Schema;
+const Schema = mongoose.Schema;
 
 const appointmentSchema = new Schema({
     vet: {type: Schema.Types.ObjectId, ref: 'User'},
