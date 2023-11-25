@@ -48,14 +48,12 @@ async function login(req, res) {
 async function show(req, res, next) {
   try {
     const user = await User.findById(req.params.id);
-    const pets = await Pet.find({ owner: { _id: user._id } });
-    const patients = await Pet.find({});
-    const petRecords = await Record.find({}).populate('pet').find({'pet.owner': user._id}).exec();
-    const vetRecords = await Record.find({vet: {_id: user._id}});
+    const pets = await Pet.find({ owner: { _id: user._id } }).populate('owner');
+    const vetRecords = await Record.find({vet: {_id: user._id}}).populate('pet');
     console.log(vetRecords)
-    res.render("users/show", { title: `${user.username} Profile`, user, pets, patients, petRecords, vetRecords});
+    res.render("users/show", { title: `${user.username} Profile`, user, pets, vetRecords});
   } catch (err) {
     console.log(err);
-    res.redirect("/login");
+    res.redirect(`${req.params.id}`);
   }
 }

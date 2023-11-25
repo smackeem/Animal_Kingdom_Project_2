@@ -3,7 +3,7 @@
 <form action="/user/<%= user._id%>/records/<%= record._id %>?_method=PUT" method="POST">
 
     <label for="pet">Pet: 
-        <select name="pet" default="<%= record.pet.name%> DOB: <%= record.pet.DOB %>">
+        <select name="pet" default="<%= record.pet._id%>">
             <% pets.forEach(p => { %>
                 <option value="<%= p._id %>">Name: <%= p.name%> DOB: <%= p.DOB.toLocaleDateString() %></option>
                 <% }) %>

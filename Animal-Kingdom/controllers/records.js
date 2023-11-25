@@ -71,7 +71,7 @@ async function show(req, res, next){
 
 async function edit(req, res, next){
     try{
-        const record = await Record.findById(req.params.id);
+        const record = await Record.findById(req.params.id).populate('pet');
         const pets = await Pet.find({})
         res.render('records/edit', {title: 'Edit Medical Record', errMsg: '',record, pets, user: record.vet})
     }catch(err){
