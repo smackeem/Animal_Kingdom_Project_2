@@ -1,8 +1,178 @@
-body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+* {
+  box-sizing: border-box;
+  margin    : 0;
 }
 
+body {
+  font            : 16px "Lucida Grande", Helvetica, Arial, sans-serif;
+  background-color: #f2f2f2;
+}
+
+/*
+REMs:
+40px -> 2.5
+32px -> 2
+24px -> 1.5
+18px -> 1.125
+14px -> 0.875
+12px -> 0.75
+10px -> 0.625
+8px -> 0.5
+6px -> 0.375
+4px -> 0.25
+*/
+
+/*
+#FF9A8B
+#FFE26F
+#333333
+#9BE89B
+#6FB1FC
+#50a2ff
+*/
+
 a {
-  color: #00B7FF;
+  color          : #50a2ff;
+  text-decoration: none;
+}
+
+.header-nav {
+  display         : flex;
+  justify-content : space-between;
+  background-color: #fff;
+  padding         : 0.75rem 2rem;
+}
+
+.header-nav ul {
+  list-style: none;
+  display   : flex;
+}
+
+.nav-user {
+  position   : relative;
+  display    : flex;
+  align-items: center;
+  gap        : 1rem;
+}
+
+.nav-user ul {
+  position        : absolute;
+  top             : 45px;
+  right           : 50px;
+  font-size       : 0.875rem;
+  flex-direction  : column;
+  gap             : 12px;
+  padding         : 16px;
+  background-color: #ffffff;
+  border-radius   : 4px;
+  box-shadow      : 1px 1px 10px 2px rgba(0, 0, 0, .15);
+}
+
+.nav-user p {
+  font-size: 0.875rem;
+  color    : #333333;
+}
+
+
+.logo {
+  max-height: 40px;
+}
+
+.avatar {
+  width        : 36px;
+  height       : 36px;
+  border-radius: 12px;
+}
+
+.notification {
+  position: relative;
+  padding : 0.15rem;
+}
+
+.bell {
+  width : 20px;
+  height: 20px;
+}
+
+.dot {
+  position        : absolute;
+  top             : 1.5px;
+  right           : 1px;
+  width           : 4px;
+  height          : 4px;
+  border-radius   : 50%;
+  background-color: rgb(241, 2, 2);
+}
+
+.pet-section {
+  margin: 40px 24px 24px;
+  display: flex;
+  gap: 2rem;
+}
+
+.card {
+  background-color: #fff;
+  padding         : 1rem;
+  border-radius   : 1rem;
+  max-width       : fit-content;
+}
+
+.card-edit {
+  position : absolute;
+  right    : 1rem;
+  font-size: .75rem;
+}
+
+.card-btn {
+  line-height  : 2.5rem;
+  font-size    : .75rem;
+  padding      : .375rem 1.5rem;
+  border       : 1px solid #50a2ff;
+  border-radius: 1rem;
+}
+
+.pet-card {
+  display : flex;
+  position: relative;
+}
+
+.pet-card p {
+  font-size: .625rem;
+  padding  : 3px 0;
+}
+
+.pet-card div {
+  text-align: center;
+}
+
+.pet-img {
+  width        : 64px;
+  height       : 64px;
+  border-radius: 50%;
+}
+
+.pet-info {
+  padding: .375rem 0;
+}
+
+.add-pet {
+  background-color: #dfdfdf;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-width: 10rem;
+}
+
+.add-pet:before {
+  content: url('/Animal-Kingdom/public/images/add.svg');
+  margin: 2px .25rem 0 0;
+}
+
+.add-pet p {
+  font-size: .875rem;
+  color: #333333;
+}
+
+.hidden {
+  display: none !important;
 }
