@@ -1,55 +1,57 @@
 <%- include('../partials/header') %>
 
 <div>
-    <h1>Hello, <%= user.firstName %></h1>
-    <% if(user.userType === "Owner"){ %>
-    <h3>Your Pets</h3>
-    <% if(pets.length){ %>
-    <% pets.forEach(p => { %>
-    <div>
-        <a href="/user/<%= user._id %>/pets/new">Add Pet</a>
-        <form action="/user/<%= user._id %>/pets/<%= p._id %>?_method=DELETE" method="POST">
-        <button type="submit">X</button>
-            <h4><%= p.name %></h4>
-        <p>Species: <%= p.species %></p> 
-        <p>Breed: <%= p.breed %></p> 
-        <p>Age: <%= p.age %></p>
-        <p>DOB: <%= p.DOB.toLocaleDateString() %></p> <br/>
-        <a href="">Medical Records</a> | <a href="/user/<%= user._id %>/pets/<%= p._id %>/edit">EDIT</a>
-        </form>
-    </div>
-    <% }) %>
-    <% } else{ %>
-        <p>No Pets Yet.</p>
-    
-    <% } %>
-    <% } %>
+  <h1>Hello, <%= user.firstName %></h1>
+  <% if(user.userType === "Owner"){ %>
+  <h3>Your Pets</h3>
+  <% if(pets.length){ %> <% pets.forEach(p => { %>
+  <div>
+    <a href="/user/<%= user._id %>/pets/new">Add Pet</a>
+    <form
+      action="/user/<%= user._id %>/pets/<%= p._id %>?_method=DELETE"
+      method="POST"
+    >
+      <button type="submit">X</button>
+      <h4><%= p.name %></h4>
+      <p>Species: <%= p.species %></p>
+      <p>Breed: <%= p.breed %></p>
+      <p>Age: <%= p.age %></p>
+      <p>DOB: <%= p.DOB.toLocaleDateString() %></p>
+      <br />
+      <a href="">Medical Records</a> |
+      <a href="/user/<%= user._id %>/pets/<%= p._id %>/edit">EDIT</a>
+    </form>
+  </div>
+  <% }) %> <% } else{ %>
+  <p>No Pets Yet.</p>
 
-    <% if(user.userType === "Veterinarian") { %>
-        <h3>Your Patients</h3>
-        <% if(vetRecords.length){ %>
-        <%  vetRecords.forEach(vr => { %>
-        <div>
-            <a href="/user/<%= user._id %>/records/new">Add Medical Record</a>
-            <form action="/user/<%= user._id %>/records/<%= vr._id %>?_method=DELETE" method="POST">
-            <button type="submit">X</button>
-            <% console.log(vr.pet) %>
-                <h4><%= vr.pet.name %></h4>
-            <p>Species: <%= vr.pet.species %></p> 
-            <p>Breed: <%= vr.pet.breed %></p> 
-            <p>Age: <%= vr.pet.age %></p>
-            <p>DOB: <%= vr.pet.DOB.toLocaleDateString() %></p> <br/>
-            <a href="/user/<%= user._id %>/records/<%= vr._id %>">DETAILS</a> | <a href="/user/<%= user._id %>/records/<%= vr._id %>/edit">EDIT</a>
-            </form>
-        </div>
-        <% }) %>
-        <% } else{ %>
-            <p>No Pet Medical Records Yet.</p>
-            <br>
-            <a href="/user/<%= user._id %>/records/new">Add Medical Record</a>
-        
-        <% } %>
-    <% } %>
+  <% } %> <% } %> <% if(user.userType === "Veterinarian") { %>
+  <h3>Your Patients</h3>
+  <% if(vetRecords.length){ %> <% vetRecords.forEach(vr => { %>
+  <div>
+    <a href="/user/<%= user._id %>/records/new">Add Medical Record</a>
+    <form
+      action="/user/<%= user._id %>/records/<%= vr._id %>?_method=DELETE"
+      method="POST"
+    >
+      <button type="submit">X</button>
+      <% console.log(vr.pet) %>
+      <h4><%= vr.pet.name %></h4>
+      <p>Species: <%= vr.pet.species %></p>
+      <p>Breed: <%= vr.pet.breed %></p>
+      <p>Age: <%= vr.pet.age %></p>
+      <p>DOB: <%= vr.pet.DOB.toLocaleDateString() %></p>
+      <br />
+      <a href="/user/<%= user._id %>/records/<%= vr._id %>">DETAILS</a> |
+      <a href="/user/<%= user._id %>/records/<%= vr._id %>/edit">EDIT</a>
+    </form>
+  </div>
+  <% }) %> <% } else{ %>
+  <p>No Pet Medical Records Yet.</p>
+  <br />
+  <a href="/user/<%= user._id %>/records/new">Add Medical Record</a>
+
+  <% } %> <% } %>
 </div>
 
 <%- include('../partials/footer') %>

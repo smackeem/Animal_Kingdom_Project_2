@@ -1,20 +1,27 @@
 <!--views/users/login.ejs-->
-<%- include('../partials/owner-header') %>
+<!DOCTYPE html>
+<html>
+  <head>
+    <!-- other head elements like CSS links -->
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+  </head>
+  <body>
+    <main>
+      <h1>Login</h1>
+      <form action="/user/login" method="post">
+        <div>
+          <label for="username">Username:</label>
+          <input type="text" id="username" name="username" required />
+        </div>
+        <div>
+          <label for="password">Password:</label>
+          <input type="password" id="password" name="password" required />
+        </div>
+        <button type="submit">Login</button>
+      </form>
 
-<h1>Login</h1>
-<form action="/user/login" method="post">
-  <div>
-    <label for="username">Username:</label>
-    <input type="text" id="username" name="username" required />
-  </div>
-  <div>
-    <label for="password">Password:</label>
-    <input type="password" id="password" name="password" required />
-  </div>
-  <button type="submit">Login</button>
-</form>
-
-<p>Don't have an account? <a href="/user/signup">Sign up</a></p><br/>
-<p><%= errMsg %></p>
+      <p>Don't have an account? <a href="/user/signup">Sign up</a></p>
+      <br />
+      <p><%= errMsg %></p>
 
 <%- include('../partials/footer') %>
