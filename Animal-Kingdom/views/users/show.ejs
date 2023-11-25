@@ -1,52 +1,83 @@
 <%- include('../partials/header') %>
 
-<div>
-  <h1>Hello, <%= user.firstName %></h1>
-  <% if(user.userType === "Owner"){ %>
-  <h3>Your Pets</h3>
-  <% if(pets.length){ %>
-     <% pets.forEach(p => { %>
-  <div>
-    <a href="/user/<%= user._id %>/pets/new">Add Pet</a>
-    <form
-      action="/user/<%= user._id %>/pets/<%= p._id %>?_method=DELETE"
-      method="POST"
-    >
-      <button type="submit">X</button>
-      <h4><%= p.name %></h4>
-      <p>Species: <%= p.species %></p>
-      <p>Breed: <%= p.breed %></p>
-      <p>Age: <%= p.age %></p>
-      <p>DOB: <%= p.DOB.toLocaleDateString() %></p>
-      <br />
-      <a href="/user/<%= user._id %>/pets/<%= p._id %>">Medical Records</a> |
-      <a href="/user/<%= user._id %>/pets/<%= p._id %>/edit">EDIT</a>
-    </form>
-  </div>
-  <% }) %> <% } else{ %>
-  <p>No Pets Yet. <a href="/user/<%= user._id %>/pets/new">Add Pet</a></p>
+<!-- Owner -->
+<% if(user.userType==="Owner" ){ %>
 
-  <% } %> <% } %> 
+  <!-- Pets Overview -->
+  <section class="pet-overview">
+    <% if(pets.length){ %>
+      <% pets.forEach(p=> { %>
+        <div class="card pet-card">
+          <div>
+            <img class='pet-img' src="/images/pet.jpg" alt="Pet">
+            <div class="pet-info">
+              <h4>
+                <%= p.name %>
+              </h4>
+              <p>
+                <%= p.species %>
+              </p>
+              <p>
+                <%= p.breed %>
+              </p>
+              <p>
+                <%= p.age %> years old
+              </p>
+              <!-- TODO: if pet is less than 1yo show months old instead -->
+              <p>DOB: <%= p.DOB.toLocaleDateString() %>
+              </p>
+            </div>
+            <a class='card-btn' href="/user/<%= user._id %>/pets/<%= p._id %>">Medical Records</a>
+          </div>
+          <form action="/user/<%= user._id %>/pets/<%= p._id %>?_method=DELETE" method="POST">
+            <button class="card-delete" type="submit"><img src="/images/close.svg" alt="X"></button>
+          </form>
+          <a class='card-edit' href="/user/<%= user._id %>/pets/<%= p._id %>/edit">Edit</a>
+        </div>
+        <% }) %>
+          <% } else{ %>
+            <p>No Pets Yet.</p>
+            <% } %>
+              <div class="card add-pet">
+                <a href="/user/<%= user._id %>/pets/new">Add</a>
+              </div>
+  </section>
+
+  <!-- Appointments Overview -->
+  <section class="apointments">
+  </section>
+
+  <% } %>
+
   
-  <% if(user.userType === "Veterinarian") { %>
-  <h3>Your Patients</h3>
+  <% if(user.userType==="Veterinarian" ) { %>
+    <h3>Your Patients</h3>
     <div>
-        <% if(patients.length){ %>
-            <% patients.forEach(p => { %>
-         <div>
+      <% if(patients.length){ %>
+        <% patients.forEach(p=> { %>
+          <div>
             <br />
-             <h4><%= p._doc.name %></h4>
-             <p>Species: <%= p._doc.species %></p>
-             <p>Breed: <%= p._doc.breed %></p>
-             <p>Age: <%= p._doc.age %></p>
-             <p>DOB: <%= p._doc.DOB.toLocaleDateString() %></p>
-             <br />
-             <a href="/user/<%= user._id %>/pets/<%= p._doc._id %>">Medical Records</a> |
-         </div>
-         <% }) %> <% } else{ %>
-         <p>No Patients Yet. <a href="/user/<%= user._id %>/records/new">Create Medical Record</a></p></p>
-       
-         <% } %>
- <% } %>
+            <h4>
+              <%= p._doc.name %>
+            </h4>
+            <p>Species: <%= p._doc.species %>
+            </p>
+            <p>Breed: <%= p._doc.breed %>
+            </p>
+            <p>Age: <%= p._doc.age %>
+            </p>
+            <p>DOB: <%= p._doc.DOB.toLocaleDateString() %>
+            </p>
+            <br />
+            <a href="/user/<%= user._id %>/pets/<%= p._doc._id %>">Medical Records</a> |
+          </div>
+          <% }) %>
+            <% } else{ %>
+              <p>No Patients Yet. <a href="/user/<%= user._id %>/records/new">Create Medical Record</a></p>
+              </p>
+  
+              <% } %>
+                <% } %>
     </div>
+
 <%- include('../partials/footer') %>
