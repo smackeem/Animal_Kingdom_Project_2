@@ -23,8 +23,9 @@ REMs:
 */
 
 /* Landing Page */
-.anonymous-home {
+.login {
 	background-color: $avocado;
+.anonymous-home {
 	height: 100vh;
 	section {
 		display: flex;
@@ -53,6 +54,7 @@ REMs:
 			margin-top: 1.32rem;
 		}
 	}
+}
 }
 
 /* Card Styles */

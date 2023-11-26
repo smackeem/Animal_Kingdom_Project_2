@@ -12,21 +12,23 @@ REMs:
 4px -> 0.25
 */
 /* Landing Page */
-.anonymous-home {
+.login {
   background-color: #3ddc99;
+}
+.login .anonymous-home {
   height: 100vh;
 }
-.anonymous-home section {
+.login .anonymous-home section {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   height: 100%;
 }
-.anonymous-home section img:first-child {
+.login .anonymous-home section img:first-child {
   margin-bottom: 3.56rem;
 }
-.anonymous-home section a {
+.login .anonymous-home section a {
   background-color: #009757;
   color: #fff;
   width: 22.25rem;
@@ -40,7 +42,7 @@ REMs:
   font-size: 1.5rem;
   letter-spacing: 0.045rem;
 }
-.anonymous-home section img:last-child {
+.login .anonymous-home section img:last-child {
   margin-top: 1.32rem;
 }
 
