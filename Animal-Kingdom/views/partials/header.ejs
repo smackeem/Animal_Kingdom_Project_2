@@ -1,19 +1,51 @@
 <!-- views/partials/header.ejs -->
 <!DOCTYPE html>
 <html>
-  <head>
-    <!-- other head elements like CSS links -->
-    <link rel="stylesheet" href="/stylesheets/style.css" />
-  </head>
-  <body>
-    <header>
-      <!-- Navigation bar, logo, etc. -->
-      <nav>
-          <a href="/user/<%=user._id%>">Home</a> |
-          <% if(user.userType === "Veterinarian"){ %>
-            <a href="/user/<%=user._id%>/records/new">Create New Patient Record</a> |
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <% title=typeof title !=='undefined' ? title : "Animal Kingdom" %>
+    <title>
+      <%=title%>
+    </title>
+    <link rel='stylesheet' href='/styles/style.css' />
+    <link rel="stylesheet" href="/styles/main.css">
+    <script src="/scripts/functions.js" defer></script>
+</head>
+
+<body>
+  <header>
+    <nav class="header-nav">
+
+      <div class="nav-items">
+        <a href="/user/<%=user._id%>">
+          <img class='logo' src="/images/AKlogo.svg" alt="Animal Kingdom Logo">
+        </a>
+        <% if(user.userType==="Veterinarian" ){ %>
+          <a href="/user/<%=user._id%>/records/new">Create New Patient Record</a>
           <% } %>
+      </div>
+
+      <div class="nav-user">
+
+        <ul class="hidden">
+          <li>My account</li>
+          <li>Settings</li>
           <a href="/"><button>Logout</button></a>
-      </nav>
-      </header>
-      <main>
+        </ul>
+
+        <div class="notification">
+          <img class='bell' src="/images/bell.png" alt="Bell">
+          <div class="dot"></div>
+        </div>
+        <img class='avatar' src="/images/avatar.jpg" alt="User Avatar">
+
+
+          <p>Hello, <%= user.firstName %>
+          </p>
+      </div>
+
+    </nav>
+  </header>
+  <main>

@@ -1,0 +1,209 @@
+/*
+REMs:
+40px -> 2.5
+32px -> 2
+24px -> 1.5
+18px -> 1.125
+14px -> 0.875
+12px -> 0.75
+10px -> 0.625
+8px -> 0.5
+6px -> 0.375
+4px -> 0.25
+*/
+/* Landing Page */
+.anonymous-home {
+  background-color: #9be89b;
+  height: 100vh;
+}
+.anonymous-home section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+.anonymous-home section img:first-child {
+  margin-bottom: 3.56rem;
+}
+.anonymous-home section a {
+  background-color: #009757;
+  color: #fff;
+  width: 22.25rem;
+  padding: 1.25rem 0;
+  margin-bottom: 1.81rem;
+  border-radius: 0.5625rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 1.5rem;
+  letter-spacing: 0.045rem;
+}
+.anonymous-home section img:last-child {
+  margin-top: 1.32rem;
+}
+
+/* Card Styles */
+.card {
+  background-color: #fff;
+  padding: 1.25rem;
+  border-radius: 0.5rem;
+  width: 16.5rem;
+  display: flex;
+  justify-content: center;
+}
+.card .card-edit {
+  position: absolute;
+  left: 1rem;
+  font-size: 1rem;
+}
+.card .card-delete {
+  position: absolute;
+  right: 1rem;
+  top: 1.2rem;
+  border: none;
+  background-color: transparent;
+  padding: 0;
+  cursor: pointer;
+}
+.card .card-btn {
+  width: 100%;
+  height: 2.9375rem;
+  letter-spacing: 0.03375rem;
+  font-size: 1.125rem;
+  padding: 0.375rem 0;
+  border: 1px solid #50a2ff;
+  border-radius: 2.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Header Styles */
+.header-nav {
+  display: flex;
+  justify-content: space-between;
+  background-color: #fff;
+  padding: 0.75rem 2rem;
+}
+.header-nav ul {
+  list-style: none;
+  display: flex;
+}
+
+.nav-items {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+.nav-items a {
+  color: #333333;
+}
+.nav-items a:hover {
+  color: #50a2ff;
+}
+.nav-items .logo {
+  margin: 0.25rem 0.625rem 0 0;
+  max-height: 2.5rem;
+}
+
+.nav-user {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+.nav-user ul {
+  position: absolute;
+  top: 45px;
+  right: 50px;
+  font-size: 0.875rem;
+  flex-direction: column;
+  gap: 12px;
+  padding: 16px;
+  background-color: #fff;
+  border-radius: 4px;
+  box-shadow: 1px 1px 10px 2px rgba(0, 0, 0, 0.15);
+}
+.nav-user p {
+  font-size: 0.875rem;
+  color: #333333;
+  text-transform: capitalize;
+}
+.nav-user .avatar {
+  width: 36px;
+  height: 36px;
+  border-radius: 12px;
+  cursor: pointer;
+}
+
+.notification {
+  position: relative;
+  padding: 0.15rem;
+}
+.notification .bell {
+  width: 20px;
+  height: 20px;
+}
+.notification .dot {
+  position: absolute;
+  top: 1.5px;
+  right: 1px;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background-color: rgb(241, 2, 2);
+}
+
+/* Pet Overview - users/show.ejs */
+.pet-overview {
+  display: flex;
+  justify-content: center;
+  margin: 40px 0;
+  gap: 2rem;
+}
+.pet-overview .pet-card {
+  position: relative;
+}
+.pet-overview .pet-card div {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.pet-overview .pet-card div .pet-img {
+  margin: 0 auto;
+  width: 10rem;
+  height: 10rem;
+  border-radius: 50%;
+}
+.pet-overview .pet-card div .pet-info {
+  padding: 0.62rem 0;
+  text-align: center;
+}
+.pet-overview .pet-card div .pet-info h4 {
+  font-size: 1.125rem;
+  font-weight: 700;
+}
+.pet-overview .pet-card div .pet-info p {
+  padding: 0.62rem 0 0 0;
+}
+.pet-overview .add-pet {
+  background-color: #dfdfdf;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-width: 11rem;
+}
+.pet-overview .add-pet a {
+  position: relative;
+  font-size: 0.875rem;
+  color: #333333;
+}
+.pet-overview .add-pet a:before {
+  content: url("/images/add.svg");
+  position: absolute;
+  left: -18px;
+  bottom: -2px;
+}

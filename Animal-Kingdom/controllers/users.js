@@ -31,6 +31,19 @@ async function create(req, res, next) {
         res.status(500).send("Error saving user: " + error.message);
       });
     // res.redirect("/user/login");
+    await newUser
+      .save()
+      .then((newUser) => {
+        const token = jwt.sign({ _id: newUser._id }, process.env.SECRET, {
+          expiresIn: "60 days",
+        });
+        res.cookie("nToken", token, { maxAge: 900000, httpOnly: true });
+        return res.redirect("/user/login");
+      })
+      .catch((error) => {
+        console.log(error); // Log the error for debugging
+        res.status(500).send("Error saving user: " + error.message);
+      });
   } catch (error) {
     console.log(error); // Log the error for debugging
     res.status(500).send("Error saving user: " + error.message);
@@ -75,6 +88,29 @@ async function show(req, res, next) {
     });
   } catch (err) {
     console.log(err);
-    res.redirect(`${req.params.id}`);
+    res.redirect(`/user/${req.params.id}`);
   }
+}
+
+function mergeDuplicates(arr, key) {
+  const uniqueMap = new Map();
+
+  // Iterate through the array
+  arr.forEach((item) => {
+    // Generate a unique identifier based on the specified key(s)
+    const identifier = key.map((k) => item[k]).join("|");
+
+    // Check if the identifier is already in the map
+    if (uniqueMap.has(identifier)) {
+      // Merge the current item with the existing item in the map
+      Object.assign(uniqueMap.get(identifier), item);
+    } else {
+      // If not, add the item to the map
+      uniqueMap.set(identifier, { ...item });
+    }
+  });
+
+  // Convert the Map values back to an array
+  const mergedArray = Array.from(uniqueMap.values());
+  return mergedArray;
 }

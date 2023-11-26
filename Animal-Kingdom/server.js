@@ -14,7 +14,8 @@ require("./config/database");
 const indexRouter = require("./routes/index");
 const recordsRouter = require("./routes/records");
 const petRouter = require("./routes/pet");
-const userRoutes = require("./routes/user");
+const userRouter = require("./routes/user");
+const appointmentRouter = require('./routes/appointment');
 
 const app = express();
 
@@ -32,7 +33,8 @@ app.use(methodOverride("_method"));
 app.use("/", indexRouter);
 app.use("/", recordsRouter);
 app.use('/', petRouter);
-app.use("/user", userRoutes);
+app.use('/', appointmentRouter);
+app.use("/user", userRouter);
 
 // Catch 404 and forward to error handler
 app.use(function (req, res, next) {

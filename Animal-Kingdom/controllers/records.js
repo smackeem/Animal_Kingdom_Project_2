@@ -66,8 +66,11 @@ async function deleteRecord(req, res, next) {
 
 async function show(req, res, next) {
   try {
-    const record = await Record.findById(req.params.id);
-    res.render("records/show", { title: "Pet medical record", record });
+    const record = await Record.findById(req.params.id)
+      .populate("vet")
+      .populate("pet");
+    const user = record.vet;
+    res.render("records/show", { title: "Pet medical record", record, user });
   } catch (err) {
     console.log(err);
   }
