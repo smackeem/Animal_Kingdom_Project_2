@@ -7,6 +7,8 @@ module.exports = {
     new: newAppt,
     create,
     index,
+    delete: deleteAppt,
+    edit
 }
 
 async function newAppt(req, res, next){
@@ -39,5 +41,15 @@ async function index(req, res, next){
         res.render('appointments/index', {title: 'Your Availabilities', availabilities, user})
     }catch(err){
         console.log(err);
+    }
+}
+
+async function deleteAppt(req, res, next){
+    try{
+        await Appointment.findByIdAndDelete(req.params.id);
+        res.redirect(`/user/${req.params.userId}/appointments`);
+    }catch(err){
+        console.log(err);
+        res.redirect(`/user/${req.params.userId}/appointments`);
     }
 }
