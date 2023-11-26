@@ -1,7 +1,9 @@
-const jwt = require('jsonwebtoken');
+// controller/user.js
+const jwt = require("jsonwebtoken");
 const User = require("../models/users");
 const Pet = require("../models/pet");
 const Record = require("../models/record");
+const Appointment = require('../models/appointment');
 
 const bcrypt = require("bcryptjs");
 
@@ -13,24 +15,28 @@ module.exports = {
 
 async function create(req, res, next) {
   const newUser = new User(req.body);
-  newUser.address = req.body;
+  newUser.address = req.body.address; // Corrected address assignment
   console.log(newUser);
   try {
-    await newUser.save().then((newUser) => {
-      const token = jwt.sign({_id: newUser._id}, process.env.SECRET, {expiresIn: '60 days'});
-      res.cookie('nToken', token, {maxAge: 900000, httpOnly: true});
-      return res.redirect('/user/login');
-    }).catch ((error) => {
-      console.log(error); // Log the error for debugging
-      res.status(500).send("Error saving user: " + error.message);
-    })
+    await newUser
+      .save()
+      .then((newUser) => {
+        const token = jwt.sign({ _id: newUser._id }, process.env.SECRET, {
+          expiresIn: "60 days",
+        });
+        res.cookie("nToken", token, { maxAge: 900000, httpOnly: true });
+        return res.redirect("/user/login");
+      })
+      .catch((error) => {
+        console.log(error); // Log the error for debugging
+        res.status(500).send("Error saving user: " + error.message);
+      });
   } catch (error) {
     console.log(error); // Log the error for debugging
     res.status(500).send("Error saving user: " + error.message);
   }
 }
 
-// Using an async function for login
 async function login(req, res) {
   try {
     const user = await User.findOne({ username: req.body.username }).exec();
@@ -45,6 +51,10 @@ async function login(req, res) {
       return;
     }
 
+    const token = jwt.sign({ _id: user._id }, process.env.SECRET, {
+      expiresIn: "60 days",
+    });
+    res.cookie("nToken", token, { maxAge: 900000, httpOnly: true });
     res.redirect(`/user/${user._id}`);
   } catch (error) {
     console.error("Login error:", error);
@@ -59,10 +69,11 @@ async function show(req, res, next) {
     const vetRecords = await Record.find({vet: {_id: user._id}}).populate('pet');
     const allPatients = vetRecords.map((record) => record.pet);
     const patients = mergeDuplicates(allPatients, ['_id']);
-    res.render("users/show", { title: `${user.username} Profile`, user, pets, vetRecords, patients});
+    const petAppointments = await Appointment.find({pet: {$in: pets}}).populate('pet').populate('vet');
+    res.render("users/show", { title: `${user.username} Profile`, user, pets, vetRecords, patients, petAppointments});
   } catch (err) {
     console.log(err);
-    res.redirect(`/user/${req.params.id}`);
+    res.redirect(`/user/${userId}`);
   }
 }
 
@@ -70,9 +81,9 @@ function mergeDuplicates(arr, key) {
   const uniqueMap = new Map();
 
   // Iterate through the array
-  arr.forEach(item => {
+  arr.forEach((item) => {
     // Generate a unique identifier based on the specified key(s)
-    const identifier = key.map((k) => item[k]).join('|');
+    const identifier = key.map((k) => item[k]).join("|");
 
     // Check if the identifier is already in the map
     if (uniqueMap.has(identifier)) {

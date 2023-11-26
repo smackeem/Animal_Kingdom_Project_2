@@ -1,18 +1,18 @@
 <!-- views/partials/header.ejs -->
 <!DOCTYPE html>
 <html>
-
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <% title=typeof title !=='undefined' ? title : "Animal Kingdom" %>
-    <title>
-      <%=title%>
-    </title>
-    <link rel='stylesheet' href='/styles/style.css' />
-    <link rel="stylesheet" href="/styles/main.css">
-    <script src="/scripts/functions.js" defer></script>
-</head>
+  <head>
+    <!-- other head elements like CSS links -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <% title=typeof title !=='undefined' ? title : "Animal Kingdom" %>
+      <title>
+        <%=title%>
+      </title>
+      <link rel='stylesheet' href='/styles/style.css' />
+      <link rel="stylesheet" href="/styles/main.css">
+      <script src="/scripts/functions.js" defer></script>
+  </head>
 
 <body>
   <header>
@@ -22,8 +22,12 @@
         <a href="/user/<%=user._id%>">
           <img class='logo' src="/images/AKlogo.svg" alt="Animal Kingdom Logo">
         </a>
+        <% if(user.userType === "Owner"){ %>
+          <a href="/user/<%=user._id%>/appointments">Book Appointment</a> 
+        <% } %>
         <% if(user.userType==="Veterinarian" ){ %>
-          <a href="/user/<%=user._id%>/records/new">Create New Patient Record</a>
+          <a href="/user/<%=user._id%>/records/new">New Patient Record</a> |
+          <a href="/user/<%=user._id%>/appointments/new">Add Availability</a>
           <% } %>
       </div>
 

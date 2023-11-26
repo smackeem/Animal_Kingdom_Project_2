@@ -1,3 +1,4 @@
+//config/database.js
 // import mongoose library
 const mongoose = require("mongoose");
 

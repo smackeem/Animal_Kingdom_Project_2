@@ -1,10 +1,11 @@
-const express = require('express')
-const router = express.Router()
-const petCtrl = require('../controllers/pet')
+const express = require("express");
+const router = express.Router();
+
+const petCtrl = require("../controllers/pet");
 
 router.get("/user/:id/pets", petCtrl.index);
 
-router.get("/user/:id/pets/new",petCtrl.new);
+router.get("/user/:id/pets/new", petCtrl.new);
 
 router.get("/user/:id/pets/:id/edit", petCtrl.edit);
 
