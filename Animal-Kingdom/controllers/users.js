@@ -60,8 +60,8 @@ async function show(req, res, next) {
     const vetRecords = await Record.find({vet: {_id: user._id}}).populate('pet');
     const allPatients = vetRecords.map((record) => record.pet);
     const patients = mergeDuplicates(allPatients, ['_id']);
-    const petAppointments = await Appointment.find({}).populate('pet');
-    res.render("users/show", { title: `${user.username} Profile`, user, pets, vetRecords, patients});
+    const petAppointments = await Appointment.find({pet: {$in: pets}}).populate('pet').populate('vet');
+    res.render("users/show", { title: `${user.username} Profile`, user, pets, vetRecords, patients, petAppointments});
   } catch (err) {
     console.log(err);
     res.redirect(`/user/${req.params.id}`);
