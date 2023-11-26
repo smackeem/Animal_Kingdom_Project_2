@@ -68,11 +68,13 @@ async function deletePet(req, res) {
     }
 }
 
-async function edit(req, res, next) {
+async function edit(req, res) {
     try {
       const pet = await Pet.findById(req.params.id);
       const user = pet.owner;
-      res.render("pets/edit", { title: "Edit Pet Profile", pet, user});
+        res.render("pets/edit", { title: "Edit Pet", pet, user });
+        // render the show page (duplicated) but now with a pop up on top of it
+        console.log(user)
     } catch (err) {
       console.log(err);
       res.redirect(`/user/${pet.owner._id}`);

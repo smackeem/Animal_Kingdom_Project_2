@@ -15,16 +15,13 @@
                 <%= p.name %>
               </h4>
               <p>
-                <%= p.species %>
+                <%= p.species %>, <%= p.breed %>
               </p>
               <p>
-                <%= p.breed %>
+                <%= p.age %> Years old
               </p>
               <p>
-                <%= p.age %> years old
-              </p>
-              <!-- TODO: if pet is less than 1yo show months old instead -->
-              <p>DOB: <%= p.DOB.toLocaleDateString() %>
+                DOB: <%= p.DOB.toLocaleDateString() %>
               </p>
             </div>
             <a class='card-btn' href="/user/<%= user._id %>/pets/<%= p._id %>">Medical Records</a>
@@ -36,7 +33,7 @@
         </div>
         <% }) %>
           <% } else{ %>
-            <p>No Pets Yet.</p>
+            <p>No Pets Yet</p>
             <% } %>
               <div class="card add-pet">
                 <a href="/user/<%= user._id %>/pets/new">Add</a>

@@ -1,12 +1,24 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <!-- other head elements like CSS links -->
-    <link rel="stylesheet" href="/stylesheets/style.css" />
-  </head>
-  <body>
-    <main>
- 
-    <a href="/user/login"><button>Login</button></a> | <a href="/user/signup"><button>Signup</button></a>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <% title=typeof title !=='undefined' ? title : "Animal Kingdom" %>
+    <title>
+      <%=title%>
+    </title>
+    <link rel='stylesheet' href='/styles/style.css'>
+    <link rel="stylesheet" href="/styles/main.css">
+</head>
+
+<body>
+  <main class="anonymous-home">
+    <section>
+      <img src="/images/AKlogo-white.svg" alt="Animal Kingdom">
+      <a href="/user/login">Login</a>
+      <a href="/user/signup">Sign up</a>
+      <img src="/images/mascot.svg" alt="Dog">
+    </section>
 
 <%- include('./partials/footer') %>
