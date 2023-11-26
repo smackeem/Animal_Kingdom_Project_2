@@ -27,7 +27,7 @@
         <% } %>
         <% if(user.userType === "Owner"){ %>
             <tbody>
-                <% if(appointments.lenght){ %>
+                <% if(appointments.length){ %>
                 <% appointments.forEach(a => { %> 
                 <tr>
                     <td><%= a.date.toLocaleDateString() %></td>
