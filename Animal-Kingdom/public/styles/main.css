@@ -11,6 +11,39 @@ REMs:
 6px -> 0.375
 4px -> 0.25
 */
+/* Landing Page */
+.anonymous-home {
+  background-color: #9be89b;
+  height: 100vh;
+}
+.anonymous-home section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+.anonymous-home section img:first-child {
+  margin-bottom: 3.56rem;
+}
+.anonymous-home section a {
+  background-color: #009757;
+  color: #fff;
+  width: 22.25rem;
+  padding: 1.25rem 0;
+  margin-bottom: 1.81rem;
+  border-radius: 0.5625rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 1.5rem;
+  letter-spacing: 0.045rem;
+}
+.anonymous-home section img:last-child {
+  margin-top: 1.32rem;
+}
+
 /* Card Styles */
 .card {
   background-color: #fff;
