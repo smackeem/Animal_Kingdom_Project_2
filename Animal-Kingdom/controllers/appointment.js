@@ -8,7 +8,8 @@ module.exports = {
     create,
     index,
     delete: deleteAppt,
-    edit
+    book,
+    petAppt
 }
 
 async function newAppt(req, res, next){
@@ -51,5 +52,27 @@ async function deleteAppt(req, res, next){
     }catch(err){
         console.log(err);
         res.redirect(`/user/${req.params.userId}/appointments`);
+    }
+}
+
+async function petAppt(req, res, next){
+    try{
+        const user = await User.findById(req.params.userId);
+        const pets = await Pet.find({owner: req.params.userId});
+        const appointments = await Appointment.find({isAvailable: true});
+        res.render('appointments/book',{title: "Book Appointment", user, pets, appointments})
+    }catch(err){
+        console.log(err);
+    }
+}
+
+async function book(req, res, next){
+    req.body.reason = req.body.reason.trim()
+    try{
+        const appointment = await Appointment.findByIdAndUpdate(req.params.id, req.body);
+        res.redirect(`user/${req.params.userId}`);
+    }catch(err){
+        console.log(err);
+        res.redirect(`/user/${req.params.userId}`/appointments);
     }
 }
