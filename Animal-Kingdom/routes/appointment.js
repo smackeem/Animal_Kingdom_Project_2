@@ -1,4 +1,5 @@
-const express = require('express');
+// routes/appointment.js
+const express = require("express");
 const router = express.Router();
 
 const appointmentCtrl = require('../controllers/appointment');
