@@ -1,0 +1,33 @@
+<%- include('../partials/header') %>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Pet</th>
+                <th>Date</th>
+                <th>Time</th>
+                <th>Diagnosis</th>
+                <th>Treatment</th>
+                <th>Medication</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% records.forEach(r => { %> 
+            <tr>
+            <form action="/records/<%= r._id %>/?_method=DELETE" method="POST">
+                <td><button type="submit">X</button></td>
+                <td><%= r.pet %></td>
+                <td><%= r.date.toLocaleDateString() %></td>
+                <td><%= r.date.toLocaleTimeString() %></td>
+                <td><%= r.diagnosis %></td>
+                <td><%= r.treatment %></td>
+                <td><%= r.medication %></td>
+                <td><a href="/records/<%=r._id %>">DETAILS</a></td>
+            </form>
+            </tr>
+            <% }) %>
+        </tbody>
+    </table>
+
+
+<%- include('../partials/footer') %>
