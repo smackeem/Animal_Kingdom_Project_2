@@ -1,7 +1,7 @@
 $peach: #ff9a8b;
 $lemon: #ffe26f;
 $gray: #e8e8e8;
-$darkGray: #4C4C4C;
+$darkGray: #4c4c4c;
 $avocado: #3ddc99;
 $lime: #009757;
 $blue-primary: #0057a0;
@@ -25,36 +25,36 @@ REMs:
 /* Landing Page */
 .login {
 	background-color: $avocado;
-.anonymous-home {
-	height: 100vh;
-	section {
-		display: flex;
-		flex-direction: column;
-		justify-content: center;
-		align-items: center;
-		height: 100%;
-		img:first-child {
-			margin-bottom: 3.56rem;
-		}
-		a {
-			background-color: $lime;
-			color: #fff;
-			width: 22.25rem;
-			padding: 1.25rem 0;
-			margin-bottom: 1.81rem;
-			border-radius: 0.5625rem;
+	.anonymous-home {
+		height: 100vh;
+		section {
 			display: flex;
-			align-items: center;
+			flex-direction: column;
 			justify-content: center;
-			font-weight: 700;
-			font-size: 1.5rem;
-			letter-spacing: 0.045rem;
-		}
-		img:last-child {
-			margin-top: 1.32rem;
+			align-items: center;
+			height: 100%;
+			img:first-child {
+				margin-bottom: 3.56rem;
+			}
+			a {
+				background-color: $lime;
+				color: #fff;
+				width: 22.25rem;
+				padding: 1.25rem 0;
+				margin-bottom: 1.81rem;
+				border-radius: 0.5625rem;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				font-weight: 700;
+				font-size: 1.5rem;
+				letter-spacing: 0.045rem;
+			}
+			img:last-child {
+				margin-top: 1.32rem;
+			}
 		}
 	}
-}
 }
 
 /* Card Styles */
@@ -97,6 +97,7 @@ REMs:
 .user-name {
 	text-transform: capitalize;
 }
+
 
 /* Header Styles */
 .header-nav {
@@ -208,9 +209,9 @@ REMs:
 		a {
 			position: relative;
 			font-size: 1.125rem;
-            font-weight: 500;
+			font-weight: 500;
 			color: $darkGray;
-            letter-spacing: 0.03375rem;
+			letter-spacing: 0.03375rem;
 		}
 		a:before {
 			content: url('/images/add.svg');

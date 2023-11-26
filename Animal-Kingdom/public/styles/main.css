@@ -104,7 +104,7 @@ REMs:
   gap: 1rem;
 }
 .header-nav .nav-items a {
-  color: #4C4C4C;
+  color: #4c4c4c;
 }
 .header-nav .nav-items a:hover {
   color: #0057a0;
@@ -200,7 +200,7 @@ REMs:
   position: relative;
   font-size: 1.125rem;
   font-weight: 500;
-  color: #4C4C4C;
+  color: #4c4c4c;
   letter-spacing: 0.03375rem;
 }
 .pet-overview .add-pet a:before {
