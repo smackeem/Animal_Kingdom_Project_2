@@ -19,8 +19,9 @@
     <nav class="header-nav">
 
       <div class="nav-items">
-        <img class='logo' src="/images/AKlogo.svg" alt="Animal Kingdom Logo">
-        <a href="/user/<%=user._id%>">Home</a>
+        <a href="/user/<%=user._id%>">
+          <img class='logo' src="/images/AKlogo.svg" alt="Animal Kingdom Logo">
+        </a>
         <% if(user.userType==="Veterinarian" ){ %>
           <a href="/user/<%=user._id%>/records/new">Create New Patient Record</a>
           <% } %>
