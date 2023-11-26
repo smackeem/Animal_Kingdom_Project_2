@@ -27,6 +27,7 @@
         <% } %>
         <% if(user.userType === "Owner"){ %>
             <tbody>
+                <% if(appointments.lenght){ %>
                 <% appointments.forEach(a => { %> 
                 <tr>
                     <td><%= a.date.toLocaleDateString() %></td>
@@ -34,6 +35,9 @@
                     <td><a href="/user/<%=user._id %>/appointments/<%=a._id %>/book">BOOK</a></td>
                 </tr>
                 <% }) %>
+                <% } else{ %>
+                    <p>No Available Appointments</p>
+                    <% } %>
             </tbody>
             <% } %>
 
