@@ -1,6 +1,5 @@
 const express = require('express')
 const router = express.Router()
-
 const petCtrl = require('../controllers/pet')
 
 router.get("/user/:id/pets", petCtrl.index);

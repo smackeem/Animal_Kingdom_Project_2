@@ -3,20 +3,30 @@
 <html>
   <head>
     <!-- other head elements like CSS links -->
-    <link rel="stylesheet" href="/stylesheets/style.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <% title=typeof title !=='undefined' ? title : "Animal Kingdom" %>
+      <title>
+        <%=title%>
+      </title>
+      <link rel='stylesheet' href='/styles/style.css' />
+      <link rel="stylesheet" href="/styles/main.css">
+      <script src="/scripts/functions.js" defer></script>
   </head>
-  <body>
-    <header>
-      <!-- Navigation bar, logo, etc. -->
-      <nav>
-          <a href="/user/<%=user._id%>">Home</a> |
-          <% if(user.userType === "Owner"){ %>
-            <a href="/user/<%=user._id%>/appointments">Book Appointment</a> |
-          <% } %>
 
-          <% if(user.userType === "Veterinarian"){ %>
-            <a href="/user/<%=user._id%>/appointments/new">Add Availability</a> |
-            <a href="/user/<%=user._id%>/records/new">New Patient Record</a> 
+<body>
+  <header>
+    <nav class="header-nav">
+
+      <div class="nav-items">
+        <a href="/user/<%=user._id%>">
+          <img class='logo' src="/images/AKlogo.svg" alt="Animal Kingdom Logo">
+        </a>
+        <% if(user.userType === "Owner"){ %>
+          <a href="/user/<%=user._id%>/appointments">Book Appointment</a> 
+        <% } %>
+        <% if(user.userType==="Veterinarian" ){ %>
+          <a href="/user/<%=user._id%>/records/new">Create New Patient Record</a>
           <% } %>
       </div>
 
