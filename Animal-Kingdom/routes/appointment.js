@@ -15,4 +15,6 @@ router.delete('/user/:userId/appointments/:id', appointmentCtrl.delete);
 
 router.put('/user/:userId/appointments/:id', appointmentCtrl.book);
 
+router.put('/user/:userId/appointments/:id/cancel', appointmentCtrl.cancel);
+
 module.exports = router;
