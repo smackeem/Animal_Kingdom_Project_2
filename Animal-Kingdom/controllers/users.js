@@ -2,6 +2,7 @@ const jwt = require('jsonwebtoken');
 const User = require("../models/users");
 const Pet = require("../models/pet");
 const Record = require("../models/record");
+const Appointment = require('../models/appointment');
 
 const bcrypt = require("bcryptjs");
 
@@ -59,6 +60,7 @@ async function show(req, res, next) {
     const vetRecords = await Record.find({vet: {_id: user._id}}).populate('pet');
     const allPatients = vetRecords.map((record) => record.pet);
     const patients = mergeDuplicates(allPatients, ['_id']);
+    const petAppointments = await Appointment.find({}).populate('pet');
     res.render("users/show", { title: `${user.username} Profile`, user, pets, vetRecords, patients});
   } catch (err) {
     console.log(err);
