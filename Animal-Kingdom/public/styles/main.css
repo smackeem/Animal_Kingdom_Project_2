@@ -13,7 +13,7 @@ REMs:
 */
 /* Landing Page */
 .anonymous-home {
-  background-color: #3DDC99;
+  background-color: #3ddc99;
   height: 100vh;
 }
 .anonymous-home section {
@@ -46,12 +46,13 @@ REMs:
 
 /* Card Styles */
 .card {
+  display: flex;
+  justify-content: center;
   background-color: #fff;
+  border: 1px solid #dadada;
   padding: 1.25rem;
   border-radius: 0.5rem;
   width: 16.5rem;
-  display: flex;
-  justify-content: center;
 }
 .card .card-edit {
   position: absolute;
@@ -73,7 +74,7 @@ REMs:
   letter-spacing: 0.03375rem;
   font-size: 1.125rem;
   padding: 0.375rem 0;
-  border: 1px solid #0094FF;
+  border: 1px solid #0094ff;
   border-radius: 2.5rem;
   display: flex;
   align-items: center;
@@ -95,33 +96,31 @@ REMs:
   list-style: none;
   display: flex;
 }
-
-.nav-items {
+.header-nav .nav-items {
   display: flex;
   align-items: center;
   gap: 1rem;
 }
-.nav-items a {
-  color: #333333;
+.header-nav .nav-items a {
+  color: #4C4C4C;
 }
-.nav-items a:hover {
-  color: #0057A0;
+.header-nav .nav-items a:hover {
+  color: #0057a0;
 }
-.nav-items .logo {
+.header-nav .nav-items .logo {
   margin: 0.25rem 0.625rem 0 0;
   max-height: 2.5rem;
 }
-
-.nav-user {
+.header-nav .nav-user {
   position: relative;
   display: flex;
   align-items: center;
   gap: 1rem;
 }
-.nav-user ul {
+.header-nav .nav-user ul {
   position: absolute;
   top: 45px;
-  right: 50px;
+  right: 0;
   font-size: 0.875rem;
   flex-direction: column;
   gap: 12px;
@@ -129,28 +128,17 @@ REMs:
   background-color: #fff;
   border-radius: 4px;
   box-shadow: 1px 1px 10px 2px rgba(0, 0, 0, 0.15);
+  width: 7.8125rem;
 }
-.nav-user p {
-  font-size: 0.875rem;
-  color: #333333;
-  text-transform: capitalize;
-}
-.nav-user .avatar {
-  width: 36px;
-  height: 36px;
-  border-radius: 12px;
-  cursor: pointer;
-}
-
-.notification {
+.header-nav .nav-user .notification {
   position: relative;
   padding: 0.15rem;
 }
-.notification .bell {
+.header-nav .nav-user .notification .bell {
   width: 20px;
   height: 20px;
 }
-.notification .dot {
+.header-nav .nav-user .notification .dot {
   position: absolute;
   top: 1.5px;
   right: 1px;
@@ -158,6 +146,12 @@ REMs:
   height: 4px;
   border-radius: 50%;
   background-color: rgb(241, 2, 2);
+}
+.header-nav .nav-user .avatar {
+  width: 36px;
+  height: 36px;
+  border-radius: 12px;
+  cursor: pointer;
 }
 
 /* Pet Overview - users/show.ejs */
@@ -197,20 +191,19 @@ REMs:
   padding: 0.62rem 0 0 0;
 }
 .pet-overview .add-pet {
-  background-color: #dfdfdf;
-  display: flex;
-  justify-content: center;
+  background-color: #e8e8e8;
   align-items: center;
-  min-width: 11rem;
 }
 .pet-overview .add-pet a {
   position: relative;
-  font-size: 0.875rem;
-  color: #333333;
+  font-size: 1.125rem;
+  font-weight: 500;
+  color: #4C4C4C;
+  letter-spacing: 0.03375rem;
 }
 .pet-overview .add-pet a:before {
   content: url("/images/add.svg");
   position: absolute;
-  left: -18px;
-  bottom: -2px;
+  left: -30px;
+  bottom: -7px;
 }
