@@ -13,7 +13,7 @@ REMs:
 */
 /* Landing Page */
 .anonymous-home {
-  background-color: #9be89b;
+  background-color: #3DDC99;
   height: 100vh;
 }
 .anonymous-home section {
@@ -73,11 +73,15 @@ REMs:
   letter-spacing: 0.03375rem;
   font-size: 1.125rem;
   padding: 0.375rem 0;
-  border: 1px solid #50a2ff;
+  border: 1px solid #0094FF;
   border-radius: 2.5rem;
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.user-name {
+  text-transform: capitalize;
 }
 
 /* Header Styles */
@@ -101,7 +105,7 @@ REMs:
   color: #333333;
 }
 .nav-items a:hover {
-  color: #50a2ff;
+  color: #0057A0;
 }
 .nav-items .logo {
   margin: 0.25rem 0.625rem 0 0;
@@ -159,9 +163,12 @@ REMs:
 /* Pet Overview - users/show.ejs */
 .pet-overview {
   display: flex;
-  justify-content: center;
+  flex-wrap: wrap;
   margin: 40px 0;
-  gap: 2rem;
+  column-gap: 2rem;
+}
+.pet-overview h2 {
+  width: 100%;
 }
 .pet-overview .pet-card {
   position: relative;

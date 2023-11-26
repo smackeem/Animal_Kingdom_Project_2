@@ -2,9 +2,10 @@ $peach: #ff9a8b;
 $lemon: #ffe26f;
 $gray: #dfdfdf;
 $darkGray: #333333;
-$avocado: #9be89b;
+$avocado: #3DDC99;
 $lime: #009757;
-$link-blue: #50a2ff;
+$blue-primary: #0057A0;
+$blue-secondary: #0094FF;
 
 /*
 REMs:
@@ -82,12 +83,16 @@ REMs:
     letter-spacing: 0.03375rem;
     font-size    : 1.125rem;
     padding      : .375rem 0;
-    border       : 1px solid $link-blue;
+    border       : 1px solid $blue-secondary;
     border-radius: 2.5rem;
     display: flex;
     align-items: center;
     justify-content: center;
   }
+}
+
+.user-name {
+    text-transform: capitalize;
 }
 
 /* Header Styles */
@@ -110,7 +115,7 @@ REMs:
         color: $darkGray;
     }
     a:hover {
-        color: $link-blue;
+        color: $blue-primary;
     }
 	.logo {
         margin: .25rem .625rem 0 0;
@@ -169,9 +174,12 @@ REMs:
 /* Pet Overview - users/show.ejs */
 .pet-overview {
 	display: flex;
-	justify-content: center;
+    flex-wrap: wrap;
 	margin: 40px 0;
-	gap: 2rem;
+	column-gap: 2rem;
+    h2 {
+        width: 100%;
+    }
 	.pet-card {
         position: relative;
         div {

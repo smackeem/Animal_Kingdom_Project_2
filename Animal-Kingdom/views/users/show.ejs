@@ -1,10 +1,12 @@
 <%- include('../partials/header') %>
 
+<h1>Welcome back, <span class="user-name"><%= user.firstName %></span></h1>
+
 <!-- Owner -->
 <% if(user.userType==="Owner" ){ %>
-
   <!-- Pets Overview -->
   <section class="pet-overview">
+    <h2>Your Pets</h2>
     <% if(pets.length){ %>
       <% pets.forEach(p=> { %>
         <div class="card pet-card">
@@ -42,6 +44,7 @@
 
   <!-- Appointments Overview -->
   <section class="apointments">
+    <h2>Calendar</h2>
   </section>
 
   <% } %>
