@@ -4,6 +4,9 @@ const router = express.Router();
 
 const userCtrl = require("../controllers/users");
 
+// Route to handle user dashboard
+router.get("/profile/:id", userCtrl.show);
+
 // Route to render the signup page
 router.get("/signup", (req, res, next) => {
   res.render("users/signup", { errMsg: "" });

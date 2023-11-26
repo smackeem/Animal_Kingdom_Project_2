@@ -1,9 +1,9 @@
-//controllers/users.js
+// controller/user.js
 const jwt = require("jsonwebtoken");
 const User = require("../models/users");
 const Pet = require("../models/pet");
 const Record = require("../models/record");
-
+const mongoose = require("mongoose"); // Added for ObjectId validation
 const bcrypt = require("bcryptjs");
 
 module.exports = {
@@ -14,23 +14,9 @@ module.exports = {
 
 async function create(req, res, next) {
   const newUser = new User(req.body);
-  newUser.address = req.body;
+  newUser.address = req.body.address; // Corrected address assignment
   console.log(newUser);
   try {
-    await newUser
-      .save()
-      .then((newUser) => {
-        const token = jwt.sign({ _id: newUser._id }, process.env.SECRET, {
-          expiresIn: "60 days",
-        });
-        res.cookie("nToken", token, { maxAge: 900000, httpOnly: true });
-        return res.redirect("/user/login");
-      })
-      .catch((error) => {
-        console.log(error); // Log the error for debugging
-        res.status(500).send("Error saving user: " + error.message);
-      });
-    // res.redirect("/user/login");
     await newUser
       .save()
       .then((newUser) => {
@@ -50,7 +36,6 @@ async function create(req, res, next) {
   }
 }
 
-// Using an async function for login
 async function login(req, res) {
   try {
     const user = await User.findOne({ username: req.body.username }).exec();
@@ -65,6 +50,10 @@ async function login(req, res) {
       return;
     }
 
+    const token = jwt.sign({ _id: user._id }, process.env.SECRET, {
+      expiresIn: "60 days",
+    });
+    res.cookie("nToken", token, { maxAge: 900000, httpOnly: true });
     res.redirect(`/user/${user._id}`);
   } catch (error) {
     console.error("Login error:", error);
@@ -73,8 +62,15 @@ async function login(req, res) {
 }
 
 async function show(req, res, next) {
+  const userId = req.params.id;
+
+  // ObjectId validation
+  if (!mongoose.Types.ObjectId.isValid(userId)) {
+    return res.status(400).send("Invalid ID");
+  }
+
   try {
-    const user = await User.findById(req.params.id);
+    const user = await User.findById(userId);
     const pets = await Pet.find({ owner: { _id: user._id } }).populate("owner");
     const vetRecords = await Record.find({ vet: { _id: user._id } }).populate(
       "pet"
@@ -88,7 +84,7 @@ async function show(req, res, next) {
     });
   } catch (err) {
     console.log(err);
-    res.redirect(`/user/${req.params.id}`);
+    res.redirect(`/user/${userId}`);
   }
 }
 

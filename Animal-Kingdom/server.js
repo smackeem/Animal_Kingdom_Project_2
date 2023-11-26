@@ -1,3 +1,4 @@
+// server.js is the entry point for the application. It is responsible for requiring the necessary packages, setting up the database, and starting the server.
 const createError = require("http-errors");
 const express = require("express");
 const path = require("path");
@@ -15,7 +16,7 @@ const indexRouter = require("./routes/index");
 const recordsRouter = require("./routes/records");
 const petRouter = require("./routes/pet");
 const userRouter = require("./routes/user");
-const appointmentRouter = require('./routes/appointment');
+const appointmentRouter = require("./routes/appointment");
 
 const app = express();
 
@@ -32,8 +33,9 @@ app.use(methodOverride("_method"));
 
 app.use("/", indexRouter);
 app.use("/", recordsRouter);
-app.use('/', petRouter);
-app.use('/', appointmentRouter);
+app.use("/", petRouter);
+app.use("/appointments", appointmentRouter);
+
 app.use("/user", userRouter);
 
 // Catch 404 and forward to error handler

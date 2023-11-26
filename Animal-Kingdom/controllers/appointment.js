@@ -15,11 +15,10 @@ module.exports = {
 async function index(req, res) {
   try {
     const appointments = await Appointment.find({});
-    res.render(
-      "appointments/index",
-      { title: "All Appointments" },
-      appointments
-    );
+    res.render("appointment/index", {
+      title: "All Appointments",
+      appointments, // Pass 'appointments' as part of the object
+    });
   } catch (err) {
     console.log(err);
     res.redirect("/");
@@ -30,8 +29,8 @@ async function index(req, res) {
 async function create(req, res) {
   req.body.reason = req.body.reason.trim();
   req.body.date = req.body.date.trim();
-  let appointment = await Appointment.create(req.body);
   try {
+    let appointment = new Appointment(req.body);
     appointment.pet = await Pet.findById(req.body.pet);
     appointment.vet = await User.findById(req.params.id);
     await appointment.save();
@@ -44,16 +43,16 @@ async function create(req, res) {
 
 // async function appointments show
 async function show(req, res) {
+  console.log("Appointment ID:", req.params.id); // Debugging line
   try {
     const appointment = await Appointment.findById(req.params.id);
-    res.render(
-      "appointments/show",
-      { title: "Appointment Details" },
-      appointment
-    );
+    res.render("appointment/show", {
+      title: "Appointment Details",
+      appointment, // Pass 'appointment' as part of the object
+    });
   } catch (err) {
     console.log(err);
-    res.redirect(`/user/${appointment.vet._id}`);
+    res.redirect(`/user/${req.params.id}`);
   }
 }
 
@@ -61,7 +60,10 @@ async function show(req, res) {
 async function edit(req, res) {
   try {
     const appointment = await Appointment.findById(req.params.id);
-    res.render("appointments/edit", { title: "Edit Appointment" }, appointment);
+    res.render("appointment/edit", {
+      title: "Edit Appointment",
+      appointment, // Pass 'appointment' as part of the object
+    });
   } catch (err) {
     console.log(err);
   }
