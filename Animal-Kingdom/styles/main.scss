@@ -5,6 +5,20 @@ $darkGray: #333333;
 $avocado: #9be89b;
 $link-blue: #50a2ff;
 
+/*
+REMs:
+40px -> 2.5
+32px -> 2
+24px -> 1.5
+18px -> 1.125
+14px -> 0.875
+12px -> 0.75
+10px -> 0.625
+8px -> 0.5
+6px -> 0.375
+4px -> 0.25
+*/
+
 /* Card Styles */
 .card {
   background-color: #fff;
@@ -50,8 +64,15 @@ $link-blue: #50a2ff;
 	display: flex;
 	align-items: center;
 	gap: 1rem;
+    a {
+        color: $darkGray;
+    }
+    a:hover {
+        color: $link-blue;
+    }
 	.logo {
-		max-height: 40px;
+        margin: .25rem .625rem 0 0;
+		max-height: 2.5rem;
 	}
 }
 
