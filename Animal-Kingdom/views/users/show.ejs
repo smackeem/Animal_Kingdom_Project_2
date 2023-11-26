@@ -48,12 +48,15 @@
 
   
   <% if(user.userType==="Veterinarian" ) { %>
-    <h3>Your Patients</h3>
+    <section class="pet-overview"> 
+    
     <div>
       <% if(patients.length){ %>
         <% patients.forEach(p=> { %>
+          <div class="card pet-card">
           <div>
-            <br />
+            <img class='pet-img' src="/images/pet.jpg" alt="Pet">
+            <div class="pet-info">
             <h4>
               <%= p._doc.name %>
             </h4>
@@ -65,16 +68,23 @@
             </p>
             <p>DOB: <%= p._doc.DOB.toLocaleDateString() %>
             </p>
-            <br />
-            <a href="/user/<%= user._id %>/pets/<%= p._doc._id %>">Medical Records</a> |
           </div>
+            <br />
+            <a class='card-btn' href="/user/<%= user._id %>/pets/<%= p._doc._id %>">Medical Records</a>
+          </div>
+        </div>
           <% }) %>
             <% } else{ %>
+              <div class="card pet-card">
+                <div class="pet-info">
               <p>No Patients Yet. <a href="/user/<%= user._id %>/records/new">Create Medical Record</a></p>
               </p>
+            </div>
+            </div>
   
               <% } %>
                 <% } %>
     </div>
+  </section>
 
 <%- include('../partials/footer') %>
