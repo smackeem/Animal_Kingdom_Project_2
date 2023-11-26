@@ -39,7 +39,8 @@ async function index(req, res, next){
     try{
         const user = await User.findById(req.params.id);
         const availabilities = await Appointment.find({vet: req.params.id, isAvailable: true});
-        res.render('appointments/index', {title: 'Your Availabilities', availabilities, user})
+        const appointments = await Appointment.find({isAvailable: true});
+        res.render('appointments/index', {title: 'Your Availabilities', availabilities, user, appointments})
     }catch(err){
         console.log(err);
     }
@@ -59,8 +60,8 @@ async function petAppt(req, res, next){
     try{
         const user = await User.findById(req.params.userId);
         const pets = await Pet.find({owner: req.params.userId});
-        const appointments = await Appointment.find({isAvailable: true});
-        res.render('appointments/book',{title: "Book Appointment", user, pets, appointments})
+        const appointment = await Appointment.findById(req.params.id);
+        res.render('appointments/book',{title: "Book Appointment", user, pets, appointment})
     }catch(err){
         console.log(err);
     }
@@ -68,11 +69,12 @@ async function petAppt(req, res, next){
 
 async function book(req, res, next){
     req.body.reason = req.body.reason.trim()
+    req.body.isAvailable = false;
     try{
         const appointment = await Appointment.findByIdAndUpdate(req.params.id, req.body);
-        res.redirect(`user/${req.params.userId}`);
+        res.redirect(`/user/${req.params.userId}`);
     }catch(err){
         console.log(err);
-        res.redirect(`/user/${req.params.userId}`/appointments);
+        res.redirect(`/user/${req.params.userId}`);
     }
 }

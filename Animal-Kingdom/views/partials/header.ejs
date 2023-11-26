@@ -10,6 +10,10 @@
       <!-- Navigation bar, logo, etc. -->
       <nav>
           <a href="/user/<%=user._id%>">Home</a> |
+          <% if(user.userType === "Owner"){ %>
+            <a href="/user/<%=user._id%>/appointments">Book Appointment</a> |
+          <% } %>
+
           <% if(user.userType === "Veterinarian"){ %>
             <a href="/user/<%=user._id%>/appointments/new">Add Availability</a> |
             <a href="/user/<%=user._id%>/records/new">New Patient Record</a> 

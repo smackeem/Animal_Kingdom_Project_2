@@ -9,6 +9,7 @@
                 <th></th>
             </tr>
         </thead>
+        <% if(user.userType === "Veterinarian"){ %>
         <tbody>
             <% availabilities.forEach(a => { %> 
             <tr>
@@ -20,8 +21,22 @@
             </form>
             </tr>
             <% }) %>
-            <br/><br/><a href="/user/<%= user._id %>/appointments/new">Add More</a>
+            
         </tbody>
+        <br/><br/><a href="/user/<%= user._id %>/appointments/new">Add More</a>
+        <% } %>
+        <% if(user.userType === "Owner"){ %>
+            <tbody>
+                <% appointments.forEach(a => { %> 
+                <tr>
+                    <td><%= a.date.toLocaleDateString() %></td>
+                    <td><%= a.date.toLocaleTimeString() %></td>
+                    <td><a href="/user/<%=user._id %>/appointments/<%=a._id %>/book">BOOK</a></td>
+                </tr>
+                <% }) %>
+            </tbody>
+            <% } %>
+
     </table>
 
 
