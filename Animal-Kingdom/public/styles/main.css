@@ -254,7 +254,10 @@
   padding: 0;
   max-width: 30%;
   margin: 1rem auto 0;
+}
+.appointments-overview div form button:hover {
   text-decoration: underline;
+  text-underline-offset: 2px;
 }
 
 /* Pet Overview - users/show.ejs */
@@ -342,7 +345,8 @@
 }
 
 /* Edit Pet */
-.edit-pet {
+.edit-pet,
+.book-appointment {
   padding: 2.88rem 2.62rem;
   background-color: white;
   border-radius: 0.5rem;
@@ -351,10 +355,13 @@
   margin: 3rem auto;
 }
 .edit-pet h2,
-.edit-pet a {
+.edit-pet a,
+.book-appointment h2,
+.book-appointment a {
   text-align: center;
 }
-.edit-pet a {
+.edit-pet a,
+.book-appointment a {
   display: block;
   margin-top: 1rem;
 }

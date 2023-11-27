@@ -37,6 +37,11 @@ a {
   text-decoration: none;
 }
 
+a:hover {
+  text-decoration      : underline;
+  text-underline-offset: 4px;
+}
+
 button {
   border          : 1px solid var(--blue-secondary);
   background-color: transparent;

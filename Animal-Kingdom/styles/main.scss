@@ -275,7 +275,10 @@ $danger: #e73b3b;
 				padding: 0;
 				max-width: 30%;
 				margin: 1rem auto 0;
-				text-decoration: underline;
+				&:hover {
+					text-decoration: underline;
+					text-underline-offset: 2px;
+				}
 			}
 		}
 	}
@@ -366,7 +369,8 @@ $danger: #e73b3b;
 }
 
 /* Edit Pet */
-.edit-pet {
+.edit-pet,
+.book-appointment {
 	padding: 2.88rem 2.62rem;
 	background-color: white;
 	border-radius: 0.5rem;
@@ -382,6 +386,8 @@ $danger: #e73b3b;
 		margin-top: 1rem;
 	}
 }
+
+
 
 // Utilities
 .btn-save {
