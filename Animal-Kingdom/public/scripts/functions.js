@@ -5,14 +5,6 @@ const popup = document.querySelector(".popup");
 const closeBtn = document.querySelector(".close-btn");
 
 // partials/header.ejs
-const avatar = document.querySelector(".avatar");
-const dropdown = document.querySelector(".nav-user ul");
-
-// partials/header.ejs
-const avatar = document.querySelector(".avatar");
-const dropdown = document.querySelector(".nav-user ul");
-
-// partials/header.ejs
 avatar.addEventListener("click", () => {
   dropdown.classList.toggle("hidden");
 });
@@ -25,14 +17,22 @@ closeBtn.addEventListener("click", () => {
   popup.classList.add("hidden");
 });
 
-// users/signup.ejs
 function toggleSpecializationField() {
   console.log("toggleSpecializationField called"); // For debugging
   const userType = document.querySelector("#userType").value;
   const specField = document.querySelector(".specialization-field");
+  const specializationInput = document.querySelector(
+    "input[name='specialization']"
+  );
+
   if (userType === "Veterinarian") {
-    specField.style.display = "flex";
+    specField.style.display = "flex"; // Show the field
+    specializationInput.required = true;
+    console.log("Specialization field should be visible and required"); // For debugging
   } else {
-    specField.style.display = "none";
+    specField.style.display = "none"; // Hide the field
+    specializationInput.required = false;
+    specializationInput.value = ""; // Clear the input
+    console.log("Specialization field should be hidden and not required"); // For debugging
   }
 }
