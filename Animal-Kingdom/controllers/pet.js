@@ -55,15 +55,6 @@ async function show(req, res) {
     console.log(err);
     res.redirect(`/user/${pet.owner._id}`);
   }
-  try {
-    const pet = await Pet.findById(req.params.id);
-    const records = await Record.find({ pet: pet._id });
-    console.log(records);
-    res.render("pets/show", { title: "Pet Profile" }, pet, records);
-  } catch (err) {
-    console.log(err);
-    res.redirect(`/user/${pet.owner._id}`);
-  }
 }
 
 async function deletePet(req, res) {
