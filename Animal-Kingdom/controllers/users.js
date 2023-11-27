@@ -23,7 +23,8 @@ async function create(req, res, next) {
           expiresIn: "60 days",
         });
         res.cookie("nToken", token, { maxAge: 900000, httpOnly: true });
-        return res.redirect("/user/login");
+        res.redirect("/user/login");
+        return;
       })
       .catch((error) => {
         return; 
