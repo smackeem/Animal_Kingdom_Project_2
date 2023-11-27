@@ -12,23 +12,26 @@
     <link rel="stylesheet" href="/styles/main.css">
 </head>
 
-  <body>
+  <body class="anonymous">
     <main>
-      <h1>Login</h1>
-      <form action="/user/login" method="post">
-        <div>
-          <label for="username">Username:</label>
-          <input type="text" id="username" name="username" required />
-        </div>
-        <div>
-          <label for="password">Password:</label>
-          <input type="password" id="password" name="password" required />
-        </div>
-        <button type="submit">Login</button>
-      </form>
+      <section>
+        <img src="/images/AKlogo-white.svg" alt="Animal Kingdom">
 
-      <p>Don't have an account? <a href="/user/signup">Sign up</a></p>
-      <br />
-      <p><%= errMsg %></p>
+        <form action="/user/login" method="post">
+          <div>
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" required />
+          </div>
+          <div>
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required />
+          </div>
+          <button type="submit">Login</button>
+        </form>
+  
+        <p>Don't have an account? <a href="/user/signup">Sign up</a></p>
+        <br />
+        <p><%= errMsg %></p>
+      </section>
 
 <%- include('../partials/footer') %>

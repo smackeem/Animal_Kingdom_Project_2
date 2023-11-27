@@ -12,23 +12,20 @@ REMs:
 4px -> 0.25
 */
 /* Landing Page */
-.login {
+.anonymous {
   background-color: #3ddc99;
 }
-.login .anonymous-home {
+.anonymous section {
   height: 100vh;
-}
-.login .anonymous-home section {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 100%;
 }
-.login .anonymous-home section img:first-child {
+.anonymous section img:first-child {
   margin-bottom: 3.56rem;
 }
-.login .anonymous-home section a {
+.anonymous section a {
   background-color: #009757;
   color: #fff;
   width: 22.25rem;
@@ -42,8 +39,11 @@ REMs:
   font-size: 1.5rem;
   letter-spacing: 0.045rem;
 }
-.login .anonymous-home section img:last-child {
+.anonymous section img:last-child {
   margin-top: 1.32rem;
+}
+.anonymous .specialization-field {
+  display: none;
 }
 
 /* Card Styles */

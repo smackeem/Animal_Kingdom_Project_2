@@ -23,38 +23,40 @@ REMs:
 */
 
 /* Landing Page */
-.login {
+.anonymous {
 	background-color: $avocado;
-	.anonymous-home {
+
+	section {
 		height: 100vh;
-		section {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		img:first-child {
+			margin-bottom: 3.56rem;
+		}
+		a {
+			background-color: $lime;
+			color: #fff;
+			width: 22.25rem;
+			padding: 1.25rem 0;
+			margin-bottom: 1.81rem;
+			border-radius: 0.5625rem;
 			display: flex;
-			flex-direction: column;
-			justify-content: center;
 			align-items: center;
-			height: 100%;
-			img:first-child {
-				margin-bottom: 3.56rem;
-			}
-			a {
-				background-color: $lime;
-				color: #fff;
-				width: 22.25rem;
-				padding: 1.25rem 0;
-				margin-bottom: 1.81rem;
-				border-radius: 0.5625rem;
-				display: flex;
-				align-items: center;
-				justify-content: center;
-				font-weight: 700;
-				font-size: 1.5rem;
-				letter-spacing: 0.045rem;
-			}
-			img:last-child {
-				margin-top: 1.32rem;
-			}
+			justify-content: center;
+			font-weight: 700;
+			font-size: 1.5rem;
+			letter-spacing: 0.045rem;
+		}
+		img:last-child {
+			margin-top: 1.32rem;
 		}
 	}
+
+    .specialization-field {
+        display: none;
+      }
 }
 
 /* Card Styles */
@@ -97,6 +99,7 @@ REMs:
 .user-name {
 	text-transform: capitalize;
 }
+
 
 
 /* Header Styles */
