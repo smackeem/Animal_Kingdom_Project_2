@@ -25,9 +25,6 @@ async function create(req, res, next) {
         res.cookie("nToken", token, { maxAge: 900000, httpOnly: true });
         res.redirect("/user/login");
         return;
-      })
-      .catch((error) => {
-        return; 
       }).catch((error) => {
         console.log(error); // Log the error for debugging
         res.status(500).send("Error saving user: " + error.message);
