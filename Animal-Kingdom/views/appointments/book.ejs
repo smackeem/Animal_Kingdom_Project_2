@@ -1,26 +1,24 @@
 <%- include('../partials/header') %>
 
     <section class="appt-reason">
-
+        <h2>Appointment Details</h2>
         <form action="/user/<%= user._id%>/appointments/<%= appointment._id %>?_method=PUT" method="POST">
 
             <label for="pet">Pet</label>
             <select name="pet" id="">
                 <% pets.forEach(p=> { %>
-                    <option value="<%= p._id %>">Name: <%= p.name%> DOB: <%= p.DOB.toLocaleDateString() %>
+                    <option value="<%= p._id %>">Name <%= p.name%>, DOB <%= p.DOB.toLocaleDateString() %>
                     </option>
                     <% }) %>
             </select>
 
             <label for="reason">Reason</label>
             <textarea name="reason" id="" cols="20" rows="5"></textarea>
-            <!-- <input type="text" name="reason"> -->
 
-
-            <label for="isAvailable">Availability</label>
-
-            <button type="submit">Book Appointment</button>
+            <button class='btn-save' type="submit">Book Appointment</button>
         </form>
+
+        <a href="/user/<%= user._id %>">Cancel</a>
 
     </section>
     <%- include('../partials/footer') %>

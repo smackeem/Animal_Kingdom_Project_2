@@ -243,27 +243,28 @@ $danger: #e73b3b;
 	margin: 4.38rem 0;
 	div {
 		display: flex;
-		gap: .88rem;
+		flex-wrap: wrap;
+		gap: 0.88rem;
 		form {
-			font-size: .875rem;
-			font-weight: 700;
+			font-size: 0.875rem;
 			padding: 1.25rem;
 			max-width: 16.6875rem;
-			border: 2px solid #96CFB7;
-			border-radius: .5rem;
+			border: 2px solid #96cfb7;
+			border-radius: 0.5rem;
 			background-color: #fff;
 			letter-spacing: 0.02625rem;
 			> p:first-child {
-				font-size:1rem;
+				font-size: 1rem;
+				font-weight: 700;
 			}
 			.date {
 				display: flex;
-				margin: .35rem 0;
+				margin: 0.35rem 0;
 				p:last-child {
 					position: relative;
 					margin-left: 15px;
 					&:before {
-						content:url('/images/clock.svg');
+						content: url('/images/clock.svg');
 						position: absolute;
 						bottom: -2px;
 						left: -18px;
@@ -280,6 +281,37 @@ $danger: #e73b3b;
 					text-underline-offset: 2px;
 				}
 			}
+		}
+		.book-appt {
+			width: 16.6875rem;
+			background-color: $gray;
+			align-items: center;
+			min-height: 8.75rem;
+			a {
+				position: relative;
+				font-size: 1.125rem;
+				font-weight: 500;
+				color: $dark-gray;
+				letter-spacing: 0.03375rem;
+				padding: 0;
+				border: 0;
+			}
+			a:before {
+				content: url('/images/add.svg');
+				position: absolute;
+				left: -30px;
+				bottom: -7px;
+			}
+		}
+	}
+}
+
+.book-appointment {
+	table {
+		width: 100%;
+		text-align: center;
+		a {
+			margin: 0;
 		}
 	}
 }
@@ -384,16 +416,6 @@ $danger: #e73b3b;
 	a {
 		display: block;
 		margin-top: 1rem;
-	}
-}
-
-.book-appointment {
-	table {
-		width: 100%;
-		text-align: center;
-		a{
-			margin: 0;
-		}
 	}
 }
 

@@ -220,20 +220,21 @@
 }
 .appointments-overview div {
   display: flex;
+  flex-wrap: wrap;
   gap: 0.88rem;
 }
 .appointments-overview div form {
   font-size: 0.875rem;
-  font-weight: 700;
   padding: 1.25rem;
   max-width: 16.6875rem;
-  border: 2px solid #96CFB7;
+  border: 2px solid #96cfb7;
   border-radius: 0.5rem;
   background-color: #fff;
   letter-spacing: 0.02625rem;
 }
 .appointments-overview div form > p:first-child {
   font-size: 1rem;
+  font-weight: 700;
 }
 .appointments-overview div form .date {
   display: flex;
@@ -258,6 +259,35 @@
 .appointments-overview div form button:hover {
   text-decoration: underline;
   text-underline-offset: 2px;
+}
+.appointments-overview div .book-appt {
+  width: 16.6875rem;
+  background-color: #e8e8e8;
+  align-items: center;
+  min-height: 8.75rem;
+}
+.appointments-overview div .book-appt a {
+  position: relative;
+  font-size: 1.125rem;
+  font-weight: 500;
+  color: #4c4c4c;
+  letter-spacing: 0.03375rem;
+  padding: 0;
+  border: 0;
+}
+.appointments-overview div .book-appt a:before {
+  content: url("/images/add.svg");
+  position: absolute;
+  left: -30px;
+  bottom: -7px;
+}
+
+.book-appointment table {
+  width: 100%;
+  text-align: center;
+}
+.book-appointment table a {
+  margin: 0;
 }
 
 /* Pet Overview - users/show.ejs */
@@ -367,14 +397,6 @@
 .appt-reason a {
   display: block;
   margin-top: 1rem;
-}
-
-.book-appointment table {
-  width: 100%;
-  text-align: center;
-}
-.book-appointment table a {
-  margin: 0;
 }
 
 .btn-save {
