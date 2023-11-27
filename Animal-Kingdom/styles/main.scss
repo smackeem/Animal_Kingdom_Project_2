@@ -238,6 +238,49 @@ $danger: #e73b3b;
 	}
 }
 
+/* Upcoming Appointments Overview - users/show.ejs */
+.appointments-overview {
+	margin: 4.38rem 0;
+	div {
+		display: flex;
+		gap: .88rem;
+		form {
+			font-size: .875rem;
+			font-weight: 700;
+			padding: 1.25rem;
+			max-width: 16.6875rem;
+			border: 2px solid #96CFB7;
+			border-radius: .5rem;
+			background-color: #fff;
+			letter-spacing: 0.02625rem;
+			> p:first-child {
+				font-size:1rem;
+			}
+			.date {
+				display: flex;
+				margin: .35rem 0;
+				p:last-child {
+					position: relative;
+					margin-left: 15px;
+					&:before {
+						content:url('/images/clock.svg');
+						position: absolute;
+						bottom: -2px;
+						left: -18px;
+					}
+				}
+			}
+			button {
+				border: 0;
+				padding: 0;
+				max-width: 30%;
+				margin: 1rem auto 0;
+				text-decoration: underline;
+			}
+		}
+	}
+}
+
 /* Pet Overview - users/show.ejs */
 .pet-overview {
 	display: flex;

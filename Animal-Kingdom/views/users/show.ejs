@@ -44,6 +44,35 @@
 
 <!-- Owner -->
 <% if(user.userType==="Owner" ){ %>
+
+  <!-- Appointments Overview -->
+  <section class="appointments-overview">
+    <h2>Upcoming Appointments</h2>
+    <div>
+      <% petAppointments.forEach(pa=> { %>
+        <form action="/user/<%= user._id %>/appointments/<%= pa._id %>/cancel?_method=PUT" method="POST">
+          
+            <p>
+              <%= pa.pet.name %>'s Vet visit
+            </p>
+            <div class="date">
+              <p>
+                <%= pa.date.toLocaleDateString() %>
+              </p>
+              <p>
+                <%= pa.date.toLocaleTimeString()%>
+              </p>
+            </div>
+            <p>With Dr. <%= pa.vet.firstName %>
+                <%= pa.vet.lastName %>
+            </p>
+
+          <button type="submit">CANCEL</button>
+        </form>
+        <% }) %>
+    </div>
+  </section>
+
   <!-- Pets Overview -->
   <section class="pet-overview">
     <h2>Your Pets</h2>
@@ -79,21 +108,6 @@
         <button id='add-pet'>Add a Pet</button>
     </div>
   </section>
-
-  <!-- Appointments Overview -->
-  <section class="apointments">
-    <h3>Upcoming Appointments</h3>
-    <% petAppointments.forEach(pa => { %>
-      <form action="/user/<%= user._id %>/appointments/<%= pa._id %>/cancel?_method=PUT" method="POST">
-      <p><%= pa.pet.name %>'s Appointment:</p>
-      <p><%= pa.date.toLocaleDateString() %></p>
-      <p><%= pa.date.toLocaleTimeString()%></p>
-      <p>Vet: Dr. <%= pa.vet.firstName %> <%= pa.vet.lastName %></p>
-      <button type="submit">CANCEL</button>
-    </form>
-    <% }) %>
-  </section>
-
   <% } %>
 
   

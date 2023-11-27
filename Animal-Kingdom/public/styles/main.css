@@ -214,6 +214,49 @@
   cursor: pointer;
 }
 
+/* Upcoming Appointments Overview - users/show.ejs */
+.appointments-overview {
+  margin: 4.38rem 0;
+}
+.appointments-overview div {
+  display: flex;
+  gap: 0.88rem;
+}
+.appointments-overview div form {
+  font-size: 0.875rem;
+  font-weight: 700;
+  padding: 1.25rem;
+  max-width: 16.6875rem;
+  border: 2px solid #96CFB7;
+  border-radius: 0.5rem;
+  background-color: #fff;
+  letter-spacing: 0.02625rem;
+}
+.appointments-overview div form > p:first-child {
+  font-size: 1rem;
+}
+.appointments-overview div form .date {
+  display: flex;
+  margin: 0.35rem 0;
+}
+.appointments-overview div form .date p:last-child {
+  position: relative;
+  margin-left: 15px;
+}
+.appointments-overview div form .date p:last-child:before {
+  content: url("/images/clock.svg");
+  position: absolute;
+  bottom: -2px;
+  left: -18px;
+}
+.appointments-overview div form button {
+  border: 0;
+  padding: 0;
+  max-width: 30%;
+  margin: 1rem auto 0;
+  text-decoration: underline;
+}
+
 /* Pet Overview - users/show.ejs */
 .pet-overview {
   display: flex;
