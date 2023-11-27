@@ -3,7 +3,9 @@
 <!-- New Pet - Popup -->
 <div class="popup flex-center-xy hidden">
   <section class="new-pet">
-    <button class="close-btn"><img src="/images/close.svg" alt="X"></button>
+    <button class="close-btn">
+      <img src="/images/close.svg" alt="X">
+    </button>
     <h2>New Pet</h2>
     <form action="/user/<%= user._id %>/pets" method="POST">
       <label for="name">Pet name</label>
