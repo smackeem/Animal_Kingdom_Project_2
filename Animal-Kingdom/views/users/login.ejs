@@ -1,27 +1,38 @@
-<!--views/users/login.ejs-->
 <!DOCTYPE html>
 <html>
-  <head>
-    <!-- other head elements like CSS links -->
-    <link rel="stylesheet" href="/stylesheets/style.css" />
-  </head>
-  <body>
-    <main>
-      <h1>Login</h1>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <% title=typeof title !=='undefined' ? title : "Animal Kingdom" %>
+    <title>
+      <%=title%>
+    </title>
+    <link rel='stylesheet' href='/styles/default.css'>
+    <link rel="stylesheet" href="/styles/main.css">
+</head>
+
+<body class="anonymous">
+  <main class="login">
+    <section class="login-content container">
+      <h1>Log in</h1>
+
       <form action="/user/login" method="post">
-        <div>
-          <label for="username">Username:</label>
-          <input type="text" id="username" name="username" required />
-        </div>
-        <div>
-          <label for="password">Password:</label>
-          <input type="password" id="password" name="password" required />
-        </div>
-        <button type="submit">Login</button>
+        <label for="username">Username</label>
+        <input type="text" id="username" name="username" required />
+
+        <label for="password">Password</label>
+        <input type="password" id="password" name="password" required />
+
+        <button class='btn-xl' type="submit">Log in</button>
       </form>
 
-      <p>Don't have an account? <a href="/user/signup">Sign up</a></p>
-      <br />
-      <p><%= errMsg %></p>
+      <div>
+        <p class="error">
+          <%= errMsg %>
+        </p>
+        <p>Don't have an account? <a href="/user/signup">Sign up</a></p>
+      </div>
+    </section>
 
-<%- include('../partials/footer') %>
+    <%- include('../partials/footer') %>
