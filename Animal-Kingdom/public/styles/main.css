@@ -15,12 +15,15 @@ REMs:
 .anonymous {
   background-color: #3ddc99;
 }
-.anonymous section {
-  height: 100vh;
+.anonymous section,
+.anonymous .login {
   display: flex;
-  flex-direction: column;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+.anonymous section {
+  flex-direction: column;
 }
 .anonymous section img:first-child {
   margin-bottom: 3.56rem;
@@ -41,6 +44,16 @@ REMs:
 }
 .anonymous section img:last-child {
   margin-top: 1.32rem;
+}
+.anonymous .login .login-container {
+  background-color: #fff;
+  height: 70%;
+  padding: 3.88rem 3.62rem;
+  border-radius: 0.5rem;
+  justify-content: space-between;
+}
+.anonymous .login .login-container h1 {
+  margin: 0 0 2.5rem;
 }
 .anonymous .specialization-field {
   display: none;

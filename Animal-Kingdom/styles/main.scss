@@ -7,6 +7,7 @@ $lime: #009757;
 $blue-primary: #0057a0;
 $blue-secondary: #0094ff;
 $border-color: #dadada;
+$input-border-color: #CBCBCB;
 
 /*
 REMs:
@@ -26,12 +27,16 @@ REMs:
 .anonymous {
 	background-color: $avocado;
 
+    section,
+    .login {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+    }
+
 	section {
-		height: 100vh;
-		display: flex;
 		flex-direction: column;
-		justify-content: center;
-		align-items: center;
 		img:first-child {
 			margin-bottom: 3.56rem;
 		}
@@ -53,10 +58,22 @@ REMs:
 			margin-top: 1.32rem;
 		}
 	}
+	.login {
+		.login-container {
+			background-color: #fff;
+			height: 70%;
+            padding: 3.88rem 3.62rem;
+            border-radius: .5rem;
+            justify-content: space-between;
+            h1 {
+                margin: 0 0 2.5rem;
+            }
+		}
+	}
 
-    .specialization-field {
-        display: none;
-      }
+	.specialization-field {
+		display: none;
+	}
 }
 
 /* Card Styles */
@@ -99,8 +116,6 @@ REMs:
 .user-name {
 	text-transform: capitalize;
 }
-
-
 
 /* Header Styles */
 .header-nav {

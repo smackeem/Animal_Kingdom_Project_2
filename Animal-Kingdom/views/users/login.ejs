@@ -8,30 +8,29 @@
     <title>
       <%=title%>
     </title>
-    <link rel='stylesheet' href='/styles/style.css'>
+    <link rel='stylesheet' href='/styles/default.css'>
     <link rel="stylesheet" href="/styles/main.css">
 </head>
 
   <body class="anonymous">
-    <main>
-      <section>
-        <img src="/images/AKlogo-white.svg" alt="Animal Kingdom">
+    <main class="login">
+      <section class="login-container">
+        <h1>Log in</h1>
 
         <form action="/user/login" method="post">
-          <div>
-            <label for="username">Username:</label>
+            <label for="username">Username</label>
             <input type="text" id="username" name="username" required />
-          </div>
-          <div>
+
             <label for="password">Password:</label>
             <input type="password" id="password" name="password" required />
-          </div>
+
           <button type="submit">Login</button>
         </form>
   
-        <p>Don't have an account? <a href="/user/signup">Sign up</a></p>
-        <br />
-        <p><%= errMsg %></p>
+        <div>
+          <p>Don't have an account? <a href="/user/signup">Sign up</a></p>
+          <p><%= errMsg %></p>
+        </div>
       </section>
 
 <%- include('../partials/footer') %>
