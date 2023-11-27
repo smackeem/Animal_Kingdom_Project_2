@@ -15,7 +15,7 @@ module.exports = {
 
 async function create(req, res) {
   const newUser = new User(req.body);
-  newUser.address = req.body.address; // Corrected address assignment
+  newUser.address = req.body; // Corrected address assignment
   console.log(newUser);
   try {
     await newUser
