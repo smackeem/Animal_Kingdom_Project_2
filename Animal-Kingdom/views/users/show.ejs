@@ -33,7 +33,7 @@
 
       <button type="submit">Create Pet Profile</button>
     </form>
-    <a href="/user/<%= user._id %>">Cancel</a>
+    <button id="cancel-close">Cancel</button>
   </section>
 </div>
 
@@ -96,7 +96,7 @@
   
   <% if(user.userType==="Veterinarian" ) { %>
     <section class="pet-overview"> 
-    
+      <h2>Your Patients</h2>
     <div>
       <% if(patients.length){ %>
         <% patients.forEach(p=> { %>
@@ -124,8 +124,8 @@
             <% } else{ %>
               <div class="card pet-card">
                 <div class="pet-info">
-              <p>No Patients Yet. <a href="/user/<%= user._id %>/records/new">Create Medical Record</a></p>
-              </p>
+              <p>No Patients Yet.</p> <p><a href="/user/<%= user._id %>/records/new">Create Medical Record</a></p>
+            
             </div>
             </div>
   
