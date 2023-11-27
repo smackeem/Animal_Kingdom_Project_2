@@ -51,7 +51,7 @@
           <div>
             <label for="state">State</label>
             <select name="state" required>
-              <option value="" disabled>Select State</option>
+              <option value="" disabled selected>Select State</option>
               <option value="AL">AL</option>
               <option value="AK">AK</option>
               <option value="AZ">AZ</option>
@@ -116,14 +116,14 @@
 
         <label for="userType">Are you a Pet Owner or a Veterinarian?</label>
         <select name="userType" id="userType" onchange="toggleSpecializationField()" required>
-          <option value="" disabled>Select One</option>
+          <option value="" disabled selected>Select One</option>
           <option value="Owner">Owner</option>
           <option value="Veterinarian">Veterinarian</option>
         </select>
 
         <div class="specialization-field single-group">
           <label for="specialization">Specialization</label>
-          <input type="text" name="specialization" placeholder="Surgery" required />
+          <input type="text" name="specialization" placeholder="Surgery" />
         </div>
 
         <button class="btn-xl" type="submit">Sign Up</button>
