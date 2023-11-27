@@ -2,7 +2,8 @@ const Appointment = require('../models/appointment');
 const Record = require('../models/record');
 const Pet = require('../models/pet');
 const User = require('../models/users');
-
+const appointment = require('../models/appointment');
+const today = new Date();
 module.exports = {
     new: newAppt,
     create,
@@ -39,8 +40,8 @@ async function create(req, res, next){
 async function index(req, res, next){
     try{
         const user = await User.findById(req.params.id);
-        const availabilities = await Appointment.find({vet: req.params.id, isAvailable: true});
-        const appointments = await Appointment.find({isAvailable: true});
+        const availabilities = await Appointment.find({vet: req.params.id, isAvailable: true, date: {$gte: today}}).sort({date: 1});
+        const appointments = await Appointment.find({isAvailable: true, date: {$gte: today}}).sort({date: 1});
         res.render('appointments/index', {title: 'Your Availabilities', availabilities, user, appointments})
     }catch(err){
         console.log(err);

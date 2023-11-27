@@ -4,7 +4,7 @@ const User = require("../models/users");
 const Pet = require("../models/pet");
 const Record = require("../models/record");
 const Appointment = require('../models/appointment');
-
+const today = new Date();
 const bcrypt = require("bcryptjs");
 
 module.exports = {
@@ -69,8 +69,8 @@ async function show(req, res, next) {
     const vetRecords = await Record.find({vet: {_id: user._id}}).populate('pet');
     const allPatients = vetRecords.map((record) => record.pet);
     const patients = mergeDuplicates(allPatients, ['_id']);
-    const petAppointments = await Appointment.find({pet: {$in: pets}}).populate('pet').populate('vet');
-    const vetAppointments = await Appointment.find({vet: req.params.id, isAvailable: false}).populate('pet');
+    const petAppointments = await Appointment.find({pet: {$in: pets}, date: {$gte: today}}).populate('pet').populate('vet').sort({date: 1});
+    const vetAppointments = await Appointment.find({vet: req.params.id, isAvailable: false, date: {$gte: today}}).populate('pet').sort({date: 1});
     res.render("users/show", { title: `${user.username} Profile`, user, pets, vetRecords, patients, petAppointments, vetAppointments});
   } catch (err) {
     console.log(err);
