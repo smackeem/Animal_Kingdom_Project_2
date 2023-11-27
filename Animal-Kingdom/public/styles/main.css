@@ -2,12 +2,15 @@
 .anonymous {
   background-color: #3ddc99;
 }
-.anonymous section,
+.anonymous .welcome,
 .anonymous .login,
 .anonymous .signup {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+.anonymous .welcome,
+.anonymous .login {
   min-height: 100vh;
 }
 .anonymous .container {
@@ -27,6 +30,9 @@
   margin-top: 1.32rem;
 }
 .anonymous .login .login-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   background-color: #fff;
   min-height: 70%;
   height: fit-content;
@@ -56,6 +62,8 @@
   height: 1.75rem;
 }
 .anonymous .signup .signup-content {
+  display: flex;
+  align-items: center;
   margin: 5.38rem 0 3.12rem;
 }
 .anonymous .signup .signup-content h1 {

@@ -14,12 +14,16 @@ $danger: #e73b3b;
 .anonymous {
 	background-color: $avocado;
 
-	section,
+	.welcome,
 	.login,
 	.signup {
 		display: flex;
 		align-items: center;
 		justify-content: center;
+	}
+
+	.welcome,
+	.login {
 		min-height: 100vh;
 	}
 	.container {
@@ -41,6 +45,9 @@ $danger: #e73b3b;
 	}
 	.login {
 		.login-content {
+			display: flex;
+			align-items: center;
+			justify-content: center;
 			background-color: #fff;
 			min-height: 70%;
 			height: fit-content;
@@ -74,6 +81,8 @@ $danger: #e73b3b;
 	}
 	.signup {
 		.signup-content {
+			display: flex;
+			align-items: center;
 			margin: 5.38rem 0 3.12rem;
 			h1 {
 				margin: 0 0 1.25rem;
