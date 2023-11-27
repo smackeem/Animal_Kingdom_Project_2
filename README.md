@@ -21,8 +21,8 @@ Explore our Animal Kingdom:
 
 - - View our Trello Board: https://tinyurl.com/479yud33
 - - View the ERD for each Data Entity: https://tinyurl.com/5n8mtv5b
+![Animal Kingdom ERD](https://github.com/smackeem/Animal_Kingdom_Project_2/assets/43871798/2eac32cd-b6d5-4684-b1da-0970baa03164)
 
-![Animal Kingdom ERD](https://github.com/smackeem/Animal_Kingdom_Project_2/assets/51036021/2a3bfbc3-6d01-4e73-a37a-781d8448b97a)
 
 ## Key Features
 
