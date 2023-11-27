@@ -20,11 +20,16 @@
   margin    : 0;
 }
 
+html {
+  height: 100%;
+}
+
 body {
   font-family     : 'Lato', sans-serif;
   font-size       : 16px;
   background-color: var(--bg-default);
   color           : var(--font-color);
+  padding-bottom: 2rem;
 }
 
 main {
@@ -75,7 +80,8 @@ label {
 }
 
 input,
-select {
+select,
+textarea {
   border-radius : .1875rem;
   border        : 1px solid #cbcbcb;
   height        : 1.875rem;
@@ -83,6 +89,10 @@ select {
   margin        : .31rem 0 .62rem;
   font-size     : .875rem;
   letter-spacing: 0.02625rem;
+}
+
+textarea {
+  height: auto;
 }
 
 select {
