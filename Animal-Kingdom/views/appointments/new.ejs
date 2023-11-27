@@ -1,0 +1,15 @@
+<%- include('../partials/header') %>
+
+<form action="/user/<%=user._id %>/appointments" method="POST">
+
+    <label for="date">Date: 
+        <input type="datetime-local" name="date">
+    </label><br/><br/>
+
+    <label for="isAvailable">Available:
+        <input type="checkbox" name="isAvailable" checked required>
+    </label><br>
+
+    <button type="submit">Add Availability</button>
+</form>
+<%- include('../partials/footer') %>

@@ -1,86 +1,95 @@
-const Record = require("../models/record");
-const Pet = require("../models/pet");
-const User = require("../models/users");
-const Appointment = require("../models/appointment");
+const Appointment = require('../models/appointment');
+const Record = require('../models/record');
+const Pet = require('../models/pet');
+const User = require('../models/users');
 
 module.exports = {
-  index,
-  create,
-  show,
-  edit,
-  update,
-};
-
-// async function appointments index
-async function index(req, res) {
-  try {
-    const appointments = await Appointment.find({});
-    res.render("appointment/index", {
-      title: "All Appointments",
-      appointments, // Pass 'appointments' as part of the object
-    });
-  } catch (err) {
-    console.log(err);
-    res.redirect("/");
-  }
+    new: newAppt,
+    create,
+    index,
+    delete: deleteAppt,
+    book,
+    petAppt,
+    cancel
 }
 
-// async function appointments create
-async function create(req, res) {
-  req.body.reason = req.body.reason.trim();
-  req.body.date = req.body.date.trim();
-  try {
-    let appointment = new Appointment(req.body);
-    appointment.pet = await Pet.findById(req.body.pet);
-    appointment.vet = await User.findById(req.params.id);
-    await appointment.save();
-    res.redirect(`/user/${req.params.id}`);
-  } catch (err) {
-    console.log(err);
-    res.redirect(`/user/${req.params.id}`);
-  }
+async function newAppt(req, res, next){
+    try{
+        const user = await User.findById(req.params.id);
+        res.render('appointments/new',{title: 'New Medical Record', errMsg: '', user});
+    }catch(err){
+        console.log(err);
+    }
 }
 
-// async function appointments show
-async function show(req, res) {
-  console.log("Appointment ID:", req.params.id); // Debugging line
-  try {
-    const appointment = await Appointment.findById(req.params.id);
-    res.render("appointment/show", {
-      title: "Appointment Details",
-      appointment, // Pass 'appointment' as part of the object
-    });
-  } catch (err) {
-    console.log(err);
-    res.redirect(`/user/${req.params.id}`);
-  }
+async function create(req, res, next){
+    req.body.isAvailable = !!req.body.isAvailable;
+    console.log(req.body.isAvailable)
+    const appointment = await Appointment.create(req.body);
+    try{
+        appointment.vet = await User.findById(req.params.id);
+        await appointment.save();
+        res.redirect(`/user/${req.params.id}/appointments`);
+    }catch(err){
+        console.log(err)
+        res.redirect(`/user/${req.params.id}`);
+    }
 }
 
-// async function appointments edit
-async function edit(req, res) {
-  try {
-    const appointment = await Appointment.findById(req.params.id);
-    res.render("appointment/edit", {
-      title: "Edit Appointment",
-      appointment, // Pass 'appointment' as part of the object
-    });
-  } catch (err) {
-    console.log(err);
-  }
+async function index(req, res, next){
+    try{
+        const user = await User.findById(req.params.id);
+        const availabilities = await Appointment.find({vet: req.params.id, isAvailable: true});
+        const appointments = await Appointment.find({isAvailable: true});
+        res.render('appointments/index', {title: 'Your Availabilities', availabilities, user, appointments})
+    }catch(err){
+        console.log(err);
+    }
 }
 
-// async function appointments update
-async function update(req, res) {
-  try {
-    req.body.reason = req.body.reason.trim();
-    req.body.date = req.body.date.trim();
-    const appointment = await Appointment.findByIdAndUpdate(
-      req.params.id,
-      req.body,
-      { new: true }
-    );
-    res.redirect(`/user/${appointment.vet._id}`);
-  } catch (err) {
-    console.log(err);
-  }
+async function deleteAppt(req, res, next){
+    try{
+        await Appointment.findByIdAndDelete(req.params.id);
+        res.redirect(`/user/${req.params.userId}/appointments`);
+    }catch(err){
+        console.log(err);
+        res.redirect(`/user/${req.params.userId}/appointments`);
+    }
+}
+
+async function petAppt(req, res, next){
+    try{
+        const user = await User.findById(req.params.userId);
+        const pets = await Pet.find({owner: req.params.userId});
+        const appointment = await Appointment.findById(req.params.id);
+        res.render('appointments/book',{title: "Book Appointment", user, pets, appointment})
+    }catch(err){
+        console.log(err);
+    }
+}
+
+async function book(req, res, next){
+    req.body.reason = req.body.reason.trim()
+    req.body.isAvailable = false;
+    try{
+        const appointment = await Appointment.findByIdAndUpdate(req.params.id, req.body);
+        res.redirect(`/user/${req.params.userId}`);
+    }catch(err){
+        console.log(err);
+        res.redirect(`/user/${req.params.userId}`);
+    }
+}
+
+async function cancel(req, res, next){
+    try{
+        const appointment = await Appointment.findById(req.params.id);
+        appointment.pet = undefined;
+        appointment.reason = undefined;
+        appointment.isAvailable = true;
+        appointment.save();
+        res.redirect(`/user/${req.params.userId}`)
+    }catch(err){
+        console.log(err);
+        res.redirect(`/user/${req.params.userId}`);
+    }
 }

@@ -3,7 +3,8 @@ const jwt = require("jsonwebtoken");
 const User = require("../models/users");
 const Pet = require("../models/pet");
 const Record = require("../models/record");
-const mongoose = require("mongoose"); // Added for ObjectId validation
+const Appointment = require('../models/appointment');
+
 const bcrypt = require("bcryptjs");
 
 module.exports = {
@@ -62,26 +63,14 @@ async function login(req, res) {
 }
 
 async function show(req, res, next) {
-  const userId = req.params.id;
-
-  // ObjectId validation
-  if (!mongoose.Types.ObjectId.isValid(userId)) {
-    return res.status(400).send("Invalid ID");
-  }
-
   try {
-    const user = await User.findById(userId);
-    const pets = await Pet.find({ owner: { _id: user._id } }).populate("owner");
-    const vetRecords = await Record.find({ vet: { _id: user._id } }).populate(
-      "pet"
-    );
-    console.log(vetRecords);
-    res.render("users/show", {
-      title: `${user.username} Profile`,
-      user,
-      pets,
-      vetRecords,
-    });
+    const user = await User.findById(req.params.id);
+    const pets = await Pet.find({ owner: { _id: user._id } }).populate('owner');
+    const vetRecords = await Record.find({vet: {_id: user._id}}).populate('pet');
+    const allPatients = vetRecords.map((record) => record.pet);
+    const patients = mergeDuplicates(allPatients, ['_id']);
+    const petAppointments = await Appointment.find({pet: {$in: pets}}).populate('pet').populate('vet');
+    res.render("users/show", { title: `${user.username} Profile`, user, pets, vetRecords, patients, petAppointments});
   } catch (err) {
     console.log(err);
     res.redirect(`/user/${userId}`);

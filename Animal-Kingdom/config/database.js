@@ -6,7 +6,6 @@ const mongoose = require("mongoose");
 const connectionString = process.env.DATABASE_URL;
 
 //  establish connection to database
-console.log(process.env.DATABASE_URL);
 mongoose.connect(connectionString);
 
 // reference the current connection

@@ -1,0 +1,23 @@
+<%- include('../partials/header') %>
+
+<form action="/user/<%= user._id%>/appointments/<%= appointment._id %>?_method=PUT" method="POST">
+
+    <label for="pet">Pet: 
+        <select name="pet" id="">
+            <% pets.forEach(p => { %>
+                <option value="<%= p._id %>">Name: <%= p.name%> DOB: <%= p.DOB.toLocaleDateString() %></option>
+                <% }) %>
+        </select>
+    </label><br/><br/>
+
+    <label for="reason">Reason: 
+        <input type="text" name="reason">
+    </label><br/><br/>
+
+    <label for="isAvailable">Availability:
+        <input type="checkbox" name="isAvailable" disabled>
+    </label><br>
+
+    <button type="submit">Book Appointment</button>
+</form>
+<%- include('../partials/footer') %>

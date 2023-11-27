@@ -1,0 +1,47 @@
+<%- include('../partials/header') %>
+
+    <table>
+        <thead>
+            <tr>
+                <th></th>
+                <th>Date</th>
+                <th>Time</th>
+                <th></th>
+            </tr>
+        </thead>
+        <% if(user.userType === "Veterinarian"){ %>
+        <tbody>
+            <% availabilities.forEach(a => { %> 
+            <tr>
+            <form action="/user/<%= user._id %>/appointments/<%= a._id %>/?_method=DELETE" method="POST">
+                <td><button type="submit">X</button></td>
+                <td><%= a.date.toLocaleDateString() %></td>
+                <td><%= a.date.toLocaleTimeString() %></td>
+                <td><a href="/user/<%=user._id %>/appointments/<%=a._id %>/edit">EDIT</a></td>
+            </form>
+            </tr>
+            <% }) %>
+            
+        </tbody>
+        <br/><br/><a href="/user/<%= user._id %>/appointments/new">Add More</a>
+        <% } %>
+        <% if(user.userType === "Owner"){ %>
+            <tbody>
+                <% if(appointments.length){ %>
+                <% appointments.forEach(a => { %> 
+                <tr>
+                    <td><%= a.date.toLocaleDateString() %></td>
+                    <td><%= a.date.toLocaleTimeString() %></td>
+                    <td><a href="/user/<%=user._id %>/appointments/<%=a._id %>/book">BOOK</a></td>
+                </tr>
+                <% }) %>
+                <% } else{ %>
+                    <p>No Available Appointments</p>
+                    <% } %>
+            </tbody>
+            <% } %>
+
+    </table>
+
+
+<%- include('../partials/footer') %>
