@@ -23,9 +23,10 @@ async function index(req, res) {
   }
 }
 
+// Can be removed once pop up if working as expected
 async function newPet(req, res) {
-  let user = await User.findById(req.params.id);
-  res.render("pets/new", { title: "New Pet", user });
+  // let user = await User.findById(req.params.id);
+  // res.render("pets/new", { title: "New Pet", user });
 }
 
 async function create(req, res) {
