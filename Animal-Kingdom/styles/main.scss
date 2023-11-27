@@ -368,9 +368,9 @@ $danger: #e73b3b;
 	}
 }
 
-/* Edit Pet */
 .edit-pet,
-.book-appointment {
+.book-appointment,
+.appt-reason {
 	padding: 2.88rem 2.62rem;
 	background-color: white;
 	border-radius: 0.5rem;
@@ -387,7 +387,15 @@ $danger: #e73b3b;
 	}
 }
 
-
+.book-appointment {
+	table {
+		width: 100%;
+		text-align: center;
+		a{
+			margin: 0;
+		}
+	}
+}
 
 // Utilities
 .btn-save {

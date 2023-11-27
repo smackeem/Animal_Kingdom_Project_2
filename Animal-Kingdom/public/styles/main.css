@@ -344,9 +344,9 @@
   right: 1rem;
 }
 
-/* Edit Pet */
 .edit-pet,
-.book-appointment {
+.book-appointment,
+.appt-reason {
   padding: 2.88rem 2.62rem;
   background-color: white;
   border-radius: 0.5rem;
@@ -357,13 +357,24 @@
 .edit-pet h2,
 .edit-pet a,
 .book-appointment h2,
-.book-appointment a {
+.book-appointment a,
+.appt-reason h2,
+.appt-reason a {
   text-align: center;
 }
 .edit-pet a,
-.book-appointment a {
+.book-appointment a,
+.appt-reason a {
   display: block;
   margin-top: 1rem;
+}
+
+.book-appointment table {
+  width: 100%;
+  text-align: center;
+}
+.book-appointment table a {
+  margin: 0;
 }
 
 .btn-save {

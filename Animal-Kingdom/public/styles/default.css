@@ -80,7 +80,8 @@ label {
 }
 
 input,
-select {
+select,
+textarea {
   border-radius : .1875rem;
   border        : 1px solid #cbcbcb;
   height        : 1.875rem;
@@ -88,6 +89,10 @@ select {
   margin        : .31rem 0 .62rem;
   font-size     : .875rem;
   letter-spacing: 0.02625rem;
+}
+
+textarea {
+  height: auto;
 }
 
 select {
