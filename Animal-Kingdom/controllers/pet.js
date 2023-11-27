@@ -30,7 +30,6 @@ async function newPet(req, res) {
 
 async function create(req, res) {
   req.body.name = req.body.name.trim();
-  //req.body.species = req.body.species.trim()
   req.body.breed = req.body.breed.trim();
   req.body.age = req.body.age.trim();
   const pet = await Pet.create(req.body);
