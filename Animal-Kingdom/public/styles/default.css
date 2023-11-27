@@ -66,6 +66,12 @@ h2 {
 form {
   display: flex;
   flex-direction: column;
+  width: 100%;
+}
+
+label {
+  color: #000;
+  letter-spacing: 0.03rem;
 }
 
 input {
@@ -73,8 +79,21 @@ input {
   border       : 1px solid #cbcbcb;
   height: 1.875rem;
   padding: .5rem;
+  margin: .31rem 0 .62rem;
+  font-size: .875rem;
+  letter-spacing: 0.02625rem;
 }
 
-.hidden {
-  display: none !important;
-}
+/*
+REMs:
+40px -> 2.5
+32px -> 2
+24px -> 1.5
+18px -> 1.125
+14px -> 0.875
+12px -> 0.75
+10px -> 0.625
+8px -> 0.5
+6px -> 0.375
+4px -> 0.25
+*/

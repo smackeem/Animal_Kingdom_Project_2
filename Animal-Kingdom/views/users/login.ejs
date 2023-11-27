@@ -12,25 +12,27 @@
     <link rel="stylesheet" href="/styles/main.css">
 </head>
 
-  <body class="anonymous">
-    <main class="login">
-      <section class="login-container">
-        <h1>Log in</h1>
+<body class="anonymous">
+  <main class="login">
+    <section class="login-container">
+      <h1>Log in</h1>
 
-        <form action="/user/login" method="post">
-            <label for="username">Username</label>
-            <input type="text" id="username" name="username" required />
+      <form action="/user/login" method="post">
+        <label for="username">Username</label>
+        <input type="text" id="username" name="username" required />
 
-            <label for="password">Password:</label>
-            <input type="password" id="password" name="password" required />
+        <label for="password">Password</label>
+        <input type="password" id="password" name="password" required />
 
-          <button type="submit">Login</button>
-        </form>
-  
-        <div>
-          <p>Don't have an account? <a href="/user/signup">Sign up</a></p>
-          <p><%= errMsg %></p>
-        </div>
-      </section>
+        <button class='btn-xl' type="submit">Log in</button>
+      </form>
 
-<%- include('../partials/footer') %>
+      <div>
+        <p class="error">
+          <%= errMsg %>
+        </p>
+        <p>Don't have an account? <a href="/user/signup">Sign up</a></p>
+      </div>
+    </section>
+
+    <%- include('../partials/footer') %>

@@ -7,52 +7,24 @@ $lime: #009757;
 $blue-primary: #0057a0;
 $blue-secondary: #0094ff;
 $border-color: #dadada;
-$input-border-color: #CBCBCB;
-
-/*
-REMs:
-40px -> 2.5
-32px -> 2
-24px -> 1.5
-18px -> 1.125
-14px -> 0.875
-12px -> 0.75
-10px -> 0.625
-8px -> 0.5
-6px -> 0.375
-4px -> 0.25
-*/
+$input-border-color: #cbcbcb;
+$danger: #E73B3B;
 
 /* Landing Page */
 .anonymous {
 	background-color: $avocado;
 
-    section,
-    .login {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        height: 100vh;
-    }
-
+	section,
+	.login {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		height: 100vh;
+	}
 	section {
 		flex-direction: column;
 		img:first-child {
 			margin-bottom: 3.56rem;
-		}
-		a {
-			background-color: $lime;
-			color: #fff;
-			width: 22.25rem;
-			padding: 1.25rem 0;
-			margin-bottom: 1.81rem;
-			border-radius: 0.5625rem;
-			display: flex;
-			align-items: center;
-			justify-content: center;
-			font-weight: 700;
-			font-size: 1.5rem;
-			letter-spacing: 0.045rem;
 		}
 		img:last-child {
 			margin-top: 1.32rem;
@@ -61,12 +33,36 @@ REMs:
 	.login {
 		.login-container {
 			background-color: #fff;
-			height: 70%;
-            padding: 3.88rem 3.62rem;
-            border-radius: .5rem;
-            justify-content: space-between;
-            h1 {
-                margin: 0 0 2.5rem;
+			min-height: 70%;
+            height: fit-content;
+			padding: 3.88rem 3.62rem;
+			border-radius: 0.5rem;
+			justify-content: space-between;
+			h1 {
+				margin: 0 0 2.5rem;
+			}
+			form {
+				input {
+					height: 2.875rem;
+					margin: 0.31rem 0 1.88rem;
+				}
+			}
+            p {
+                color: #000;
+                font-size: 1.125rem;
+                font-weight: 700;
+                letter-spacing: 0.03375rem;
+                a {
+                    color: $lime;
+                    text-decoration: underline;
+                    text-underline-offset: .25rem;
+                }
+            &.error {
+                color: $danger;
+                text-align: center;
+                padding: 0 0 .25rem;
+                height: 1.75rem;
+            }
             }
 		}
 	}
@@ -111,10 +107,6 @@ REMs:
 		align-items: center;
 		justify-content: center;
 	}
-}
-
-.user-name {
-	text-transform: capitalize;
 }
 
 /* Header Styles */
@@ -238,4 +230,32 @@ REMs:
 			bottom: -7px;
 		}
 	}
+}
+
+.user-name {
+	text-transform: capitalize;
+}
+
+.hidden {
+  display: none !important;
+}
+
+.error {
+    color: $danger;
+}
+
+.btn-xl {
+	background-color: $lime;
+    border: 0;
+	color: #fff;
+	width: 22.25rem;
+	padding: 1.25rem 0;
+	margin-bottom: 1.81rem;
+	border-radius: 0.5625rem;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-weight: 700;
+	font-size: 1.5rem;
+	letter-spacing: 0.045rem;
 }
