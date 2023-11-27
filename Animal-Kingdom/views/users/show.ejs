@@ -62,7 +62,7 @@
                 <%= pa.date.toLocaleDateString() %>
               </p>
               <p>
-                <%= pa.date.toLocaleTimeString()%>
+                <%= pa.date.toLocaleTimeString([], { hour: "2-digit" , minute: "2-digit" })%>
               </p>
             </div>
             <p>With Dr. <%= pa.vet.firstName %>

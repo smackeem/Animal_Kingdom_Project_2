@@ -18,7 +18,7 @@
                     <tr>
                 <td><button type="submit">X</button></td>
                 <td><%= a.date.toLocaleDateString() %></td>
-                <td><%= a.date.toLocaleTimeString() %></td>
+                <td><%= a.date.toLocaleTimeString([], { hour: "2-digit" , minute: "2-digit" }) %></td>
                 <td><a href="/user/<%=user._id %>/appointments/<%=a._id %>/edit">EDIT</a></td>
             </tr>
             </form>
@@ -32,7 +32,7 @@
                 <% appointments.forEach(a => { %> 
                 <tr>
                     <td><%= a.date.toLocaleDateString() %></td>
-                    <td><%= a.date.toLocaleTimeString() %></td>
+                    <td><%= a.date.toLocaleTimeString([], { hour: "2-digit" , minute: "2-digit" }) %></td>
                     <td><a href="/user/<%=user._id %>/appointments/<%=a._id %>/book">Select</a></td>
                 </tr>
                 <% }) %>
