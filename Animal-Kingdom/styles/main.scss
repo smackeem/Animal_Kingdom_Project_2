@@ -1,26 +1,35 @@
 $peach: #ff9a8b;
 $lemon: #ffe26f;
 $gray: #e8e8e8;
-$darkGray: #4c4c4c;
+$dark-gray: #4c4c4c;
 $avocado: #3ddc99;
 $lime: #009757;
 $blue-primary: #0057a0;
 $blue-secondary: #0094ff;
 $border-color: #dadada;
 $input-border-color: #cbcbcb;
-$danger: #E73B3B;
+$danger: #e73b3b;
 
 /* Landing Page */
 .anonymous {
 	background-color: $avocado;
 
 	section,
-	.login {
+	.login,
+	.signup {
 		display: flex;
 		align-items: center;
 		justify-content: center;
-		height: 100vh;
+		min-height: 100vh;
 	}
+	.container {
+		background-color: #fff;
+		padding: 3.88rem 3.62rem;
+		border-radius: 0.5rem;
+		justify-content: space-between;
+		max-width: 30rem;
+	}
+
 	section {
 		flex-direction: column;
 		img:first-child {
@@ -31,13 +40,10 @@ $danger: #E73B3B;
 		}
 	}
 	.login {
-		.login-container {
+		.login-content {
 			background-color: #fff;
 			min-height: 70%;
-            height: fit-content;
-			padding: 3.88rem 3.62rem;
-			border-radius: 0.5rem;
-			justify-content: space-between;
+			height: fit-content;
 			h1 {
 				margin: 0 0 2.5rem;
 			}
@@ -47,23 +53,64 @@ $danger: #E73B3B;
 					margin: 0.31rem 0 1.88rem;
 				}
 			}
-            p {
-                color: #000;
-                font-size: 1.125rem;
-                font-weight: 700;
-                letter-spacing: 0.03375rem;
-                a {
-                    color: $lime;
-                    text-decoration: underline;
-                    text-underline-offset: .25rem;
-                }
-            &.error {
-                color: $danger;
-                text-align: center;
-                padding: 0 0 .25rem;
-                height: 1.75rem;
-            }
-            }
+			p {
+				color: #000;
+				font-size: 1.125rem;
+				font-weight: 700;
+				letter-spacing: 0.03375rem;
+				a {
+					color: $lime;
+					text-decoration: underline;
+					text-underline-offset: 0.25rem;
+				}
+				&.error {
+					color: $danger;
+					text-align: center;
+					padding: 0 0 0.25rem;
+					height: 1.75rem;
+				}
+			}
+		}
+	}
+	.signup {
+		.signup-content {
+			margin: 5.38rem 0 3.12rem;
+			h1 {
+				margin: 0 0 1.25rem;
+			}
+			p:first-of-type {
+				color: $dark-gray;
+				margin-bottom: 1.88rem;
+			}
+			form {
+				.input-group {
+					display: flex;
+					justify-content: space-between;
+					gap: 0.62rem;
+					div {
+						display: flex;
+						flex-direction: column;
+						width: 100%;
+					}
+				}
+				.single-group {
+					flex-direction: column;
+				}
+				button {
+					margin: 1.88rem 0;
+				}
+			}
+			p:last-of-type {
+				color: #000;
+				font-size: 1.125rem;
+				font-weight: 700;
+				letter-spacing: 0.03375rem;
+				a {
+					color: $lime;
+					text-decoration: underline;
+					text-underline-offset: 0.25rem;
+				}
+			}
 		}
 	}
 
@@ -124,7 +171,7 @@ $danger: #E73B3B;
 		align-items: center;
 		gap: 1rem;
 		a {
-			color: $darkGray;
+			color: $dark-gray;
 		}
 		a:hover {
 			color: $blue-primary;
@@ -220,7 +267,7 @@ $danger: #E73B3B;
 			position: relative;
 			font-size: 1.125rem;
 			font-weight: 500;
-			color: $darkGray;
+			color: $dark-gray;
 			letter-spacing: 0.03375rem;
 		}
 		a:before {
@@ -237,16 +284,16 @@ $danger: #E73B3B;
 }
 
 .hidden {
-  display: none !important;
+	display: none !important;
 }
 
 .error {
-    color: $danger;
+	color: $danger;
 }
 
 .btn-xl {
 	background-color: $lime;
-    border: 0;
+	border: 0;
 	color: #fff;
 	width: 22.25rem;
 	padding: 1.25rem 0;

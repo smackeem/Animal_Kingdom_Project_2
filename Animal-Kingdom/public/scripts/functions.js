@@ -11,7 +11,7 @@ function toggleSpecializationField() {
 	const userType = document.querySelector('#userType').value
 	const specField = document.querySelector('.specialization-field')
 	if (userType === 'Veterinarian') {
-		specField.style.display = 'block'
+		specField.style.display = 'flex'
 	} else {
 		specField.style.display = 'none'
 	}

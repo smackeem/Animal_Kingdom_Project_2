@@ -3,11 +3,19 @@
   background-color: #3ddc99;
 }
 .anonymous section,
-.anonymous .login {
+.anonymous .login,
+.anonymous .signup {
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 100vh;
+  min-height: 100vh;
+}
+.anonymous .container {
+  background-color: #fff;
+  padding: 3.88rem 3.62rem;
+  border-radius: 0.5rem;
+  justify-content: space-between;
+  max-width: 30rem;
 }
 .anonymous section {
   flex-direction: column;
@@ -18,37 +26,71 @@
 .anonymous section img:last-child {
   margin-top: 1.32rem;
 }
-.anonymous .login .login-container {
+.anonymous .login .login-content {
   background-color: #fff;
   min-height: 70%;
   height: fit-content;
-  padding: 3.88rem 3.62rem;
-  border-radius: 0.5rem;
-  justify-content: space-between;
 }
-.anonymous .login .login-container h1 {
+.anonymous .login .login-content h1 {
   margin: 0 0 2.5rem;
 }
-.anonymous .login .login-container form input {
+.anonymous .login .login-content form input {
   height: 2.875rem;
   margin: 0.31rem 0 1.88rem;
 }
-.anonymous .login .login-container p {
+.anonymous .login .login-content p {
   color: #000;
   font-size: 1.125rem;
   font-weight: 700;
   letter-spacing: 0.03375rem;
 }
-.anonymous .login .login-container p a {
+.anonymous .login .login-content p a {
   color: #009757;
   text-decoration: underline;
   text-underline-offset: 0.25rem;
 }
-.anonymous .login .login-container p.error {
-  color: #E73B3B;
+.anonymous .login .login-content p.error {
+  color: #e73b3b;
   text-align: center;
   padding: 0 0 0.25rem;
   height: 1.75rem;
+}
+.anonymous .signup .signup-content {
+  margin: 5.38rem 0 3.12rem;
+}
+.anonymous .signup .signup-content h1 {
+  margin: 0 0 1.25rem;
+}
+.anonymous .signup .signup-content p:first-of-type {
+  color: #4c4c4c;
+  margin-bottom: 1.88rem;
+}
+.anonymous .signup .signup-content form .input-group {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.62rem;
+}
+.anonymous .signup .signup-content form .input-group div {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+.anonymous .signup .signup-content form .single-group {
+  flex-direction: column;
+}
+.anonymous .signup .signup-content form button {
+  margin: 1.88rem 0;
+}
+.anonymous .signup .signup-content p:last-of-type {
+  color: #000;
+  font-size: 1.125rem;
+  font-weight: 700;
+  letter-spacing: 0.03375rem;
+}
+.anonymous .signup .signup-content p:last-of-type a {
+  color: #009757;
+  text-decoration: underline;
+  text-underline-offset: 0.25rem;
 }
 .anonymous .specialization-field {
   display: none;
@@ -223,7 +265,7 @@
 }
 
 .error {
-  color: #E73B3B;
+  color: #e73b3b;
 }
 
 .btn-xl {
