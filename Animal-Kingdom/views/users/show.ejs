@@ -1,6 +1,5 @@
 <%- include('../partials/header') %>
 
-  <!-- New Pet - Popup -->
   <div class="popup flex-center-xy hidden">
     <section class="new-pet">
       <button class="close-btn">
@@ -44,10 +43,9 @@
       <%= user.firstName %>
     </span></h1>
 
-  <!-- Owner -->
+
   <% if(user.userType==="Owner" ){ %>
 
-    <!-- Appointments Overview -->
     <section class="appointments-overview">
       <h2>Upcoming Appointments</h2>
       <div>
@@ -78,7 +76,6 @@
       </div>
     </section>
 
-    <!-- Pets Overview -->
     <section class="pet-overview">
       <h2>Your Pets</h2>
       <% if(pets.length){ %>
@@ -117,49 +114,8 @@
 
 
       <% if(user.userType==="Veterinarian" ) { %>
-        <section class="pet-overview">
-          <h2>Your Patients</h2>
-          <div>
-            <% if(patients.length){ %>
-              <% patients.forEach(p=> { %>
-                <div class="card pet-card">
-                  <div>
-                    <img class='pet-img' src="/images/pet.jpg" alt="Pet">
-                    <div class="pet-info">
-                      <h4>
-                        <%= p._doc.name %>
-                      </h4>
-                      <p>Species: <%= p._doc.species %>
-                      </p>
-                      <p>Breed: <%= p._doc.breed %>
-                      </p>
-                      <p>Age: <%= p._doc.age %>
-                      </p>
-                      <p>DOB: <%= p._doc.DOB.toLocaleDateString() %>
-                      </p>
-                    </div>
-                    <br />
-                    <a class='card-btn' href="/user/<%= user._id %>/pets/<%= p._doc._id %>">Medical Records</a>
-                  </div>
-                </div>
-                <% }) %>
-                  <% } else{ %>
-                    <div class="card pet-card">
-                      <div class="pet-info">
-                        <p>No Patients Yet.</p>
-                        <p><a href="/user/<%= user._id %>/records/new">Create Medical Record</a></p>
-
-                      </div>
-                    </div>
-
-                    <% } %>
-
-          </div>
-        </section>
-
-        <!-- Appointments Overview -->
-        <section class="apointments">
-          <h3>Upcoming Appointments</h3>
+        <section class="appointments-overview">
+          <h2>Upcoming Appointments</h2>
           <% if(vetAppointments.length) { %>
             <% vetAppointments.forEach(va=> { %>
               <form action="/user/<%= user._id %>/appointments/<%= va._id %>/cancel?_method=PUT" method="POST">
@@ -179,6 +135,41 @@
                 <% } else{%>
                   <p>No Appointments Yet.</p>
                   <% } %>
+
+        </section>
+
+        <section class="pet-overview">
+          <h2>Your Patients</h2>
+          <div class="card pet-card">
+            <% if(patients.length){ %>
+              <% patients.forEach(p=> { %>
+                <div>
+                  <img class='pet-img' src="/images/pet.jpg" alt="Pet">
+                  <div class="pet-info">
+                    <h4>
+                      <%= p._doc.name %>
+                    </h4>
+                    <p>
+                      <%= p._doc.species %>, <%= p._doc.breed %>
+                    </p>
+                    <p>
+                      <%= p._doc.age %> Years old
+                    </p>
+                    <p>DOB: <%= p._doc.DOB.toLocaleDateString() %>
+                    </p>
+                  </div>
+                  <a class='card-btn' href="/user/<%= user._id %>/pets/<%= p._doc._id %>">Medical Records</a>
+                </div>
+                <% }) %>
+                  <% } else { %>
+                    <p>No Existing Patients</p>
+                    <% } %>
+          </div>
+
+          <div class="card add-pet">
+            <!-- <button id=''>Create Medical Record</button> -->
+            <a href="/user/<%= user._id %>/records/new">Create Medical Record</a>
+          </div>
 
         </section>
         <% } %>
