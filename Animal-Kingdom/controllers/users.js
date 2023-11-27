@@ -13,22 +13,19 @@ module.exports = {
   show,
 };
 
-async function create(req, res) {
-  const newUser = new User(req.body);
+async function create(req, res, next) {
+  const newUser = await User.create(req.body);
   newUser.address = req.body; // Corrected address assignment
   console.log(newUser);
   try {
-    await newUser
-      .save()
-      .then((newUser) => {
+    await newUser.save().then((newUser) => {
         const token = jwt.sign({ _id: newUser._id }, process.env.SECRET, {
           expiresIn: "60 days",
         });
         res.cookie("nToken", token, { maxAge: 900000, httpOnly: true });
         res.redirect("/user/login");
         return;
-      })
-      .catch((error) => {
+      }).catch((error) => {
         console.log(error); // Log the error for debugging
         res.status(500).send("Error saving user: " + error.message);
       });
