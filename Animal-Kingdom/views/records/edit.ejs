@@ -3,7 +3,7 @@
 <form action="/user/<%= user._id%>/records/<%= record._id %>?_method=PUT" method="POST">
 
     <label for="pet">Pet: 
-        <select name="pet" default="<%= record.pet._id%>">
+        <select name="pet" default="<%= record.pet._id%>" required>
             <% pets.forEach(p => { %>
                 <option value="<%= p._id %>">Name: <%= p.name%> DOB: <%= p.DOB.toLocaleDateString() %></option>
                 <% }) %>
@@ -11,19 +11,19 @@
     </label><br/><br/>
     
     <label for="date">Date: 
-        <input type="datetime-local" name="date">
+        <input type="datetime-local" name="date" required>
     </label><br/><br/>
 
     <label for="diagnosis">Diagnosis: 
-        <input type="text" name="diagnosis" value="<%= record.diagnosis %>">
+        <input type="text" name="diagnosis" value="<%= record.diagnosis %>" required>
     </label><br/><br/>
 
     <label for="treament">Treament: 
-        <input type="text" name="treatment" value="<%= record.treatment %>">
+        <input type="text" name="treatment" value="<%= record.treatment %>" required>
     </label><br/><br/>
 
     <label for="medication">Medication: 
-        <input type="text" name="medication" value="<%= record.medication %>">
+        <input type="text" name="medication" value="<%= record.medication %>" required>
     </label><br/><br/>
 
     <button type="submit">Create Record</button>

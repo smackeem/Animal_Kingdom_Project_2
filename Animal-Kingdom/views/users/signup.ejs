@@ -36,8 +36,14 @@
       <label for="password">Password:
         <input type="password" name="password" placeholder="Password" required /> </label><br /><br />
 
-      <label for="streetAddress">Street Address:
-        <input type="text" name="streetAddress" placeholder="Address" /> </label><br /><br />
+        <label for="streetAddress"
+          >Street Address:
+          <input
+            type="text"
+            name="streetAddress"
+            placeholder="Address"
+            required/> </label
+        ><br /><br />
 
       <label for="city">City:
         <input type="text" name="city" required placeholder="City" /> </label><br /><br />
@@ -98,26 +104,48 @@
         </select>
       </label>
 
-      <label for="zip">Zip:
-        <input type="text" name="zip" placeholder="Zip Code" minlength="5" maxlength="5" require pattern="\d{5,5}" />
-      </label><br /><br />
+        <label for="zip"
+          >Zip:
+          <input
+            type="text"
+            name="zip"
+            placeholder="Zip Code"
+            minlength="5"
+            maxlength="5"
+            required
+            pattern="\d{5,5}"
+          /> </label
+        ><br /><br />
 
-      <label for="phone">Phone Number:
-        <input type="tel" name="phone" placeholder="Phone Number" /> </label><br /><br />
+        <label for="phone"
+          >Phone Number:
+          <input type="tel" name="phone" placeholder="Phone Number" required/> </label
+        ><br /><br />
 
-      <label for="userType">User Type:
-        <select name="userType" id="userType" onchange="toggleSpecializationField()">
-          <option value="" disabled>Select one---</option>
-          <option value="Owner">Owner</option>
-          <option value="Veterinarian">Veterinarian</option>
-        </select> </label><br /><br />
+        <label for="userType"
+          >User Type:
+          <select
+            name="userType"
+            id="userType"
+            onchange="toggleSpecializationField()"
+            required>
+            <option value="" disabled>Select one---</option>
+            <option value="Owner">Owner</option>
+            <option value="Veterinarian">Veterinarian</option>
+          </select> </label
+        ><br /><br />
 
-      <div class="specialization-field">
-        <label for="specialization">Specialization:
-          <input type="text" name="specialization" placeholder="Specialization" />
-        </label>
-      </div>
-      <br /><br />
+        <div class="specialization-field">
+          <label for="specialization"
+            >Specialization:
+            <input
+              type="text"
+              name="specialization"
+              placeholder="Specialization"
+              required/>
+          </label>
+        </div>
+        <br /><br />
 
       <button type="submit">Sign Up</button>
     </form>

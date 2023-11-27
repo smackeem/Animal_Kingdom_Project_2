@@ -3,11 +3,19 @@
 <form action="/user/<%= user._id %>/pets" method="POST">
   <label for="name"
     >Pet name:
+<<<<<<< HEAD
     <input type="text" name="name" /> </label
   ><br /><br />
 
   <label for="species">
     <select name="species">
+=======
+    <input type="text" name="name" required/> </label
+  ><br /><br />
+
+  <label for="species">
+    <select name="species" required>
+>>>>>>> development
       <option value="Bird">Bird</option>
       <option value="Cat">Cat</option>
       <option value="Dog">Dog</option>
@@ -23,17 +31,29 @@
 
   <label for="breed"
     >Breed:
+<<<<<<< HEAD
     <input type="text" name="breed" /> </label
+=======
+    <input type="text" name="breed" required/> </label
+>>>>>>> development
   ><br /><br />
 
   <label for="age"
     >Age:
+<<<<<<< HEAD
     <input type="number" name="age" /> </label
+=======
+    <input type="number" name="age" required/> </label
+>>>>>>> development
   ><br /><br />
 
   <label for="DOB"
     >DOB:
+<<<<<<< HEAD
     <input type="date" name="DOB" id="" /> </label
+=======
+    <input type="date" name="DOB" id="" required/> </label
+>>>>>>> development
   ><br /><br />
 
   <button type="submit">Create Pet Profile</button>
