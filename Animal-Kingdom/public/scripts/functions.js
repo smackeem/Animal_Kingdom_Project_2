@@ -1,8 +1,9 @@
 const avatar = document.querySelector('.avatar')
 const dropdown = document.querySelector('.nav-user ul')
 const addPet = document.getElementById('add-pet')
-const popup = document.getElementById('popup')
-const cancelClose = document.getElementById('cancel-close')
+const popup = document.querySelector('.popup')
+const cancelBtn = document.querySelector('.cancel-btn')
+const closeBtn = document.querySelector('.close-btn')
 
 
 // partials/header.ejs
@@ -10,12 +11,14 @@ avatar.addEventListener('click', () => {
 	dropdown.classList.toggle('hidden')
 })
 
-// users/show.ejs
+// users/show.ejs - Popup
 addPet.addEventListener('click', () => {
 	popup.classList.remove('hidden')
 })
-
-cancelClose.addEventListener('click', () => {
+cancelBtn.addEventListener('click', () => {
+	popup.classList.add('hidden')
+})
+closeBtn.addEventListener('click', () => {
 	popup.classList.add('hidden')
 })
 

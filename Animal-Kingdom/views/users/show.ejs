@@ -1,13 +1,14 @@
 <%- include('../partials/header') %>
 
 <!-- New Pet - Popup -->
-<div class="popup flex-center-xy hidden" id="popup">
+<div class="popup flex-center-xy hidden">
   <section class="new-pet">
+    <button class="close-btn"><img src="/images/close.svg" alt="X"></button>
     <form action="/user/<%= user._id %>/pets" method="POST">
-      <label for="name">Pet name:
-        <input type="text" name="name" required /> </label><br /><br />
+      <label for="name">Pet name</label>
+        <input type="text" name="name" required />
 
-      <label for="species">
+      <label for="species">Species</label>
         <select name="species" required>
           <option value="Bird">Bird</option>
           <option value="Cat">Cat</option>
@@ -20,20 +21,19 @@
           <option value="Snake">Snake</option>
           <option value="Turtle">Turtle</option>
         </select>
-      </label>
+      
+      <label for="breed">Breed</label>
+        <input type="text" name="breed" required />
 
-      <label for="breed">Breed:
-        <input type="text" name="breed" required /> </label><br /><br />
+      <label for="age">Age</label>
+        <input type="number" name="age" required />
 
-      <label for="age">Age:
-        <input type="number" name="age" required /> </label><br /><br />
+      <label for="DOB">DOB</label>
+        <input type="date" name="DOB" id="" required />
 
-      <label for="DOB">DOB:
-        <input type="date" name="DOB" id="" required /> </label><br /><br />
-
-      <button type="submit">Create Pet Profile</button>
+      <button type="submit">Save</button>
     </form>
-    <button id="cancel-close">Cancel</button>
+    <button class="cancel-btn">Cancel</button>
   </section>
 </div>
 

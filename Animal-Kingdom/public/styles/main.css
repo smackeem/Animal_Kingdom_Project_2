@@ -284,10 +284,17 @@
   background-color: rgba(0, 0, 0, 0.4);
 }
 .popup .new-pet {
-  padding: 3.88rem 3.62rem;
+  position: relative;
+  padding: 2.88rem 2.62rem;
   background-color: white;
   border-radius: 0.5rem;
   box-shadow: 0px 4px 23px 6px rgba(0, 0, 0, 0.04);
+}
+.popup .new-pet .close-btn {
+  position: absolute;
+  border: 0;
+  top: 1rem;
+  right: 1rem;
 }
 
 .relative {
