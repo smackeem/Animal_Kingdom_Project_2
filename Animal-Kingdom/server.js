@@ -34,7 +34,7 @@ app.use(methodOverride("_method"));
 app.use("/", indexRouter);
 app.use("/", recordsRouter);
 app.use("/", petRouter);
-app.use("/appointments", appointmentRouter);
+app.use("/", appointmentRouter);
 
 app.use("/user", userRouter);
 

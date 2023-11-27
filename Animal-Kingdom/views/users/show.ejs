@@ -94,8 +94,28 @@
             </div>
   
               <% } %>
-                <% } %>
+                
     </div>
   </section>
+
+   <!-- Appointments Overview -->
+   <section class="apointments">
+    <h3>Upcoming Appointments</h3>
+    <% if(vetAppointments.length) { %>
+    <% vetAppointments.forEach(va => { %>
+      <form action="/user/<%= user._id %>/appointments/<%= va._id %>/cancel?_method=PUT" method="POST">
+      <p><%= va.pet.name %>'s Appointment:</p>
+      <p><%= va.date.toLocaleDateString() %></p>
+      <p><%= va.date.toLocaleTimeString()%></p>
+      
+      <button type="submit">CANCEL</button>
+    </form>
+    <% }) %>
+    <% } else{%>
+      <p>No Appointments Yet.</p>
+      <% } %>
+    
+  </section>
+  <% } %>
 
 <%- include('../partials/footer') %>

@@ -23,7 +23,7 @@
             <% }) %>
             
         </tbody>
-        <br/><br/><a href="/user/<%= user._id %>/appointments/new">Add More</a>
+        
         <% } %>
         <% if(user.userType === "Owner"){ %>
             <tbody>
@@ -42,6 +42,7 @@
             <% } %>
 
     </table>
+    <% if(user.userType === "Veterinarian") { %><br/><a href="/user/<%= user._id %>/appointments/new"><button>Add Availability</button></a><% } %>
 
 
 <%- include('../partials/footer') %>
