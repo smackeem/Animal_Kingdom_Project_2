@@ -3,7 +3,7 @@ const jwt = require("jsonwebtoken");
 const User = require("../models/users");
 const Pet = require("../models/pet");
 const Record = require("../models/record");
-const Appointment = require('../models/appointment');
+const Appointment = require("../models/appointment");
 const today = new Date();
 const bcrypt = require("bcryptjs");
 
@@ -16,19 +16,20 @@ module.exports = {
 async function create(req, res, next) {
   const newUser = await User.create(req.body);
   newUser.address = req.body; // Corrected address assignment
-  console.log(newUser)
+  console.log(newUser);
   try {
     await newUser.save().then((newUser) => {
         const token = jwt.sign({ _id: newUser._id }, process.env.SECRET, {
           expiresIn: "60 days",
         });
         res.cookie("nToken", token, { maxAge: 900000, httpOnly: true });
-        return; 
-      }).catch((error) => {
+        res.redirect("/user/login");
+        return;
+      })
+      .catch((error) => {
         console.log(error); // Log the error for debugging
         res.status(500).send("Error saving user: " + error.message);
       });
-      res.redirect("/user/login");
   } catch (error) {
     console.log(error); // Log the error for debugging
     res.status(500).send("Error saving user: " + error.message);
@@ -63,13 +64,35 @@ async function login(req, res) {
 async function show(req, res, next) {
   try {
     const user = await User.findById(req.params.id);
-    const pets = await Pet.find({ owner: { _id: user._id } }).populate('owner');
-    const vetRecords = await Record.find({vet: {_id: user._id}}).populate('pet');
+    const pets = await Pet.find({ owner: { _id: user._id } }).populate("owner");
+    const vetRecords = await Record.find({ vet: { _id: user._id } }).populate(
+      "pet"
+    );
     const allPatients = vetRecords.map((record) => record.pet);
-    const patients = mergeDuplicates(allPatients, ['_id']);
-    const petAppointments = await Appointment.find({pet: {$in: pets}, date: {$gte: today}}).populate('pet').populate('vet').sort({date: 1});
-    const vetAppointments = await Appointment.find({vet: req.params.id, isAvailable: false, date: {$gte: today}}).populate('pet').sort({date: 1});
-    res.render("users/show", { title: `${user.username} Profile`, user, pets, vetRecords, patients, petAppointments, vetAppointments});
+    const patients = mergeDuplicates(allPatients, ["_id"]);
+    const petAppointments = await Appointment.find({
+      pet: { $in: pets },
+      date: { $gte: today },
+    })
+      .populate("pet")
+      .populate("vet")
+      .sort({ date: 1 });
+    const vetAppointments = await Appointment.find({
+      vet: req.params.id,
+      isAvailable: false,
+      date: { $gte: today },
+    })
+      .populate("pet")
+      .sort({ date: 1 });
+    res.render("users/show", {
+      title: `${user.username} Profile`,
+      user,
+      pets,
+      vetRecords,
+      patients,
+      petAppointments,
+      vetAppointments,
+    });
   } catch (err) {
     console.log(err);
     res.redirect(`/user/${req.params.userId}`);
