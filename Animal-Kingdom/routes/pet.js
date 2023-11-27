@@ -5,7 +5,8 @@ const petCtrl = require("../controllers/pet");
 
 router.get("/user/:id/pets", petCtrl.index);
 
-router.get("/user/:id/pets/new", petCtrl.new);
+// Can be removed once pop is working as expected
+// router.get("/user/:id/pets/new", petCtrl.new);
 
 router.get("/user/:id/pets/:id/edit", petCtrl.edit);
 

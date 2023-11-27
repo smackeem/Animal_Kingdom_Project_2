@@ -19,6 +19,7 @@
   border-radius: 0.5rem;
   justify-content: space-between;
   max-width: 30rem;
+  box-shadow: 0px 4px 23px 6px rgba(0, 0, 0, 0.04);
 }
 .anonymous section {
   flex-direction: column;
@@ -119,6 +120,9 @@
   left: 1rem;
   font-size: 1rem;
 }
+.card form {
+  width: auto;
+}
 .card .card-delete {
   position: absolute;
   right: 1rem;
@@ -213,14 +217,17 @@
 /* Pet Overview - users/show.ejs */
 .pet-overview {
   display: flex;
+  flex-direction: row;
   flex-wrap: wrap;
   margin: 40px 0;
-  column-gap: 2rem;
+  gap: 1.25rem;
 }
 .pet-overview h2 {
   width: 100%;
+  margin: 0;
 }
 .pet-overview .pet-card {
+  height: 22.1875rem;
   position: relative;
 }
 .pet-overview .pet-card div {
@@ -247,21 +254,86 @@
   padding: 0.62rem 0 0 0;
 }
 .pet-overview .add-pet {
+  height: 22.1875rem;
   background-color: #e8e8e8;
   align-items: center;
 }
-.pet-overview .add-pet a {
+.pet-overview .add-pet button {
   position: relative;
   font-size: 1.125rem;
   font-weight: 500;
   color: #4c4c4c;
   letter-spacing: 0.03375rem;
+  padding: 0;
+  border: 0;
 }
-.pet-overview .add-pet a:before {
+.pet-overview .add-pet button:before {
   content: url("/images/add.svg");
   position: absolute;
   left: -30px;
   bottom: -7px;
+}
+
+.popup {
+  position: absolute;
+  width: 100%;
+  height: 100vh;
+  z-index: 10;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+}
+.popup .new-pet {
+  position: relative;
+  padding: 2.88rem 2.62rem;
+  background-color: white;
+  border-radius: 0.5rem;
+  box-shadow: 0px 4px 23px 6px rgba(0, 0, 0, 0.04);
+  min-width: 25rem;
+}
+.popup .new-pet .close-btn {
+  position: absolute;
+  border: 0;
+  top: 1rem;
+  right: 1rem;
+}
+
+/* Edit Pet */
+.edit-pet {
+  padding: 2.88rem 2.62rem;
+  background-color: white;
+  border-radius: 0.5rem;
+  box-shadow: 0px 4px 23px 6px rgba(0, 0, 0, 0.04);
+  max-width: 25rem;
+  margin: 3rem auto;
+}
+.edit-pet h2,
+.edit-pet a {
+  text-align: center;
+}
+.edit-pet a {
+  display: block;
+  margin-top: 1rem;
+}
+
+.btn-save {
+  border-radius: 0;
+  color: #fff;
+  background-color: #009757;
+  padding: 0.7rem 0;
+  margin-top: 1rem;
+  font-weight: 700;
+  font-size: 1rem;
+}
+
+.relative {
+  position: relative;
+}
+
+.flex-center-xy {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .user-name {

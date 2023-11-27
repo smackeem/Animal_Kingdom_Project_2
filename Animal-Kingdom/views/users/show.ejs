@@ -1,5 +1,45 @@
 <%- include('../partials/header') %>
 
+<!-- New Pet - Popup -->
+<div class="popup flex-center-xy hidden">
+  <section class="new-pet">
+    <button class="close-btn">
+      <img src="/images/close.svg" alt="X">
+    </button>
+    <h2>New Pet</h2>
+    <form action="/user/<%= user._id %>/pets" method="POST">
+      <label for="name">Pet name</label>
+        <input type="text" name="name" required />
+
+      <label for="species">Species</label>
+        <select name="species" required>
+          <option value="Bird">Bird</option>
+          <option value="Cat">Cat</option>
+          <option value="Dog">Dog</option>
+          <option value="Fish">Fish</option>
+          <option value="Guninea Pig">Guniea Pig</option>
+          <option value="Hamster">Hamster</option>
+          <option value="Lizard">Lizard</option>
+          <option value="Rabbit">Rabbit</option>
+          <option value="Snake">Snake</option>
+          <option value="Turtle">Turtle</option>
+        </select>
+      
+      <label for="breed">Breed</label>
+        <input type="text" name="breed" required />
+
+      <label for="age">Age</label>
+        <input type="number" name="age" required />
+
+      <label for="DOB">DOB</label>
+        <input type="date" name="DOB" id="" required />
+
+      <button class='btn-save' type="submit">Save</button>
+    </form>
+    <!-- <button class="cancel-btn">Cancel</button> -->
+  </section>
+</div>
+
 <h1>Welcome back, <span class="user-name"><%= user.firstName %></span></h1>
 
 <!-- Owner -->
@@ -34,11 +74,10 @@
           <a class='card-edit' href="/user/<%= user._id %>/pets/<%= p._id %>/edit">Edit</a>
         </div>
         <% }) %>
-          <% } else { %>
-            <% } %>
-              <div class="card add-pet">
-                <a href="/user/<%= user._id %>/pets/new">Add a Pet</a>
-              </div>
+          <% } %>
+    <div class="card add-pet">
+        <button id='add-pet'>Add a Pet</button>
+    </div>
   </section>
 
   <!-- Appointments Overview -->
