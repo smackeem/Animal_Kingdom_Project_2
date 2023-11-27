@@ -308,20 +308,30 @@ $danger: #e73b3b;
 	background-color: rgb(0, 0, 0, .4);
 	.new-pet {
 		position: relative;
+		padding: 2.88rem 2.62rem;
+		background-color: white;
+		border-radius: .5rem;
+		box-shadow: 0px 4px 23px 6px rgba(0, 0, 0, 0.04);
+		min-width: 25rem;
 		.close-btn {
 			position: absolute;
 			border: 0;
 			top: 1rem;
 			right: 1rem;
 		}
-		padding: 2.88rem 2.62rem;
-		background-color: white;
-		border-radius: .5rem;
-		box-shadow: 0px 4px 23px 6px rgba(0, 0, 0, 0.04);
 	}
 }
 
 // Utilities
+.btn-save {
+	border-radius: 0;
+	color: #fff;
+	background-color: $lime;
+	padding: .7rem 0;
+	margin-top: 1rem;
+	font-weight: 700;
+	font-size: 1rem;
+}
 
 .relative {
 	position: relative;

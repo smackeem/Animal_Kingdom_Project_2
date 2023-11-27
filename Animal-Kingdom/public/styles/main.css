@@ -289,12 +289,23 @@
   background-color: white;
   border-radius: 0.5rem;
   box-shadow: 0px 4px 23px 6px rgba(0, 0, 0, 0.04);
+  min-width: 25rem;
 }
 .popup .new-pet .close-btn {
   position: absolute;
   border: 0;
   top: 1rem;
   right: 1rem;
+}
+
+.btn-save {
+  border-radius: 0;
+  color: #fff;
+  background-color: #009757;
+  padding: 0.7rem 0;
+  margin-top: 1rem;
+  font-weight: 700;
+  font-size: 1rem;
 }
 
 .relative {

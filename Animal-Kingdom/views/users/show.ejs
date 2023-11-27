@@ -4,6 +4,7 @@
 <div class="popup flex-center-xy hidden">
   <section class="new-pet">
     <button class="close-btn"><img src="/images/close.svg" alt="X"></button>
+    <h2>New Pet</h2>
     <form action="/user/<%= user._id %>/pets" method="POST">
       <label for="name">Pet name</label>
         <input type="text" name="name" required />
@@ -31,9 +32,9 @@
       <label for="DOB">DOB</label>
         <input type="date" name="DOB" id="" required />
 
-      <button type="submit">Save</button>
+      <button class='btn-save' type="submit">Save</button>
     </form>
-    <button class="cancel-btn">Cancel</button>
+    <!-- <button class="cancel-btn">Cancel</button> -->
   </section>
 </div>
 
