@@ -399,6 +399,60 @@
   margin-top: 1rem;
 }
 
+.medical-records-nav {
+  color: #2c2c2c;
+  font-size: 0.75rem;
+  font-weight: 400;
+  letter-spacing: 0.0225rem;
+  padding: 2rem 0 1.25rem;
+}
+.medical-records-nav a {
+  color: #2c2c2c;
+}
+.medical-records-nav a:hover {
+  color: #0057a0;
+}
+.medical-records-nav span {
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.medical-records {
+  border: 1px solid #dadada;
+  background-color: #fff;
+  border-radius: 0.5rem;
+  padding: 1.88rem 1.88rem 4.38rem;
+}
+.medical-records h2 {
+  font-size: 1.25rem;
+  letter-spacing: 0.0375rem;
+}
+.medical-records h3 {
+  font-size: 1rem;
+  font-weight: 700;
+}
+.medical-records .pet-about {
+  margin-bottom: 1.88rem;
+}
+.medical-records .pet-about p {
+  margin-top: 0.62rem;
+}
+.medical-records table {
+  text-align: left;
+  width: 100%;
+}
+.medical-records table th,
+.medical-records table td {
+  border-bottom: 1px solid #e9e9e9;
+}
+.medical-records table th {
+  padding: 1.25rem 0 0.94rem;
+}
+.medical-records table td {
+  padding: 0.94rem 0;
+  text-transform: capitalize;
+}
+
 .btn-save {
   border-radius: 0;
   color: #fff;
