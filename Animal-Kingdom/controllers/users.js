@@ -15,8 +15,8 @@ module.exports = {
 
 async function create(req, res, next) {
   const newUser = new User(req.body);
-  newUser.address = req.body.address; // Corrected address assignment
-  console.log(newUser);
+  newUser.address = req.body; // Corrected address assignment
+  console.log(newUser)
   try {
     await newUser
       .save()
@@ -25,12 +25,13 @@ async function create(req, res, next) {
           expiresIn: "60 days",
         });
         res.cookie("nToken", token, { maxAge: 900000, httpOnly: true });
-        return res.redirect("/user/login");
+        return; 
       })
       .catch((error) => {
         console.log(error); // Log the error for debugging
         res.status(500).send("Error saving user: " + error.message);
       });
+      res.redirect("/user/login");
   } catch (error) {
     console.log(error); // Log the error for debugging
     res.status(500).send("Error saving user: " + error.message);
