@@ -66,7 +66,7 @@
             type="text"
             name="streetAddress"
             placeholder="Address"
-          /> </label
+            required/> </label
         ><br /><br />
 
         <label for="city"
@@ -139,14 +139,14 @@
             placeholder="Zip Code"
             minlength="5"
             maxlength="5"
-            require
+            required
             pattern="\d{5,5}"
           /> </label
         ><br /><br />
 
         <label for="phone"
           >Phone Number:
-          <input type="tel" name="phone" placeholder="Phone Number" /> </label
+          <input type="tel" name="phone" placeholder="Phone Number" required/> </label
         ><br /><br />
 
         <label for="userType"
@@ -155,7 +155,7 @@
             name="userType"
             id="userType"
             onchange="toggleSpecializationField()"
-          >
+            required>
             <option value="" disabled>Select one---</option>
             <option value="Owner">Owner</option>
             <option value="Veterinarian">Veterinarian</option>
@@ -169,7 +169,7 @@
               type="text"
               name="specialization"
               placeholder="Specialization"
-            />
+              required/>
           </label>
         </div>
         <br /><br />
