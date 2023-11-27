@@ -119,6 +119,9 @@
   left: 1rem;
   font-size: 1rem;
 }
+.card form {
+  width: auto;
+}
 .card .card-delete {
   position: absolute;
   right: 1rem;
@@ -213,14 +216,17 @@
 /* Pet Overview - users/show.ejs */
 .pet-overview {
   display: flex;
+  flex-direction: row;
   flex-wrap: wrap;
   margin: 40px 0;
-  column-gap: 2rem;
+  gap: 1.25rem;
 }
 .pet-overview h2 {
   width: 100%;
+  margin: 0;
 }
 .pet-overview .pet-card {
+  height: 22.1875rem;
   position: relative;
 }
 .pet-overview .pet-card div {
@@ -247,6 +253,7 @@
   padding: 0.62rem 0 0 0;
 }
 .pet-overview .add-pet {
+  height: 22.1875rem;
   background-color: #e8e8e8;
   align-items: center;
 }

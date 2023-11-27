@@ -142,6 +142,9 @@ $danger: #e73b3b;
 		left: 1rem;
 		font-size: 1rem;
 	}
+	form {
+		width: auto;
+	}
 	.card-delete {
 		position: absolute;
 		right: 1rem;
@@ -237,13 +240,16 @@ $danger: #e73b3b;
 /* Pet Overview - users/show.ejs */
 .pet-overview {
 	display: flex;
+	flex-direction: row;
 	flex-wrap: wrap;
 	margin: 40px 0;
-	column-gap: 2rem;
+	gap: 1.25rem;
 	h2 {
 		width: 100%;
+		margin: 0;
 	}
 	.pet-card {
+		height: 22.1875rem;
 		position: relative;
 		div {
 			flex-grow: 1;
@@ -270,6 +276,7 @@ $danger: #e73b3b;
 		}
 	}
 	.add-pet {
+		height: 22.1875rem;
 		background-color: $gray;
 		align-items: center;
 		a {
