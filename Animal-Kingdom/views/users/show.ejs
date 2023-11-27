@@ -1,5 +1,42 @@
 <%- include('../partials/header') %>
 
+<!-- New Pet - Popup -->
+<div class="popup flex-center-xy hidden" id="popup">
+  <section class="new-pet">
+    <form action="/user/<%= user._id %>/pets" method="POST">
+      <label for="name">Pet name:
+        <input type="text" name="name" required /> </label><br /><br />
+
+      <label for="species">
+        <select name="species" required>
+          <option value="Bird">Bird</option>
+          <option value="Cat">Cat</option>
+          <option value="Dog">Dog</option>
+          <option value="Fish">Fish</option>
+          <option value="Guninea Pig">Guniea Pig</option>
+          <option value="Hamster">Hamster</option>
+          <option value="Lizard">Lizard</option>
+          <option value="Rabbit">Rabbit</option>
+          <option value="Snake">Snake</option>
+          <option value="Turtle">Turtle</option>
+        </select>
+      </label>
+
+      <label for="breed">Breed:
+        <input type="text" name="breed" required /> </label><br /><br />
+
+      <label for="age">Age:
+        <input type="number" name="age" required /> </label><br /><br />
+
+      <label for="DOB">DOB:
+        <input type="date" name="DOB" id="" required /> </label><br /><br />
+
+      <button type="submit">Create Pet Profile</button>
+    </form>
+    <a href="/user/<%= user._id %>">Cancel</a>
+  </section>
+</div>
+
 <h1>Welcome back, <span class="user-name"><%= user.firstName %></span></h1>
 
 <!-- Owner -->
@@ -35,9 +72,9 @@
         </div>
         <% }) %>
           <% } %>
-              <div class="card add-pet">
-                <a href="/user/<%= user._id %>/pets/new">Add a Pet</a>
-              </div>
+    <div class="card add-pet">
+        <button id='add-pet'>Add a Pet</button>
+    </div>
   </section>
 
   <!-- Appointments Overview -->
