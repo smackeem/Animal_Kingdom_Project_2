@@ -379,7 +379,8 @@
 
 .edit-pet,
 .book-appointment,
-.appt-reason {
+.appt-reason,
+.records-create-edit {
   padding: 2.88rem 2.62rem;
   background-color: white;
   border-radius: 0.5rem;
@@ -392,12 +393,15 @@
 .book-appointment h2,
 .book-appointment a,
 .appt-reason h2,
-.appt-reason a {
+.appt-reason a,
+.records-create-edit h2,
+.records-create-edit a {
   text-align: center;
 }
 .edit-pet a,
 .book-appointment a,
-.appt-reason a {
+.appt-reason a,
+.records-create-edit a {
   display: block;
   margin-top: 1rem;
 }
@@ -463,6 +467,10 @@
 }
 .medical-records table .medication {
   width: 20%;
+  padding: 0 2px;
+}
+.medical-records table .records-action {
+  width: 10%;
 }
 .medical-records table .edit {
   content: url("/images/edit.svg");

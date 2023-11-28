@@ -35,8 +35,7 @@
                         <th>Treatment</th>
                         <th class="medication">Medication prescribed</th>
                         <% if(user.userType==="Veterinarian" ){ %>
-                            <th></th>
-                            <th></th>
+                            <th class="records-action"></th>
                             <% } %>
                     </tr>
                 </thead>
@@ -61,22 +60,20 @@
                                     <%= r.medication %>
                                 </td>
                                 <% if(user.userType==="Veterinarian" ){ %>
-                                    <td>
+                                    <td class="records-action">
                                         <a class='edit' href="/user/<%= user._id %>/records/<%= r._id %>/edit"></a>
-                                    </td>
-                                    <td>
                                         <button class='trash' type="submit"></button>
                                     </td>
                                     <% } %>
                             </tr>
                         </form>
                     </tbody>
-            </table>
-            <% }) %>
-                <% } else { %>
-                    <p class="no-records">No Records Found</p>
-
-                    <% }%>
+                    <% }) %>
+                </table>
+                    <% } else { %>
+                        <p class="no-records">No Records Found</p>
+                        
+                        <% }%>
 
     </section>
     <%- include('../partials/footer') %>

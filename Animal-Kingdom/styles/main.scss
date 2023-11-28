@@ -405,7 +405,8 @@ $danger: #e73b3b;
 
 .edit-pet,
 .book-appointment,
-.appt-reason {
+.appt-reason,
+.records-create-edit {
 	padding: 2.88rem 2.62rem;
 	background-color: white;
 	border-radius: 0.5rem;
@@ -482,6 +483,10 @@ $danger: #e73b3b;
 		}
 		.medication {
 			width: 20%;
+			padding: 0 2px;
+		}
+		.records-action {
+			width: 10%;
 		}
 		.edit{
 			content: url('/images/edit.svg');
