@@ -37,21 +37,19 @@ async function create(req, res, next) {
 
 async function login(req, res) {
   try {
-    //const user =
-    await User.findOne({ username: req.body.username }).then((user) => {
-      if (!user) {
-        return res.status(500).render("users/login", { errMsg: "Invalid username" });
-      }
+    const user = await User.findOne({ username: req.body.username }).exec();
+    if (!user) {
+      return res.status(500).render("users/login", { errMsg: "Invalid username" });
+    }
 
-      const isMatch = bcrypt.compare(req.body.password, user.password);
-      if (!isMatch) {
-        return res.status(500).render("users/login", { errMsg: "Invalid password" });
-      }
-
-      const token = jwt.sign({ _id: user._id }, process.env.SECRET, {expiresIn: "60 days"});
-      res.cookie("nToken", token, { maxAge: 900000, httpOnly: true });
-      res.redirect(`/user/${user._id}`);
-    });
+    const isMatch = await bcrypt.compare(req.body.password, user.password);
+    if (!isMatch) {
+      return res.status(500).render("users/login", { errMsg: "Invalid password" });
+    }
+    
+    const token = jwt.sign({ _id: user._id }, process.env.SECRET, {expiresIn: "60 days"});
+    res.cookie("nToken", token, { maxAge: 900000, httpOnly: true });
+    res.redirect(`/user/${user._id}`);
   } catch (error) {
     console.error("Login error:", error);
     res.status(500).render("users/login", { errMsg: "Error Loading Your Profile" });
