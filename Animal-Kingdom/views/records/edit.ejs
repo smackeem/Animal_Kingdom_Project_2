@@ -4,7 +4,6 @@
     <h2>Edit Record </h2>
     <form action="/user/<%= user._id%>/records/<%= record._id %>?_method=PUT" method="POST">
     
-        <!-- It should be the pet which was showing in the page before the edit. Loop only applies to Edit overal pets -->
         <label for="pet">Pet Name</label>
             <select name="pet" default="<%= record.pet._id%>" required>
                 <% pets.forEach(p => { %>

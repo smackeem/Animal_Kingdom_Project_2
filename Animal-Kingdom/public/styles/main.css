@@ -362,7 +362,8 @@
   left: 0;
   background-color: rgba(0, 0, 0, 0.7);
 }
-.popup .new-pet {
+.popup .new-pet,
+.popup .new-record {
   position: relative;
   padding: 2.88rem 2.62rem;
   background-color: white;
@@ -370,7 +371,8 @@
   box-shadow: 0px 4px 23px 6px rgba(0, 0, 0, 0.04);
   min-width: 25rem;
 }
-.popup .new-pet .close-btn {
+.popup .new-pet .close-btn,
+.popup .new-record .close-btn {
   position: absolute;
   border: 0;
   top: 1rem;
