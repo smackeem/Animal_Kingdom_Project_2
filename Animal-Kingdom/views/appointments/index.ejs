@@ -3,15 +3,14 @@
 <section class='book-appointment'>
 <h2>Appointment Availability</h2>
     <table>
-        <thead>
-            <tr>
-                <th>Date</th>
-                <th>Time</th>
-                <th></th>
-            </tr>
-        </thead>
-
         <% if(user.userType === "Veterinarian"){ %>
+            <thead>
+                <tr>
+                    <th>Date</th>
+                    <th>Time</th>
+                    <th></th>
+                </tr>
+            </thead>
         <tbody>
             <% availabilities.forEach(a => { %> 
                 <form action="/user/<%= user._id %>/appointments/<%= a._id %>/?_method=DELETE" method="POST">
@@ -27,8 +26,15 @@
         <% } %>
 
         <% if(user.userType === "Owner"){ %>
-            <tbody>
-                <% if(appointments.length){ %>
+            <% if(appointments.length){ %>
+                <thead>
+                    <tr>
+                        <th>Date</th>
+                        <th>Time</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
                 <% appointments.forEach(a => { %> 
                 <tr>
                     <td><%= a.date.toLocaleDateString() %></td>
@@ -37,7 +43,7 @@
                 </tr>
                 <% }) %>
                 <% } else{ %>
-                    <p>No Available Appointments</p>
+                    <p class="no-appt">No Available Appointments</p>
                     <% } %>
             </tbody>
             <% } %>

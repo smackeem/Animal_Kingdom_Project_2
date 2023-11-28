@@ -289,6 +289,9 @@
 .book-appointment table a {
   margin: 0;
 }
+.book-appointment .no-appt {
+  text-align: center;
+}
 
 /* Pet Overview - users/show.ejs */
 .pet-overview {
