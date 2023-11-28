@@ -454,6 +454,29 @@
 .medical-records table td {
   padding: 0.94rem 0;
   text-transform: capitalize;
+  text-overflow: ellipsis;
+}
+.medical-records table .time,
+.medical-records table .date,
+.medical-records table .diagnosis {
+  width: 11%;
+}
+.medical-records table .medication {
+  width: 20%;
+}
+.medical-records table .edit {
+  content: url("/images/edit.svg");
+  margin: 0 0.25rem;
+}
+.medical-records table .trash {
+  border: 0;
+  padding: 0;
+  height: 24px;
+  width: 24px;
+}
+.medical-records table .trash:before {
+  content: url("/images/trash.svg");
+  margin: 0 0.375rem;
 }
 .medical-records .no-records {
   padding-top: 1rem;

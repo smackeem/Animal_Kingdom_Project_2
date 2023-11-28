@@ -29,17 +29,15 @@
             <table>
                 <thead>
                     <tr>
+                        <th class="date">Date</th>
+                        <th class="time">Time</th>
+                        <th class="diagnosis">Diagnosis</th>
+                        <th>Treatment</th>
+                        <th class="medication">Medication prescribed</th>
                         <% if(user.userType==="Veterinarian" ){ %>
                             <th></th>
+                            <th></th>
                             <% } %>
-                                <th>Date</th>
-                                <th>Time</th>
-                                <th>Diagnosis</th>
-                                <th>Treatment</th>
-                                <th>Medication prescribed</th>
-                                <% if(user.userType==="Veterinarian" ){ %>
-                                    <th></th>
-                                    <% } %>
                     </tr>
                 </thead>
 
@@ -47,30 +45,29 @@
                     <tbody>
                         <form action="/user/<%= user._id %>/records/<%= r._id %>?_method=DELETE" method="POST">
                             <tr>
+                                <td class="date">
+                                    <%= r.date.toLocaleDateString() %>
+                                </td>
+                                <td class="time">
+                                    <%= r.date.toLocaleTimeString([], { hour: "2-digit" , minute: "2-digit" }) %>
+                                </td>
+                                <td class="diagnosis">
+                                    <%= r.diagnosis %>
+                                </td>
+                                <td>
+                                    <%= r.treatment %>
+                                </td>
+                                <td class="medication">
+                                    <%= r.medication %>
+                                </td>
                                 <% if(user.userType==="Veterinarian" ){ %>
-                                    <td><button type="submit">X</button></td>
+                                    <td>
+                                        <a class='edit' href="/user/<%= user._id %>/records/<%= r._id %>/edit"></a>
+                                    </td>
+                                    <td>
+                                        <button class='trash' type="submit"></button>
+                                    </td>
                                     <% } %>
-
-                                        <td>
-                                            <%= r.date.toLocaleDateString() %>
-                                        </td>
-                                        <td>
-                                            <%= r.date.toLocaleTimeString([], { hour: "2-digit" , minute: "2-digit" })
-                                                %>
-                                        </td>
-                                        <td>
-                                            <%= r.diagnosis %>
-                                        </td>
-                                        <td>
-                                            <%= r.treatment %>
-                                        </td>
-                                        <td>
-                                            <%= r.medication %>
-                                        </td>
-                                        <% if(user.userType==="Veterinarian" ){ %>
-                                            <td><a href="/user/<%= user._id %>/records/<%= r._id %>/edit">EDIT</a>
-                                            </td>
-                                            <% } %>
                             </tr>
                         </form>
                     </tbody>

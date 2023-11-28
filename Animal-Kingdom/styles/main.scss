@@ -473,7 +473,31 @@ $danger: #e73b3b;
 		td {
 			padding: 0.94rem 0;
 			text-transform: capitalize;
+			text-overflow: ellipsis;
 		}
+		.time,
+		.date ,
+		.diagnosis {
+			width: 11%;
+		}
+		.medication {
+			width: 20%;
+		}
+		.edit{
+			content: url('/images/edit.svg');
+			margin: 0 .25rem;
+		}
+		.trash {
+			border: 0;
+			padding: 0;
+			height: 24px;
+			width: 24px;
+			&:before {
+				content: url('/images/trash.svg');
+				margin: 0 .375rem;
+			}
+		}
+		
 	}
 	.no-records {
 		padding-top: 1rem;
