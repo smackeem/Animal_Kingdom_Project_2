@@ -129,7 +129,12 @@
         <button class="btn-xl" type="submit">Sign Up</button>
       </form>
 
-      <p>Already have an account? <a href="/user/login">Log in</a></p>
+      <div>
+        <p class="error">
+          <%= errMsg %>
+        </p>
+        <p>Already have an account? <a href="/user/login">Log in</a></p>
+      </div>
     </section>
 
     <%- include('../partials/footer'); %>
