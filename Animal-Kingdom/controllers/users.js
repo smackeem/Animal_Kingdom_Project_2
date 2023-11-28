@@ -84,7 +84,7 @@ async function show(req, res, next) {
       .populate("pet")
       .sort({ date: 1 });
     res.render("users/show", {
-      title: `${user.username} Profile`,
+      title: `${user.firstName} Profile`,
       user,
       pets,
       vetRecords,
