@@ -455,7 +455,7 @@
   padding: 0.94rem 0;
   text-transform: capitalize;
 }
-.medical-records p:last-child {
+.medical-records .no-records {
   padding-top: 1rem;
 }
 
