@@ -1,6 +1,6 @@
 <%- include('../partials/header') %>
   <%- include('../pets/new.ejs') %>
-    <%- include('../records/new.ejs') %>
+    
 
       <h1>Welcome back, <span class="user-name">
           <%= user.firstName %>
@@ -75,6 +75,7 @@
 
 
           <% if(user.userType==="Veterinarian" ) { %>
+            <%- include('../records/new.ejs') %>
             <section class="appointments-overview">
               <h2>Upcoming Appointments</h2>
               <% if(vetAppointments.length) { %>
