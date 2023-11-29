@@ -1,31 +1,31 @@
-<%- include('../partials/header') %>
+<div id='new-record-popup' class="popup flex-center-xy hidden">
+    <section class="new-record">
+        <button id="new-record-close-btn" class="close-btn">
+            <img src="/images/close.svg" alt="X">
+        </button>
+        <h2>New Medical Record</h2>
+        <form action="/user/<%=user._id %>/records" method="POST">
+            <label for="pet">Pet</label>
+            <select name="pet" id="" required>
+                <% patients.forEach(p=> { %>
+                    <option value="<%= p._doc._id %>">Name: <%= p._doc.name%> DOB: <%= p._doc.DOB.toLocaleDateString() %>
+                    </option>
+                    <% }) %>
+            </select>
 
-<form action="/user/<%=user._id %>/records" method="POST">
-    <label for="pet">Pet: 
-        <select name="pet" id="" required>
-            <% pets.forEach(p => { %>
-                <option value="<%= p._id %>">Name: <%= p.name%> DOB: <%= p.DOB.toLocaleDateString() %></option>
-                <% }) %>
-        </select>
-    </label><br/><br/>
+            <label for="date">Date</label>
+            <input type="datetime-local" name="date" required>
 
-    <label for="date">Date: 
-        <input type="datetime-local" name="date" required>
-    </label><br/><br/>
+            <label for="diagnosis">Diagnosis</label>
+            <input type="text" name="diagnosis" required>
 
-    <label for="diagnosis">Diagnosis: 
-        <input type="text" name="diagnosis" required>
-    </label><br/><br/>
+            <label for="treament">Treament</label>
+            <input type="text" name="treatment" required>
 
-    <label for="treament">Treament: 
-        <input type="text" name="treatment" required>
-    </label><br/><br/>
+            <label for="medication">Medication</label>
+            <input type="text" name="medication" required>
 
-    <label for="medication">Medication: 
-        <input type="text" name="medication" required>
-    </label><br/><br/>
-
-    <button type="submit">Create Record</button>
-</form>
-<%- include('../partials/footer') %>
-
+            <button class='btn-save' type="submit">Save</button>
+        </form>
+    </section>
+</div>

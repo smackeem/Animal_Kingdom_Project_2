@@ -289,6 +289,9 @@
 .book-appointment table a {
   margin: 0;
 }
+.book-appointment .no-appt {
+  text-align: center;
+}
 
 /* Pet Overview - users/show.ejs */
 .pet-overview {
@@ -359,7 +362,8 @@
   left: 0;
   background-color: rgba(0, 0, 0, 0.7);
 }
-.popup .new-pet {
+.popup .new-pet,
+.popup .new-record {
   position: relative;
   padding: 2.88rem 2.62rem;
   background-color: white;
@@ -367,7 +371,8 @@
   box-shadow: 0px 4px 23px 6px rgba(0, 0, 0, 0.04);
   min-width: 25rem;
 }
-.popup .new-pet .close-btn {
+.popup .new-pet .close-btn,
+.popup .new-record .close-btn {
   position: absolute;
   border: 0;
   top: 1rem;
@@ -376,7 +381,8 @@
 
 .edit-pet,
 .book-appointment,
-.appt-reason {
+.appt-reason,
+.records-create-edit {
   padding: 2.88rem 2.62rem;
   background-color: white;
   border-radius: 0.5rem;
@@ -389,12 +395,15 @@
 .book-appointment h2,
 .book-appointment a,
 .appt-reason h2,
-.appt-reason a {
+.appt-reason a,
+.records-create-edit h2,
+.records-create-edit a {
   text-align: center;
 }
 .edit-pet a,
 .book-appointment a,
-.appt-reason a {
+.appt-reason a,
+.records-create-edit a {
   display: block;
   margin-top: 1rem;
 }
@@ -451,8 +460,35 @@
 .medical-records table td {
   padding: 0.94rem 0;
   text-transform: capitalize;
+  text-overflow: ellipsis;
 }
-.medical-records p:last-child {
+.medical-records table .time,
+.medical-records table .date,
+.medical-records table .diagnosis {
+  width: 11%;
+}
+.medical-records table .medication {
+  width: 20%;
+  padding: 0 2px;
+}
+.medical-records table .records-action {
+  width: 10%;
+}
+.medical-records table .edit {
+  content: url("/images/edit.svg");
+  margin: 0 0.25rem;
+}
+.medical-records table .trash {
+  border: 0;
+  padding: 0;
+  height: 24px;
+  width: 24px;
+}
+.medical-records table .trash:before {
+  content: url("/images/trash.svg");
+  margin: 0 0.375rem;
+}
+.medical-records .no-records {
   padding-top: 1rem;
 }
 
