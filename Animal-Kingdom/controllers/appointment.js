@@ -24,11 +24,10 @@ async function newAppt(req, res, next){
 }
 
 async function create(req, res, next){
-    req.body.isAvailable = !!req.body.isAvailable;
-    console.log(req.body.isAvailable)
-    const appointment = await Appointment.create(req.body);
     try{
+        const appointment = await Appointment.create(req.body);
         appointment.vet = await User.findById(req.params.id);
+        appointment.isAvailable = true;
         await appointment.save();
         res.redirect(`/user/${req.params.id}/appointments`);
     }catch(err){
