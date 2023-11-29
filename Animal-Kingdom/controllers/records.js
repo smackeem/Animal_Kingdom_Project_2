@@ -2,7 +2,7 @@
 const Record = require("../models/record");
 const Pet = require("../models/pet");
 const User = require("../models/users");
-
+let today = new Date();
 module.exports = {
   new: newRecord,
   create,
@@ -83,12 +83,14 @@ async function edit(req, res, next) {
   try {
     const record = await Record.findById(req.params.id).populate("pet");
     const pets = await Pet.find({});
+    rDate = formatDateTime(record.date);
     res.render("records/edit", {
       title: "Edit Medical Record",
       errMsg: "",
       record,
       pets,
       user: record.vet,
+     rDate,
     });
   } catch (err) {
     console.log(err);
@@ -108,4 +110,14 @@ async function update(req, res, next) {
     console.log(err);
     res.status(500).render("pets/show", { errMsg: "Error Updating Record. Try again!" });
   }
+}
+
+function formatDateTime(date) {
+  const year = date.getFullYear();
+  const month = (date.getMonth() + 1).toString().padStart(2, '0');
+  const day = date.getDate().toString().padStart(2, '0');
+  const hours = date.getHours().toString().padStart(2, '0');
+  const minutes = date.getMinutes().toString().padStart(2, '0');
+
+  return `${year}-${month}-${day}T${hours}:${minutes}`;
 }

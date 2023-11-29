@@ -1,17 +1,17 @@
 <%- include('../partials/header') %>
 
 <section class="records-create-edit">
-    <h2>Editing <%= p.name%>'s Record </h2>
+    <h2>Editing <%= record.pet.name%>'s Record </h2>
     <form action="/user/<%= user._id%>/records/<%= record._id %>?_method=PUT" method="POST">
         
         <label for="date">Date</label>
-            <input type="datetime-local" name="date" required>
+            <input type="datetime-local" name="date" value="<%= rDate %>" required>
     
         <label for="diagnosis">Diagnosis</label>
             <input type="text" name="diagnosis" value="<%= record.diagnosis %>" required>
     
         <label for="treament">Treament</label>
-            <textarea  name="treatment" rows="5" cols="33" required></textarea>
+            <textarea  name="treatment" rows="5" cols="33" required><%= record.treatment %></textarea>
     
         <label for="medication">Medication</label>
             <input type="text" name="medication" value="<%= record.medication %>" required>

@@ -43,7 +43,7 @@ async function show(req, res) {
   try {
     const pet = await Pet.findById(req.params.id).populate("owner");
     const user = await User.findById(req.params.userId);
-    const records = await Record.find({ pet: pet._id }).sort({date: 1});
+    const records = await Record.find({ pet: pet._id }).sort({date: -1});
     res.render("pets/show", { title: "Pet Profile", pet, records, user });
   } catch (err) {
     console.log(err);
