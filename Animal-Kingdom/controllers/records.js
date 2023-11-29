@@ -2,7 +2,6 @@
 const Record = require("../models/record");
 const Pet = require("../models/pet");
 const User = require("../models/users");
-let today = new Date();
 module.exports = {
   new: newRecord,
   create,
@@ -11,6 +10,7 @@ module.exports = {
   show,
   edit,
   update,
+  formatDateTime
 };
 
 async function newRecord(req, res, next) {

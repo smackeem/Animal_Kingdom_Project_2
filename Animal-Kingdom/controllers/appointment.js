@@ -3,7 +3,8 @@ const Record = require('../models/record');
 const Pet = require('../models/pet');
 const User = require('../models/users');
 const appointment = require('../models/appointment');
-const today = new Date();
+const recordsCtrl = require('../controllers/records');
+let today = new Date();
 module.exports = {
     new: newAppt,
     create,
@@ -17,7 +18,8 @@ module.exports = {
 async function newAppt(req, res, next){
     try{
         const user = await User.findById(req.params.id);
-        res.render('appointments/new',{title: 'New Medical Record', errMsg: '', user});
+        today = recordsCtrl.formatDateTime(today)
+        res.render('appointments/new',{title: 'New Medical Record', errMsg: '', user, today});
     }catch(err){
         console.log(err);
     }

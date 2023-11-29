@@ -7,7 +7,7 @@
     <form action="/user/<%=user._id %>/appointments" method="POST">
     
         <label for="date">Date & Time: 
-            <input type="datetime-local" name="date" required>
+            <input type="datetime-local" name="date" min="<%= today %>" required>
         </label><br/><br/>
     
         <button type="submit">Add Availability</button>
