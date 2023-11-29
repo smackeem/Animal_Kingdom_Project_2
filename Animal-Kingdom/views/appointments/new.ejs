@@ -1,5 +1,8 @@
 <%- include('../partials/header') %>
 
+<nav class="medical-records-nav">
+    <a href="/user/<%=user._id%>">Dashboard</a> > <span>Medical Records</span>
+</nav>
 <section class="">
     <form action="/user/<%=user._id %>/appointments" method="POST">
     

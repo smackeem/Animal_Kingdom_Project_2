@@ -1,5 +1,7 @@
 <%- include('../partials/header') %>
-
+<nav class="medical-records-nav">
+    <a href="/user/<%=user._id%>">Dashboard</a> > <a href="/user/<%=user._id %>/appointments">Appointments</a> > <span>Book Appointment</span>
+</nav>
     <section class="appt-reason">
         <h2>Appointment Details</h2>
         <form action="/user/<%= user._id%>/appointments/<%= appointment._id %>?_method=PUT" method="POST">
