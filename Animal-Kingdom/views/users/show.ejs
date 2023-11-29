@@ -1,5 +1,6 @@
 <%- include('../partials/header') %>
   <%- include('../pets/new.ejs') %>
+  <%- include('../records/new.ejs') %>
     
 
       <h1>Welcome back, <span class="user-name">
@@ -75,7 +76,6 @@
 
 
           <% if(user.userType==="Veterinarian" ) { %>
-            <%- include('../records/new.ejs') %>
             <section class="appointments-overview">
               <h2>Upcoming Appointments</h2>
               <% if(vetAppointments.length) { %>
@@ -129,8 +129,8 @@
                       <p>No Existing Patients</p>
                       <% } %>
 
-                      <div class="card">
-                        <button class='addrecord'>Create Medical Record</button>
+                      <div class="card add-record">
+                        <button class='addrecord'>Add Record</button>
                       </div>
                     </section>
                     <% } %>

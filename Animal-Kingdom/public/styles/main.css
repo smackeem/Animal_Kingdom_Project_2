@@ -379,6 +379,27 @@
   right: 1rem;
 }
 
+.add-record {
+  height: 22.1875rem;
+  background-color: #e8e8e8;
+  align-items: center;
+}
+.add-record button {
+  position: relative;
+  font-size: 1.125rem;
+  font-weight: 500;
+  color: #4c4c4c;
+  letter-spacing: 0.03375rem;
+  padding: 0;
+  border: 0;
+}
+.add-record button:before {
+  content: url("/images/add.svg");
+  position: absolute;
+  left: -30px;
+  bottom: -7px;
+}
+
 .edit-pet,
 .book-appointment,
 .appt-reason,
