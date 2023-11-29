@@ -10,7 +10,7 @@ $border-color: #dadada;
 $input-border-color: #cbcbcb;
 $danger: #e73b3b;
 
-/* Landing Page */
+
 .anonymous {
 	background-color: $avocado;
 
@@ -129,7 +129,6 @@ $danger: #e73b3b;
 	}
 }
 
-/* Card Styles */
 .card {
 	display: flex;
 	justify-content: center;
@@ -168,7 +167,6 @@ $danger: #e73b3b;
 		justify-content: center;
 	}
 }
-
 
 .header-nav {
 	display: flex;
@@ -356,7 +354,6 @@ $danger: #e73b3b;
 	}
 }
 
-/* Pet Overview - users/show.ejs */
 .pet-overview {
 	display: flex;
 	flex-direction: row;

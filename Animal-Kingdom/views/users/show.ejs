@@ -1,6 +1,5 @@
 <%- include('../partials/header') %>
   <%- include('../pets/new.ejs') %>
-  <%- include('../records/new.ejs') %>
     
 
       <h1>Welcome back, <span class="user-name">
@@ -103,12 +102,13 @@
                   </form>
                   <% }) %>
                     <% } else {%>
-                      <p>No Appointments Yet.</p>
+                      <p>No Appointments Scheduled</p>
                       <% } %>
               </div>
             </section>
 
             <section class="pet-overview">
+              <%- include('../records/new.ejs') %>
               <h2>Your Patients</h2>
               <% if(patients.length){ %>
                 <% patients.forEach(p=> { %>
@@ -134,7 +134,9 @@
                   </div>
                   <% }) %>
                     <% } else { %>
-                      <p>No Existing Patients</p>
+                      <div class="card flex-center-xy">
+                        <p>No Existing Patients</p>
+                      </div>
                       <% } %>
 
                       <div class="card add-record">
