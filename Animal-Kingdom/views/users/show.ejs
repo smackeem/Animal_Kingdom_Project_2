@@ -83,26 +83,29 @@
 
             <section class="appointments-overview">
               <h2>Upcoming Appointments</h2>
+              <div>
               <% if(vetAppointments.length) { %>
                 <% vetAppointments.forEach(va=> { %>
                   <form action="/user/<%= user._id %>/appointments/<%= va._id %>/cancel?_method=PUT" method="POST">
                     <p>
-                      <%= va.pet.name %>'s Appointment:
+                      Appointment with <%= va.pet.name %>
                     </p>
-                    <p>
-                      <%= va.date.toLocaleDateString() %>
-                    </p>
-                    <p>
-                      <%= va.date.toLocaleTimeString()%>
-                    </p>
+                    <div class="date">
+                      <p>
+                        <%= va.date.toLocaleDateString() %>
+                      </p>
+                      <p>
+                        <%= va.date.toLocaleTimeString([], { hour: "2-digit" , minute: "2-digit" })%>
+                      </p>
+                    </div>
 
-                    <button type="submit">CANCEL</button>
+                    <button type="submit">Cancel</button>
                   </form>
                   <% }) %>
-                    <% } else{%>
+                    <% } else {%>
                       <p>No Appointments Yet.</p>
                       <% } %>
-
+              </div>
             </section>
 
             <section class="pet-overview">
