@@ -8,9 +8,9 @@
         <% if(user.userType === "Veterinarian"){ %>
             <thead>
                 <tr>
+                    <th></th>
                     <th>Date</th>
                     <th>Time</th>
-                    <th></th>
                 </tr>
             </thead>
         <tbody>
@@ -20,7 +20,6 @@
                 <td><button type="submit">X</button></td>
                 <td><%= a.date.toLocaleDateString() %></td>
                 <td><%= a.date.toLocaleTimeString([], { hour: "2-digit" , minute: "2-digit" }) %></td>
-                <td><a href="/user/<%=user._id %>/appointments/<%=a._id %>/edit">EDIT</a></td>
             </tr>
             </form>
             <% }) %>
