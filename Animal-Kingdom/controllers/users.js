@@ -15,10 +15,12 @@ module.exports = {
 
 async function create(req, res, next) {
   try {
-    const { username } = req.body;
+    const { username, email } = req.body;
     // Check if the username already exists
     const existingUser = await User.findOne({ username });
+    const existingEmail = await User.findOne({ email })
     if (existingUser) return res.status(500).render("users/signup", {title: "Sign up", errMsg: "Username already exists. Please choose a new one."});
+    if (existingEmail) return res.status(500).render("users/signup", {title: "Sign up", errMsg: "Email already exists. Please choose a new one."});
     const newUser = await User.create(req.body);
     newUser.address = req.body; // Corrected address assignment
     await newUser.save().then((newUser) => {
