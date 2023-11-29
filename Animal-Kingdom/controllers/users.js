@@ -59,6 +59,7 @@ async function login(req, res) {
 async function show(req, res, next) {
   try {
     const user = await User.findById(req.params.id);
+    const allPets = await Pet.find({});
     const pets = await Pet.find({ owner: { _id: user._id } }).populate("owner");
     const vetRecords = await Record.find({ vet: { _id: user._id } }).populate("pet");
     const allPatients = vetRecords.map((record) => record.pet);
@@ -86,6 +87,7 @@ async function show(req, res, next) {
       patients,
       petAppointments,
       vetAppointments,
+      allPets
     });
   } catch (err) {
     console.log(err);

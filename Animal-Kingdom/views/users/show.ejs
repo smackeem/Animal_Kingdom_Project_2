@@ -60,8 +60,8 @@
                   </div>
                   <a class='card-btn' href="/user/<%= user._id %>/pets/<%= p._id %>">Medical Records</a>
                 </div>
-                <form action="/user/<%= user._id %>/pets/<%= p._id %>?_method=DELETE" method="POST">
-                  <button class="card-delete" type="submit"><img src="/images/close.svg" alt="X"></button>
+                <form id="deleteForm" action="/user/<%= user._id %>/pets/<%= p._id %>?_method=DELETE" method="POST">
+                  <button class="card-delete" type="button" onclick="confirmDelete()"><img src="/images/close.svg" alt="X"></button>
                 </form>
                 <a class='card-edit' href="/user/<%= user._id %>/pets/<%= p._id %>/edit">Edit</a>
               </div>

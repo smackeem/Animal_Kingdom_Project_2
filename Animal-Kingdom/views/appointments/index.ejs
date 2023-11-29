@@ -1,36 +1,30 @@
 <%- include('../partials/header') %>
-
-    <section class='book-appointment'>
-        <h2>Appointment Availability</h2>
-        <table>
-            <% if(user.userType==="Veterinarian" ){ %>
-                <thead>
+<nav class="medical-records-nav">
+    <a href="/user/<%=user._id%>">Dashboard</a> > <span>Appointments</span>
+</nav>
+<section class='book-appointment'>
+<h2>Appointment Availability</h2>
+    <table>
+        <% if(user.userType === "Veterinarian"){ %>
+            <thead>
+                <tr>
+                    <th></th>
+                    <th>Date</th>
+                    <th>Time</th>
+                </tr>
+            </thead>
+        <tbody>
+            <% availabilities.forEach(a => { %> 
+                <form action="/user/<%= user._id %>/appointments/<%= a._id %>/?_method=DELETE" method="POST">
                     <tr>
-                        <th>Date</th>
-                        <th>Time</th>
-                        <th></th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <% availabilities.forEach(a=> { %>
-                        <form action="/user/<%= user._id %>/appointments/<%= a._id %>/?_method=DELETE" method="POST">
-                            <tr>
-                                <td>
-                                    <%= a.date.toLocaleDateString() %>
-                                </td>
-                                <td>
-                                    <%= a.date.toLocaleTimeString([], { hour: "2-digit" , minute: "2-digit" }) %>
-                                </td>
-
-                                <td class="appt-action">
-                                    <a class='edit' href="/user/<%=user._id %>/appointments/<%=a._id %>/edit"></a>
-                                    <button class='trash' type="submit"></button>
-                                </td>
-                            </tr>
-                        </form>
-                        <% }) %>
-                </tbody>
-                <% } %>
+                <td><button type="submit">X</button></td>
+                <td><%= a.date.toLocaleDateString() %></td>
+                <td><%= a.date.toLocaleTimeString([], { hour: "2-digit" , minute: "2-digit" }) %></td>
+            </tr>
+            </form>
+            <% }) %>
+        </tbody>
+        <% } %>
 
                     <% if(user.userType==="Owner" ){ %>
                         <% if(appointments.length){ %>

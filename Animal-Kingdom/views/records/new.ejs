@@ -7,8 +7,8 @@
         <form action="/user/<%=user._id %>/records" method="POST">
             <label for="pet">Pet</label>
             <select name="pet" id="" required>
-                <% patients.forEach(p=> { %>
-                    <option value="<%= p._doc._id %>">Name: <%= p._doc.name%> DOB: <%= p._doc.DOB.toLocaleDateString() %>
+                <% allPets.forEach(p=> { %>
+                    <option value="<%= p._id %>">Name: <%= p.name%> DOB: <%= p.DOB.toLocaleDateString() %>
                     </option>
                     <% }) %>
             </select>
