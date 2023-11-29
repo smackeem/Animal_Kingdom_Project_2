@@ -17,3 +17,14 @@ function toggleSpecializationField() {
 		specializationInput.value = ''
 	}
 }
+
+function confirmDelete() {
+	const isConfirmed = window.confirm("Are you sure you want to delete?");
+	if(isConfirmed){
+		const form = document.querySelector('#deleteForm');
+		form.submit();
+		console.log('Item deleted');
+	}else{
+		console.log('Deletion canceled');
+	}
+}
