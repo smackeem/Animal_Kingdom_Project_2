@@ -76,6 +76,11 @@
 
 
           <% if(user.userType==="Veterinarian" ) { %>
+          
+              <section class="add-availability flex-center-xy">
+                <a href="/user/<%=user._id%>/appointments">Add Availability</a>
+              </section>
+
             <section class="appointments-overview">
               <h2>Upcoming Appointments</h2>
               <% if(vetAppointments.length) { %>

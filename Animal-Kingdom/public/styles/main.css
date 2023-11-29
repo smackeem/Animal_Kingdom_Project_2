@@ -145,7 +145,6 @@
   justify-content: center;
 }
 
-/* Header Styles */
 .header-nav {
   display: flex;
   justify-content: space-between;
@@ -214,7 +213,6 @@
   cursor: pointer;
 }
 
-/* Upcoming Appointments Overview - users/show.ejs */
 .appointments-overview {
   margin: 4.38rem 0;
 }
@@ -347,6 +345,31 @@
   border: 0;
 }
 .pet-overview .add-pet button:before {
+  content: url("/images/add.svg");
+  position: absolute;
+  left: -30px;
+  bottom: -7px;
+}
+
+.add-availability {
+  max-width: 16.6875rem;
+  background-color: #e8e8e8;
+  border: 1px solid #dadada;
+  padding: 1.25rem;
+  border-radius: 0.5rem;
+  margin-top: 2.38rem;
+}
+.add-availability a {
+  display: block;
+  position: relative;
+  font-size: 1.125rem;
+  font-weight: 500;
+  color: #4c4c4c;
+  letter-spacing: 0.03375rem;
+  padding: 0;
+  border: 0;
+}
+.add-availability a:before {
   content: url("/images/add.svg");
   position: absolute;
   left: -30px;

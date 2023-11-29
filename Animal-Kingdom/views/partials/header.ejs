@@ -30,10 +30,6 @@
         <a href="/user/<%=user._id%>">
           <img class='logo' src="/images/AKlogo.svg" alt="Animal Kingdom Logo">
         </a>
-        <% if(user.userType==="Veterinarian" ){ %>
-          <a href="/user/<%=user._id%>/records/new">New Patient Record</a>
-          <a href="/user/<%=user._id%>/appointments">Add Availability</a>
-          <% } %>
       </div>
 
       <div class="nav-user">
