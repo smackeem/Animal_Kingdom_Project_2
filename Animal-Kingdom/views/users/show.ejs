@@ -31,9 +31,15 @@
                 <button type="submit">Cancel</button>
               </form>
               <% }) %>
+              <% if(pets.length){ %>
                 <div class="book-appt card">
                   <a href="/user/<%=user._id%>/appointments">Book Appointment</a>
                 </div>
+                <% } else{ %>
+                  <div class="book-appt card">
+                    <p>To Book Appointments, Add Pets.</p>
+                  </div>
+                  <% } %>
           </div>
         </section>
 
