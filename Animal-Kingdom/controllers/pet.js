@@ -2,8 +2,8 @@
 const Pet = require("../models/pet");
 const User = require("../models/users");
 const Record = require("../models/record");
-const Appointment = require("../models/record");
-
+const Appointment = require("../models/appointment");
+const method = require('../controllers/records');
 module.exports = {
   index,
   create,
@@ -55,7 +55,7 @@ async function deletePet(req, res) {
   try {
     console.log("testing");
     const pet = await Pet.findById(req.params.id);
-    const appointments = await Appointment.find({pet: pet._id});
+    const appointments = await Appointment.find({'pet': pet._id});
     await Promise.all(appointments.map(async (appointment) => {
       appointment.isAvailable = true;
       await appointment.save();
@@ -72,7 +72,8 @@ async function edit(req, res, next) {
   try {
     const pet = await Pet.findById(req.params.id);
     const user = pet.owner;
-    res.render("pets/edit", { title: "Edit Pet Profile", pet, user });
+    const petDOB = method.formatDateTime(pet.DOB, 'd');
+    res.render("pets/edit", { title: "Edit Pet Profile", pet, user, petDOB});
   } catch (err) {
     console.log(err);
     res.redirect(`/user/${pet.owner._id}`);

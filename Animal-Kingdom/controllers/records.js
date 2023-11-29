@@ -83,7 +83,7 @@ async function edit(req, res, next) {
   try {
     const record = await Record.findById(req.params.id).populate("pet");
     const pets = await Pet.find({});
-    rDate = formatDateTime(record.date);
+    rDate = formatDateTime(record.date, 'dt');
     res.render("records/edit", {
       title: "Edit Medical Record",
       errMsg: "",
@@ -112,12 +112,12 @@ async function update(req, res, next) {
   }
 }
 
-function formatDateTime(date) {
+function formatDateTime(date, type) {
   const year = date.getFullYear();
   const month = (date.getMonth() + 1).toString().padStart(2, '0');
   const day = date.getDate().toString().padStart(2, '0');
   const hours = date.getHours().toString().padStart(2, '0');
   const minutes = date.getMinutes().toString().padStart(2, '0');
-
-  return `${year}-${month}-${day}T${hours}:${minutes}`;
+  if(type==='d') return `${year}-${month}-${day}`;
+  if(type==='dt') return `${year}-${month}-${day}T${hours}:${minutes}`;
 }

@@ -4,7 +4,7 @@ const Pet = require('../models/pet');
 const User = require('../models/users');
 const appointment = require('../models/appointment');
 const recordsCtrl = require('../controllers/records');
-let today = new Date();
+
 module.exports = {
     new: newAppt,
     create,
@@ -18,7 +18,8 @@ module.exports = {
 async function newAppt(req, res, next){
     try{
         const user = await User.findById(req.params.id);
-        today = recordsCtrl.formatDateTime(today)
+        let today = new Date();
+        today = recordsCtrl.formatDateTime(today, 'dt')
         res.render('appointments/new',{title: 'New Medical Record', errMsg: '', user, today});
     }catch(err){
         console.log(err);
@@ -41,6 +42,7 @@ async function create(req, res, next){
 async function index(req, res, next){
     try{
         const user = await User.findById(req.params.id);
+        let today = new Date();
         const availabilities = await Appointment.find({vet: req.params.id, isAvailable: true, date: {$gte: today}}).sort({date: 1});
         const appointments = await Appointment.find({isAvailable: true, date: {$gte: today}}).sort({date: 1});
         res.render('appointments/index', {title: 'Your Availabilities', availabilities, user, appointments})
