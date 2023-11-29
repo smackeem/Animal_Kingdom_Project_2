@@ -1,5 +1,13 @@
-# Animal Kingdom
+![Static Badge](https://img.shields.io/badge/contributors-_3-green?style=for-the-badge)
+![Static Badge](https://img.shields.io/badge/pulse-_%E2%9C%94-green?style=for-the-badge)
 
+![cartoon](https://github.com/smackeem/Animal_Kingdom_Project_2/assets/51036021/90e4230a-b65f-46cd-b82a-804ebdbaaeb7)
+
+<div align="center">
+	<h1 align="center">Animal Kingdom</h3>
+</div>
+
+## About the Project
 Animal Kingdom is a comprehensive and user-friendly web application designed to streamline and enhance the pet care experience for both pet owners and veterinarians. With a focus on providing a seamless and organized approach to managing pet health, appointments, and communication. Animal Kingdom is not just an application; it's a companion on your pet care journey, designed to make the process of managing your pet's health as enjoyable and stress-free as possible.
 
 # Wireframe
@@ -49,3 +57,5 @@ Explore our Animal Kingdom:
 4. Online payment system for clinic services.
 5. Mobile app version for convenient access on the go.
 6. Pet owners can connect with experienced veterinarians specializing in various fields to choose the right professional for your pet's specific needs.
+
+
