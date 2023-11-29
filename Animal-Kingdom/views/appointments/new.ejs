@@ -1,18 +1,22 @@
 <%- include('../partials/header') %>
 
-<section class="">
+<section class="create-av">
+    <h2>New Availability</h2>
     <form action="/user/<%=user._id %>/appointments" method="POST">
     
-        <label for="date">Date: 
-            <input type="datetime-local" name="date">
-        </label><br/><br/>
-    
-        <label for="isAvailable">Available:
-            <input type="checkbox" name="isAvailable" checked required>
-        </label><br>
-    
-        <button type="submit">Add Availability</button>
+        <div class="create-av-inputs">
+            <label for="date">Date</label>
+                <input type="datetime-local" name="date">
+            
+                <div class="create-av-checkbox">
+                    <label for="isAvailable">Available</label>
+                        <input type="checkbox" name="isAvailable" checked required>
+                </div>
+        </div>
+        
+        <button class='btn-save' type="submit">Save</button>
     </form>
+    <a href="/user/<%= user._id %>">Cancel</a>
 </section>
 
 <%- include('../partials/footer') %>

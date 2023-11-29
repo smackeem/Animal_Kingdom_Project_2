@@ -331,7 +331,7 @@ $danger: #e73b3b;
 			width: 10%;
 			display: flex;
 
-			
+
 			.edit {
 				content: url('/images/edit.svg');
 				margin: 0 0.25rem;
@@ -350,6 +350,9 @@ $danger: #e73b3b;
 	}
 	.no-appt {
 		text-align: center;
+	}
+	.add-av {
+		padding-top: .375rem;
 	}
 }
 
@@ -438,6 +441,22 @@ $danger: #e73b3b;
 	}
 }
 
+.create-av-inputs {
+	display: flex;
+	flex-direction: column;
+
+	.create-av-checkbox {
+		padding-top: 1rem;
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		gap: .5rem;
+		input {
+			margin: 0;
+		}
+	}
+}
+
 .popup {
 	position: absolute;
 	width: 100%;
@@ -487,7 +506,8 @@ $danger: #e73b3b;
 .edit-pet,
 .book-appointment,
 .appt-reason,
-.records-create-edit {
+.records-create-edit,
+.create-av {
 	padding: 2.88rem 2.62rem;
 	background-color: white;
 	border-radius: 0.5rem;
