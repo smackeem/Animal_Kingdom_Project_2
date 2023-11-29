@@ -1,15 +1,8 @@
 <%- include('../partials/header') %>
 
 <section class="records-create-edit">
-    <h2>Edit Record </h2>
+    <h2>Editing <%= p.name%>'s Record </h2>
     <form action="/user/<%= user._id%>/records/<%= record._id %>?_method=PUT" method="POST">
-    
-        <label for="pet">Pet Name</label>
-            <select name="pet" default="<%= record.pet._id%>" required>
-                <% pets.forEach(p => { %>
-                    <option value="<%= p._id %>">Name: <%= p.name%> DOB: <%= p.DOB.toLocaleDateString() %></option>
-                    <% }) %>
-            </select>
         
         <label for="date">Date</label>
             <input type="datetime-local" name="date" required>

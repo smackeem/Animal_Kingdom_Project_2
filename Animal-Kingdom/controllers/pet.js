@@ -2,6 +2,7 @@
 const Pet = require("../models/pet");
 const User = require("../models/users");
 const Record = require("../models/record");
+const Appointment = require("../models/record");
 
 module.exports = {
   index,
@@ -54,6 +55,11 @@ async function deletePet(req, res) {
   try {
     console.log("testing");
     const pet = await Pet.findById(req.params.id);
+    const appointments = await Appointment.find({pet: pet._id});
+    await Promise.all(appointments.map(async (appointment) => {
+      appointment.isAvailable = true;
+      await appointment.save();
+    }));
     await Pet.findByIdAndDelete(req.params.id);
     res.redirect(`/user/${pet.owner}`);
   } catch (err) {
