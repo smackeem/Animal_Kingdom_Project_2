@@ -26,11 +26,11 @@ async function index(req, res) {
 async function create(req, res) {
   req.body.name = req.body.name.trim();
   req.body.breed = req.body.breed.trim();
-  req.body.age = req.body.age.trim();
   const pet = await Pet.create(req.body);
   try {
     const owner = await User.findById(req.params.id);
     pet.owner = owner;
+    pet.age = calculateAge(req.body.DOB);
     pet.save();
     res.redirect(`/user/${pet.owner._id}`);
   } catch (err) {
@@ -91,4 +91,17 @@ async function update(req, res, next) {
     console.log(err);
     res.redirect(`/user/${pet.owner._id}`);
   }
+}
+
+function calculateAge(dob){
+  const currentDate = new Date();
+  dob = new Date(dob)
+  let age = currentDate.getFullYear() - dob.getFullYear();
+
+  if(currentDate.getMonth() < dob.getMonth() ||
+    (currentDate.getMonth() === dob.getMonth() && currentDate.getDate() < dob.getDate())
+  ){
+      age--;
+  }
+  return age;
 }
