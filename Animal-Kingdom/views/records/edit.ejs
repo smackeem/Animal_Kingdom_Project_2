@@ -1,31 +1,31 @@
 <%- include('../partials/header') %>
 
-<form action="/user/<%= user._id%>/records/<%= record._id %>?_method=PUT" method="POST">
-
-    <label for="pet">Pet: 
-        <select name="pet" default="<%= record.pet._id%>" required>
-            <% pets.forEach(p => { %>
-                <option value="<%= p._id %>">Name: <%= p.name%> DOB: <%= p.DOB.toLocaleDateString() %></option>
-                <% }) %>
-        </select>
-    </label><br/><br/>
+<section class="records-create-edit">
+    <h2>Edit Record </h2>
+    <form action="/user/<%= user._id%>/records/<%= record._id %>?_method=PUT" method="POST">
     
-    <label for="date">Date: 
-        <input type="datetime-local" name="date" required>
-    </label><br/><br/>
+        <label for="pet">Pet Name</label>
+            <select name="pet" default="<%= record.pet._id%>" required>
+                <% pets.forEach(p => { %>
+                    <option value="<%= p._id %>">Name: <%= p.name%> DOB: <%= p.DOB.toLocaleDateString() %></option>
+                    <% }) %>
+            </select>
+        
+        <label for="date">Date</label>
+            <input type="datetime-local" name="date" required>
+    
+        <label for="diagnosis">Diagnosis</label>
+            <input type="text" name="diagnosis" value="<%= record.diagnosis %>" required>
+    
+        <label for="treament">Treament</label>
+            <textarea  name="treatment" rows="5" cols="33" required></textarea>
+    
+        <label for="medication">Medication</label>
+            <input type="text" name="medication" value="<%= record.medication %>" required>
+    
+        <button class='btn-save' type="submit">Update</button>
+    </form>
+    <a href="/user/<%= user._id %>">Cancel</a>
+</section>
 
-    <label for="diagnosis">Diagnosis: 
-        <input type="text" name="diagnosis" value="<%= record.diagnosis %>" required>
-    </label><br/><br/>
-
-    <label for="treament">Treament: 
-        <input type="text" name="treatment" value="<%= record.treatment %>" required>
-    </label><br/><br/>
-
-    <label for="medication">Medication: 
-        <input type="text" name="medication" value="<%= record.medication %>" required>
-    </label><br/><br/>
-
-    <button type="submit">Create Record</button>
-</form>
 <%- include('../partials/footer') %>

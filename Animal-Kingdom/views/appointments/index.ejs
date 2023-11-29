@@ -1,48 +1,56 @@
 <%- include('../partials/header') %>
 
+<section class='book-appointment'>
+<h2>Appointment Availability</h2>
     <table>
-        <thead>
-            <tr>
-                <th></th>
-                <th>Date</th>
-                <th>Time</th>
-                <th></th>
-            </tr>
-        </thead>
         <% if(user.userType === "Veterinarian"){ %>
+            <thead>
+                <tr>
+                    <th>Date</th>
+                    <th>Time</th>
+                    <th></th>
+                </tr>
+            </thead>
         <tbody>
             <% availabilities.forEach(a => { %> 
-            <tr>
-            <form action="/user/<%= user._id %>/appointments/<%= a._id %>/?_method=DELETE" method="POST">
+                <form action="/user/<%= user._id %>/appointments/<%= a._id %>/?_method=DELETE" method="POST">
+                    <tr>
                 <td><button type="submit">X</button></td>
                 <td><%= a.date.toLocaleDateString() %></td>
-                <td><%= a.date.toLocaleTimeString() %></td>
+                <td><%= a.date.toLocaleTimeString([], { hour: "2-digit" , minute: "2-digit" }) %></td>
                 <td><a href="/user/<%=user._id %>/appointments/<%=a._id %>/edit">EDIT</a></td>
-            </form>
             </tr>
+            </form>
             <% }) %>
-            
         </tbody>
-        
         <% } %>
+
         <% if(user.userType === "Owner"){ %>
-            <tbody>
-                <% if(appointments.length){ %>
+            <% if(appointments.length){ %>
+                <thead>
+                    <tr>
+                        <th>Date</th>
+                        <th>Time</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
                 <% appointments.forEach(a => { %> 
                 <tr>
                     <td><%= a.date.toLocaleDateString() %></td>
-                    <td><%= a.date.toLocaleTimeString() %></td>
-                    <td><a href="/user/<%=user._id %>/appointments/<%=a._id %>/book">BOOK</a></td>
+                    <td><%= a.date.toLocaleTimeString([], { hour: "2-digit" , minute: "2-digit" }) %></td>
+                    <td><a href="/user/<%=user._id %>/appointments/<%=a._id %>/book">Select</a></td>
                 </tr>
                 <% }) %>
                 <% } else{ %>
-                    <p>No Available Appointments</p>
+                    <p class="no-appt">No Available Appointments</p>
                     <% } %>
             </tbody>
             <% } %>
-
     </table>
-    <% if(user.userType === "Veterinarian") { %><br/><a href="/user/<%= user._id %>/appointments/new"><button>Add Availability</button></a><% } %>
+
+    <% if(user.userType === "Veterinarian") { %><br/><a href="/user/<%= user._id %>/appointments/new">Add Availability</a><% } %>
+</section>
 
 
 <%- include('../partials/footer') %>

@@ -79,7 +79,7 @@ async function show(req, res, next) {
       .sort({ date: 1 });
     res.render("users/show", {
       errMsg: "",
-      title: `${user.username} Profile`,
+      title: `${user.firstName}'s Profile`,
       user,
       pets,
       vetRecords,

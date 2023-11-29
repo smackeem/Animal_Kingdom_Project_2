@@ -11,7 +11,7 @@
 }
 .anonymous .welcome,
 .anonymous .login {
-  min-height: 100vh;
+  min-height: calc(100vh - 2rem);
 }
 .anonymous .container {
   background-color: #fff;
@@ -214,6 +214,85 @@
   cursor: pointer;
 }
 
+/* Upcoming Appointments Overview - users/show.ejs */
+.appointments-overview {
+  margin: 4.38rem 0;
+}
+.appointments-overview div {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.88rem;
+}
+.appointments-overview div form {
+  font-size: 0.875rem;
+  padding: 1.25rem;
+  max-width: 16.6875rem;
+  border: 2px solid #96cfb7;
+  border-radius: 0.5rem;
+  background-color: #fff;
+  letter-spacing: 0.02625rem;
+}
+.appointments-overview div form > p:first-child {
+  font-size: 1rem;
+  font-weight: 700;
+}
+.appointments-overview div form .date {
+  display: flex;
+  margin: 0.35rem 0;
+}
+.appointments-overview div form .date p:last-child {
+  position: relative;
+  margin-left: 15px;
+}
+.appointments-overview div form .date p:last-child:before {
+  content: url("/images/clock.svg");
+  position: absolute;
+  bottom: -2px;
+  left: -18px;
+}
+.appointments-overview div form button {
+  border: 0;
+  padding: 0;
+  max-width: 30%;
+  margin: 1rem auto 0;
+}
+.appointments-overview div form button:hover {
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+.appointments-overview div .book-appt {
+  width: 16.6875rem;
+  background-color: #e8e8e8;
+  align-items: center;
+  min-height: 8.75rem;
+}
+.appointments-overview div .book-appt a {
+  position: relative;
+  font-size: 1.125rem;
+  font-weight: 500;
+  color: #4c4c4c;
+  letter-spacing: 0.03375rem;
+  padding: 0;
+  border: 0;
+}
+.appointments-overview div .book-appt a:before {
+  content: url("/images/add.svg");
+  position: absolute;
+  left: -30px;
+  bottom: -7px;
+}
+
+.book-appointment table {
+  width: 100%;
+  text-align: center;
+}
+.book-appointment table a {
+  margin: 0;
+}
+.book-appointment .no-appt {
+  text-align: center;
+}
+
 /* Pet Overview - users/show.ejs */
 .pet-overview {
   display: flex;
@@ -277,13 +356,14 @@
 .popup {
   position: absolute;
   width: 100%;
-  height: 100vh;
+  height: 100%;
   z-index: 10;
   top: 0;
   left: 0;
   background-color: rgba(0, 0, 0, 0.7);
 }
-.popup .new-pet {
+.popup .new-pet,
+.popup .new-record {
   position: relative;
   padding: 2.88rem 2.62rem;
   background-color: white;
@@ -291,15 +371,18 @@
   box-shadow: 0px 4px 23px 6px rgba(0, 0, 0, 0.04);
   min-width: 25rem;
 }
-.popup .new-pet .close-btn {
+.popup .new-pet .close-btn,
+.popup .new-record .close-btn {
   position: absolute;
   border: 0;
   top: 1rem;
   right: 1rem;
 }
 
-/* Edit Pet */
-.edit-pet {
+.edit-pet,
+.book-appointment,
+.appt-reason,
+.records-create-edit {
   padding: 2.88rem 2.62rem;
   background-color: white;
   border-radius: 0.5rem;
@@ -308,12 +391,105 @@
   margin: 3rem auto;
 }
 .edit-pet h2,
-.edit-pet a {
+.edit-pet a,
+.book-appointment h2,
+.book-appointment a,
+.appt-reason h2,
+.appt-reason a,
+.records-create-edit h2,
+.records-create-edit a {
   text-align: center;
 }
-.edit-pet a {
+.edit-pet a,
+.book-appointment a,
+.appt-reason a,
+.records-create-edit a {
   display: block;
   margin-top: 1rem;
+}
+
+.medical-records-nav {
+  color: #2c2c2c;
+  font-size: 0.75rem;
+  font-weight: 400;
+  letter-spacing: 0.0225rem;
+  padding: 2rem 0 1.25rem;
+}
+.medical-records-nav a {
+  color: #2c2c2c;
+}
+.medical-records-nav a:hover {
+  color: #0057a0;
+}
+.medical-records-nav span {
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.medical-records {
+  border: 1px solid #dadada;
+  background-color: #fff;
+  border-radius: 0.5rem;
+  padding: 1.88rem 1.88rem 4.38rem;
+}
+.medical-records h2 {
+  font-size: 1.25rem;
+  letter-spacing: 0.0375rem;
+}
+.medical-records h3 {
+  font-size: 1rem;
+  font-weight: 700;
+}
+.medical-records .pet-about {
+  margin-bottom: 1.88rem;
+}
+.medical-records .pet-about p {
+  margin-top: 0.62rem;
+}
+.medical-records table {
+  text-align: left;
+  width: 100%;
+}
+.medical-records table th,
+.medical-records table td {
+  border-bottom: 1px solid #e9e9e9;
+}
+.medical-records table th {
+  padding: 1.25rem 0 0.94rem;
+}
+.medical-records table td {
+  padding: 0.94rem 0;
+  text-transform: capitalize;
+  text-overflow: ellipsis;
+}
+.medical-records table .time,
+.medical-records table .date,
+.medical-records table .diagnosis {
+  width: 11%;
+}
+.medical-records table .medication {
+  width: 20%;
+  padding: 0 2px;
+}
+.medical-records table .records-action {
+  width: 10%;
+}
+.medical-records table .edit {
+  content: url("/images/edit.svg");
+  margin: 0 0.25rem;
+}
+.medical-records table .trash {
+  border: 0;
+  padding: 0;
+  height: 24px;
+  width: 24px;
+}
+.medical-records table .trash:before {
+  content: url("/images/trash.svg");
+  margin: 0 0.375rem;
+}
+.medical-records .no-records {
+  padding-top: 1rem;
 }
 
 .btn-save {
