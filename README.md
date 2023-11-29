@@ -1,7 +1,9 @@
 ![Static Badge](https://img.shields.io/badge/contributors-_3-green?style=for-the-badge)
 ![Static Badge](https://img.shields.io/badge/pulse-_%E2%9C%94-green?style=for-the-badge)
 
-![cartoon](https://github.com/smackeem/Animal_Kingdom_Project_2/assets/51036021/90e4230a-b65f-46cd-b82a-804ebdbaaeb7)
+<div align="center">
+   ![cartoon](https://github.com/smackeem/Animal_Kingdom_Project_2/assets/51036021/90e4230a-b65f-46cd-b82a-804ebdbaaeb7)
+</div>
 
 <h1 align="center">Animal Kingdom</h3>
 
@@ -42,7 +44,7 @@ Explore our Animal Kingdom:
 3. Medical Records Management:
    Keep track of your pet's health with a centralized medical records system. Easily update and access information on diagnoses, treatments, and medications.
    
-# Next Steps/Future Enhancements
+## Next Steps/Future Enhancements
 1. Digital prescription issuance and management.
 2. Secure Messaging System between Pet Owners and Veterinarians. Facilitate communication between pet owners and veterinarians through a secure messaging system. Discuss treatment plans, ask questions, and receive timely updates on your pet's progress.
 3. Receive timely notifications to stay informed about upcoming appointments.
