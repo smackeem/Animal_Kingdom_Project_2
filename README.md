@@ -55,4 +55,12 @@ Explore our Animal Kingdom:
 8. Mobile app version for convenient access on the go.
 9. Pet owners can connect with experienced veterinarians specializing in various fields to choose the right professional for your pet's specific needs.
 
+## Contact
+Ackeem Smith - [![LinkedIn](https://img.shields.io/badge/linkedin-%230077B5.svg?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/smackeem/)
+Amanda Mitzian - [![LinkedIn](https://img.shields.io/badge/linkedin-%230077B5.svg?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/amanda-mitzian/)
+Andrew Brown - [![LinkedIn](https://img.shields.io/badge/linkedin-%230077B5.svg?style=for-the-badge&logo=linkedin&logoColor=white)]("")
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+
 
