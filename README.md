@@ -1,11 +1,9 @@
 ![Static Badge](https://img.shields.io/badge/contributors-_3-green?style=for-the-badge)
 ![Static Badge](https://img.shields.io/badge/pulse-_%E2%9C%94-green?style=for-the-badge)
 
-<div align="center">
-   ![cartoon](https://github.com/smackeem/Animal_Kingdom_Project_2/assets/51036021/90e4230a-b65f-46cd-b82a-804ebdbaaeb7)
-</div>
+![cartoon](https://github.com/smackeem/Animal_Kingdom_Project_2/assets/51036021/90e4230a-b65f-46cd-b82a-804ebdbaaeb7)
+<h1 align="center">Animal Kingdom </h1>
 
-<h1 align="center">Animal Kingdom</h3>
 
 ## About the Project
 Animal Kingdom is a comprehensive and user-friendly web application designed to streamline and enhance the pet care experience for both pet owners and veterinarians. With a focus on providing a seamless and organized approach to managing pet health, appointments, and communication. Animal Kingdom is not just an application; it's a companion on your pet care journey, designed to make the process of managing your pet's health as enjoyable and stress-free as possible.
@@ -56,9 +54,14 @@ Explore our Animal Kingdom:
 9. Pet owners can connect with experienced veterinarians specializing in various fields to choose the right professional for your pet's specific needs.
 
 ## Contact
-Ackeem Smith - [![LinkedIn](https://img.shields.io/badge/linkedin-%230077B5.svg?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/smackeem/)
-Amanda Mitzian - [![LinkedIn](https://img.shields.io/badge/linkedin-%230077B5.svg?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/amanda-mitzian/)
-Andrew Brown - [![LinkedIn](https://img.shields.io/badge/linkedin-%230077B5.svg?style=for-the-badge&logo=linkedin&logoColor=white)]("")
+Ackeem Smith </br>
+[![LinkedIn](https://img.shields.io/badge/linkedin-%230077B5.svg?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/smackeem/)
+
+Amanda Mitzian </br>
+[![LinkedIn](https://img.shields.io/badge/linkedin-%230077B5.svg?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/amanda-mitzian/)
+
+Andrew Brown </br>
+[![LinkedIn](https://img.shields.io/badge/linkedin-%230077B5.svg?style=for-the-badge&logo=linkedin&logoColor=white)]("")
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
