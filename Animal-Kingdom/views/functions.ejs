@@ -1,0 +1,7 @@
+<% console.log('testing') %>
+
+<%%
+function selectPet(pet) { 
+    console.log(pet)
+    return <%- include('../pets/new.ejs', { pet }) %>
+} %>

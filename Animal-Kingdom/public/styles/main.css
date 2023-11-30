@@ -434,7 +434,8 @@
   background-color: rgba(0, 0, 0, 0.7);
 }
 .popup .new-pet,
-.popup .new-record {
+.popup .new-record,
+.popup .delete-pet-popup {
   position: relative;
   padding: 2.88rem 2.62rem;
   background-color: white;
@@ -443,7 +444,8 @@
   min-width: 25rem;
 }
 .popup .new-pet .close-btn,
-.popup .new-record .close-btn {
+.popup .new-record .close-btn,
+.popup .delete-pet-popup .close-btn {
   position: absolute;
   border: 0;
   top: 1rem;
@@ -469,6 +471,10 @@
   position: absolute;
   left: -30px;
   bottom: -7px;
+}
+
+.delete-pet-popup {
+  position: absolute;
 }
 
 .edit-pet,
@@ -592,6 +598,16 @@
   border-radius: 0;
   color: #fff;
   background-color: #009757;
+  padding: 0.7rem 0;
+  margin-top: 1rem;
+  font-weight: 700;
+  font-size: 1rem;
+}
+
+.btn-delete {
+  border-radius: 0;
+  color: #fff;
+  background-color: #e73b3b;
   padding: 0.7rem 0;
   margin-top: 1rem;
   font-weight: 700;

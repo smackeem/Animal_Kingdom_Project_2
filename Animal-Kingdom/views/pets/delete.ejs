@@ -1,0 +1,13 @@
+<div id='petDeletePopup' class="popup flex-center-xy hidden">
+    <section class="delete-pet-popup">
+        <img class='delete-pet-btn' src="/images/close.svg" alt="X">
+        <form id="deleteForm" action="/user/<%= user._id %>/pets/<%= p._id %>?_method=DELETE" method="POST"></form>
+        <h2>Are you sure?</h2>
+        <p>Are you sure you want to delete <%= p.name %>'s profile? This action cannot be undone.</p>
+        <div>
+            <button id="pet-delete-cancel">Cancel</button>
+            <button class="danger" type="submit">Delete</button>
+        </div>
+        </form>
+    </section>
+</div>

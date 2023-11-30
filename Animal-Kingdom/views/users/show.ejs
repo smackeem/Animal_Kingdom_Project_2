@@ -1,7 +1,7 @@
 <%- include('../partials/header') %>
-  <%- include('../pets/new.ejs') %>
+  <%- include('../pets/new') %>
+  
     
-
       <h1>Welcome back, <span class="user-name">
           <%= user.firstName %>
         </span></h1>
@@ -41,30 +41,43 @@
           <h2>Your Pets</h2>
           <% if(pets.length){ %>
             <% pets.forEach(p=> { %>
-              <div class="card pet-card">
-                <div>
-                  <img class='pet-img' src="/images/pet.jpg" alt="Pet">
-                  <div class="pet-info">
-                    <h4>
-                      <%= p.name %>
-                    </h4>
-                    <p>
-                      <%= p.species %>, <%= p.breed %>
-                    </p>
-                    <p>
-                      <%= p.age %> Years old
-                    </p>
-                    <p>
-                      DOB: <%= p.DOB.toLocaleDateString() %>
-                    </p>
+              <div class="petDeletePopup popup flex-center-xy hidden">
+                <section class="delete-pet-popup">
+                  <img class='delete-pet-btn' src="/images/close.svg" alt="X">
+                  <form id="deleteForm" action="/user/<%= user._id %>/pets/<%= p._id %>?_method=DELETE" method="POST"></form>
+                  <h2>Are you sure?</h2>
+                  <p>Are you sure you want to delete <%= p.name %>'s profile? This action cannot be undone.</p>
+                  <div>
+                    <button class="pet-delete-cancel">Cancel</button>
+                    <button class="danger" type="submit">Delete</button>
                   </div>
-                  <a class='card-btn' href="/user/<%= user._id %>/pets/<%= p._id %>">Medical Records</a>
-                </div>
-                <form id="deleteForm" action="/user/<%= user._id %>/pets/<%= p._id %>?_method=DELETE" method="POST">
-                  <button class="card-delete" type="button" onclick="confirmDelete()"><img src="/images/close.svg" alt="X"></button>
-                </form>
-                <a class='card-edit' href="/user/<%= user._id %>/pets/<%= p._id %>/edit">Edit</a>
+                  </form>
+                </section>
               </div>
+
+            <div class="card pet-card">
+              <div>
+                <img class='pet-img' src="/images/pet.jpg" alt="Pet">
+                <div class="pet-info">
+                  <h4>
+                    <%= p.name %>
+                  </h4>
+                  <p>
+                    <%= p.species %>, <%= p.breed %>
+                  </p>
+                  <p>
+                    <%= p.age %> Years old
+                  </p>
+                  <p>
+                    DOB: <%= p.DOB.toLocaleDateString() %>
+                  </p>
+                </div>
+                <a class='card-btn' href="/user/<%= user._id %>/pets/<%= p._id %>">Medical Records</a>
+              </div>
+              <button class="petDelete card-delete"><img src="/images/close.svg" alt="X"></button>
+              <a class='card-edit' href="/user/<%= user._id %>/pets/<%= p._id %>/edit">Edit</a>
+              </div>
+              
               <% }) %>
                 <% } %>
                   <div class="card add-pet">
@@ -107,8 +120,8 @@
               </div>
             </section>
 
+            <%- include('../records/new.ejs') %>
             <section class="pet-overview">
-              <%- include('../records/new.ejs') %>
               <h2>Your Patients</h2>
               <% if(patients.length){ %>
                 <% patients.forEach(p=> { %>
