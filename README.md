@@ -8,8 +8,8 @@
 <br />
 <div align="center">
     
-  [![Contributors][contributors-shield]][contributors-url]
   [![Pulse][pulse-shield]][pulse-url]
+  [![Contributors][contributors-shield]][contributors-url]
 
   ![cartoon](https://github.com/smackeem/Animal_Kingdom_Project_2/assets/51036021/90e4230a-b65f-46cd-b82a-804ebdbaaeb7)
   
@@ -89,7 +89,7 @@ Amanda Mitzian </br>
 [![LinkedIn](https://img.shields.io/badge/linkedin-%230077B5.svg?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/amanda-mitzian/)
 
 Andrew Brown </br>
-[![LinkedIn](https://img.shields.io/badge/linkedin-%230077B5.svg?style=for-the-badge&logo=linkedin&logoColor=white)]("")
+[![LinkedIn](https://img.shields.io/badge/linkedin-%230077B5.svg?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/brown-k-andrew/)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
