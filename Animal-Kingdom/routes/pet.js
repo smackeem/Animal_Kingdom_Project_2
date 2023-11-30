@@ -13,6 +13,6 @@ router.get("/user/:userId/pets/:id", petCtrl.show);
 
 router.delete("/user/:id/pets/:id", petCtrl.delete);
 
-router.put("/user/:id/pets/:id", petCtrl.update);
+router.put("/user/:userId/pets/:id", petCtrl.update);
 
 module.exports = router;

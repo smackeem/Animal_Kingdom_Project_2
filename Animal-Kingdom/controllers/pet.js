@@ -18,7 +18,6 @@ async function index(req, res) {
     const pets = await Pet.find({});
     res.render("pets/index", { title: "My Pets" }, pets);
   } catch (err) {
-    console.log(err);
     res.redirect("/");
   }
 }
@@ -37,7 +36,6 @@ async function create(req, res) {
     pet.save();
     res.redirect(`/user/${req.params.id}`);
   } catch (err) {
-    console.log(err);
     res.redirect(`/user/${req.params.id}`);
   }
 }
@@ -49,14 +47,12 @@ async function show(req, res) {
     const records = await Record.find({ pet: pet._id }).sort({date: -1});
     res.render("pets/show", { title: "Pet Profile", pet, records, user });
   } catch (err) {
-    console.log(err);
     res.redirect(`/user/${pet.owner._id}`);
   }
 }
 
 async function deletePet(req, res) {
   try {
-    console.log("testing");
     const pet = await Pet.findById(req.params.id);
     const appointments = await Appointment.find({'pet': pet._id});
     await Promise.all(appointments.map(async (appointment) => {
@@ -66,7 +62,6 @@ async function deletePet(req, res) {
     await Pet.findByIdAndDelete(req.params.id);
     res.redirect(`/user/${pet.owner}`);
   } catch (err) {
-    console.log(err);
     res.redirect(`/user/${pet.owner._id}`);
   }
 }
@@ -78,8 +73,7 @@ async function edit(req, res, next) {
     const petDOB = method.formatDateTime(pet.DOB, 'd');
     res.render("pets/edit", { title: "Edit Pet Profile", pet, user, petDOB});
   } catch (err) {
-    console.log(err);
-    res.redirect(`/user/${pet.owner._id}`);
+    res.redirect(`/user/${req.params.userId}`);
   }
 }
 
@@ -91,8 +85,7 @@ async function update(req, res, next) {
     await Pet.findByIdAndUpdate(req.params.id, req.body);
     res.redirect(`/user/${pet.owner._id}`);
   } catch (err) {
-    console.log(err);
-    res.redirect(`/user/${pet.owner._id}`);
+    res.redirect(`/user/${req.params.userId}`);
   }
 }
 
