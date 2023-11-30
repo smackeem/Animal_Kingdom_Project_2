@@ -26,16 +26,19 @@ async function index(req, res) {
 async function create(req, res) {
   req.body.name = req.body.name.trim();
   req.body.breed = req.body.breed.trim();
-  const pet = await Pet.create(req.body);
   try {
+    const {name, breed} = req.body;
     const owner = await User.findById(req.params.id);
+    const existingPet = await Pet.find({ name, breed, owner});
+    if(existingPet) return res.redirect(`/user/${req.params.id}`);
+    const pet = await Pet.create(req.body);
     pet.owner = owner;
     pet.age = calculateAge(req.body.DOB);
     pet.save();
-    res.redirect(`/user/${pet.owner._id}`);
+    res.redirect(`/user/${req.params.id}`);
   } catch (err) {
     console.log(err);
-    res.redirect(`/user/${pet.owner._id}`);
+    res.redirect(`/user/${req.params.id}`);
   }
 }
 
