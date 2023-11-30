@@ -1,33 +1,34 @@
 // controllers/account.js
-const User = require("../models/user");
+const User = require("../models/users");
 
 module.exports = {
   getAccount,
   updateAccount,
 };
 
-async function getAccount(reg, res) {
+async function getAccount(req, res) {
   try {
-    const user = await User.findById(req.user._id);
-    res.render("account", { user });
+    const user = await User.findById(req.params.id).populate("address");
+    res.render("users/account", { user });
   } catch (err) {
     console.log(err);
-    res.redirect("/account");
+    res.redirect(`/user/${req.params.id}`);
   }
 }
 
 async function updateAccount(req, res) {
+  req.body.firstName = req.body.firstName.trim();
+  req.body.lastName = req.body.lastName.trim();
+  req.body.email = req.body.email.trim();
+  req.body.username = req.body.username.trim();
+  req.body.phone = req.body.phone.trim();
   try {
-    const user = await User.findById(req.user._id);
-    user.firstName = req.body.firstName;
-    user.lastName = req.body.lastName;
-    user.email = req.body.email;
-    user.username = req.body.username;
-    user.phone = req.body.phone;
+    const user = await User.findByIdAndUpdate(req.params.id, req.body);
+    user.address = req.body;
     await user.save();
-    res.redirect("/account");
+    res.redirect(`/user/${req.params.id}`);
   } catch (err) {
     console.log(err);
-    res.redirect("/account");
+    res.redirect(`/user/${req.params.id}`);
   }
 }

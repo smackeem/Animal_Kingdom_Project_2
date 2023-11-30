@@ -3,51 +3,50 @@
 <html class="relative">
   <head>
     <!-- other head elements like CSS links -->
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <% title=typeof title !=='undefined' ? title : "Animal Kingdom" %>
-    <title>
-      <%=title%>
-    </title>
-    <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon">
-    <link rel="icon" href="/images/favicon.ico" type="image/x-icon">
-      <link rel='stylesheet' href='/styles/default.css' />
-      <link rel="stylesheet" href="/styles/main.css">
-      <script src="/scripts/functions.js" defer></script>
-      <% if(user.userType==="Owner" ){ %>
-      <script src="/scripts/petOwnerPopups.js" defer></script>
-      <% } %>
-      <% if(user.userType==="Veterinarian" ){ %>
-      <script src="/scripts/vetPopups.js" defer></script>
-      <% } %>
+    <title><%=title%></title>
+    <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon" />
+    <link rel="icon" href="/images/favicon.ico" type="image/x-icon" />
+    <link rel="stylesheet" href="/styles/default.css" />
+    <link rel="stylesheet" href="/styles/main.css" />
+    <script src="/scripts/functions.js" defer></script>
+    <% if(user.userType==="Owner" ){ %>
+    <script src="/scripts/petOwnerPopups.js" defer></script>
+    <% } %> <% if(user.userType==="Veterinarian" ){ %>
+    <script src="/scripts/vetPopups.js" defer></script>
+    <% } %>
   </head>
 
-<body>
-  <header>
-    <nav class="header-nav">
-
-      <div class="nav-items">
-        <a href="/user/<%=user._id%>">
-          <img class='logo' src="/images/AKlogo.svg" alt="Animal Kingdom Logo">
-        </a>
-      </div>
-
-      <div class="nav-user">
-
-        <ul class="hidden">
-          <li>My account</li>
-          <li>Settings</li>
-          <a href="/"><button>Logout</button></a>
-        </ul>
-
-        <div class="notification">
-          <img class='bell' src="/images/bell.png" alt="Bell">
-          <div class="dot"></div>
+  <body>
+    <header>
+      <nav class="header-nav">
+        <div class="nav-items">
+          <a href="/user/<%=user._id%>">
+            <img
+              class="logo"
+              src="/images/AKlogo.svg"
+              alt="Animal Kingdom Logo"
+            />
+          </a>
         </div>
-        <img class='avatar' src="/images/avatar.jpg" alt="User Avatar">
-        
-      </div>
 
-    </nav>
-  </header>
-  <main>
+        <div class="nav-user">
+          <ul class="hidden" id="user-dropdown">
+            <li><a href="/user/<%= user._id %>/myaccount">My Account</a></li>
+            <li>Settings</li>
+            <a href="/"><button>Logout</button></a>
+          </ul>
+
+          <div class="notification">
+            <img class="bell" src="/images/bell.png" alt="Bell" />
+            <div class="dot"></div>
+          </div>
+          <img class="avatar" src="/images/avatar.jpg" alt="User Avatar" />
+        </div>
+      </nav>
+    </header>
+    <main></main>
+  </body>
+</html>

@@ -4,8 +4,8 @@ const express = require("express");
 const router = express.Router();
 const accountCtrl = require("../controllers/account");
 
-router.get("/myaccount", accountCtrl.getAccount); // get account
+router.get("/user/:id/myaccount", accountCtrl.getAccount); // get account
 
-router.put("/myaccount", accountCtrl.updateAccount); // update account
+router.put("/user/:id/myaccount", accountCtrl.updateAccount); // update account
 
 module.exports = router;
