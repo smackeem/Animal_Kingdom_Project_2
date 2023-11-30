@@ -53,8 +53,8 @@ https://tinyurl.com/5cy6dvvc
 ![SASS](https://img.shields.io/badge/SASS-hotpink.svg?style=for-the-badge&logo=SASS&logoColor=white)
 ![HTML5](https://img.shields.io/badge/html5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white)
 ![CSS3](https://img.shields.io/badge/css3-%231572B6.svg?style=for-the-badge&logo=css3&logoColor=white)
-![Bcrypt.js](https://img.shields.io/badge/Bcrypt.js-darkred?style=flat-square)
-![CookieParser](https://img.shields.io/badge/CookieParser-%20purple?style=flat-square)
+![Bcrypt.js](https://img.shields.io/badge/Bcrypt.js-darkred?style=for-the-badge)
+![CookieParser](https://img.shields.io/badge/CookieParser-%20purple?style=for-the-badge)
 
 
 ## Getting Started
