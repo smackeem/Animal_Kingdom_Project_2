@@ -1,9 +1,35 @@
-![Static Badge](https://img.shields.io/badge/contributors-_3-green?style=for-the-badge)
-![Static Badge](https://img.shields.io/badge/pulse-_%E2%9C%94-green?style=for-the-badge)
+<a name="readme-top"></a>
 
-![cartoon](https://github.com/smackeem/Animal_Kingdom_Project_2/assets/51036021/90e4230a-b65f-46cd-b82a-804ebdbaaeb7)
-<h1 align="center">Animal Kingdom </h1>
+[contributors-shield]: https://img.shields.io/badge/contributors-_3-green?style=for-the-badge
+[contributors-url]: https://github.com/smackeem/Animal_Kingdom_Project_2/graphs/contributors
+[pulse-shield]: https://img.shields.io/badge/pulse-_%E2%9C%94-green?style=for-the-badge
+[pulse-url]: https://github.com/smackeem/Animal_Kingdom_Project_2/pulse/monthly
 
+<br />
+<div align="center">
+    
+  [![Contributors][contributors-shield]][contributors-url]
+  [![Pulse][pulse-shield]][pulse-url]
+
+  ![cartoon](https://github.com/smackeem/Animal_Kingdom_Project_2/assets/51036021/90e4230a-b65f-46cd-b82a-804ebdbaaeb7)
+  
+  ![AKlogo](https://github.com/smackeem/Animal_Kingdom_Project_2/assets/51036021/fbd2ec1c-1c08-48cf-9484-733202fed939)
+
+</div>
+
+<!-- TABLE OF CONTENTS -->
+<details>
+    <summary>Table of Contents</summary>
+    <ul>
+        <li><a href="#about-the-project">About The Project</a></li>
+        <li><a href="#screenshots-and-wireframe">Screenshots and Wireframe</a></li>
+        <li><a href="#technologies-used">Technologies Used</a></li>
+        <li><a href="#getting-started">Getting Started</a></li>
+        <li><a href="#key-features">Key Features</a></li>
+        <li><a href="#next-steps-and-future-enhancements">Next Steps and Future Enhancements</a></li>
+        <li><a href="#contact">Contact</a></li>
+    </ul>
+</details>
 
 ## About the Project
 Animal Kingdom is a comprehensive and user-friendly web application designed to streamline and enhance the pet care experience for both pet owners and veterinarians. With a focus on providing a seamless and organized approach to managing pet health, appointments, and communication. Animal Kingdom is not just an application; it's a companion on your pet care journey, designed to make the process of managing your pet's health as enjoyable and stress-free as possible.
@@ -29,8 +55,10 @@ https://tinyurl.com/5cy6dvvc
 ## Getting Started
 Explore our Animal Kingdom:
 
-- View our Trello Board: https://tinyurl.com/479yud33
-- View the ERD for each Data Entity: https://tinyurl.com/5n8mtv5b
+* View our Trello Board: https://tinyurl.com/479yud33
+
+* View the ERD for each Data Entity: https://tinyurl.com/5n8mtv5b
+
 ![Animal Kingdom ERD](https://github.com/smackeem/Animal_Kingdom_Project_2/assets/43871798/2eac32cd-b6d5-4684-b1da-0970baa03164)
 
 
@@ -42,7 +70,7 @@ Explore our Animal Kingdom:
 3. Medical Records Management:
    Keep track of your pet's health with a centralized medical records system. Easily update and access information on diagnoses, treatments, and medications.
    
-## Next Steps/Future Enhancements
+## Next Steps and Future Enhancements
 1. Digital prescription issuance and management.
 2. Secure Messaging System between Pet Owners and Veterinarians. Facilitate communication between pet owners and veterinarians through a secure messaging system. Discuss treatment plans, ask questions, and receive timely updates on your pet's progress.
 3. Receive timely notifications to stay informed about upcoming appointments.
