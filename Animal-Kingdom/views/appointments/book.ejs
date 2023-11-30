@@ -1,23 +1,27 @@
 <%- include('../partials/header') %>
+<nav class="medical-records-nav">
+    <a href="/user/<%=user._id%>">Dashboard</a> > <a href="/user/<%=user._id %>/appointments">Appointments</a> > <span>Book Appointment</span>
+</nav>
+    <section class="appt-reason">
+        <h2>Appointment Details</h2>
+        <form action="/user/<%= user._id%>/appointments/<%= appointment._id %>?_method=PUT" method="POST">
 
-<form action="/user/<%= user._id%>/appointments/<%= appointment._id %>?_method=PUT" method="POST">
+            <label for="pet">Pet</label>
+            <select name="pet" id="" required>
+            <option value="" disabled selected>Select Pet</option>
+                <% pets.forEach(p=> { %>
+                    <option value="<%= p._id %>">Name <%= p.name%>, DOB <%= p.DOB.toLocaleDateString() %>
+                    </option>
+                    <% }) %>
+            </select>
 
-    <label for="pet">Pet: 
-        <select name="pet" id="">
-            <% pets.forEach(p => { %>
-                <option value="<%= p._id %>">Name: <%= p.name%> DOB: <%= p.DOB.toLocaleDateString() %></option>
-                <% }) %>
-        </select>
-    </label><br/><br/>
+            <label for="reason">Reason</label>
+            <textarea name="reason" id="" cols="20" rows="5" required></textarea>
 
-    <label for="reason">Reason: 
-        <input type="text" name="reason">
-    </label><br/><br/>
+            <button class='btn-save' type="submit">Book Appointment</button>
+        </form>
 
-    <label for="isAvailable">Availability:
-        <input type="checkbox" name="isAvailable" disabled>
-    </label><br>
+        <a href="/user/<%= user._id %>">Cancel</a>
 
-    <button type="submit">Book Appointment</button>
-</form>
-<%- include('../partials/footer') %>
+    </section>
+    <%- include('../partials/footer') %>
