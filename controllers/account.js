@@ -1,10 +1,9 @@
 // controllers/account.js
 const User = require("../models/user");
-const Account = require("../models/account");
 
 module.exports = {
   getAccount,
-  update,
+  updateAccount,
 };
 
 async function getAccount(reg, res) {
