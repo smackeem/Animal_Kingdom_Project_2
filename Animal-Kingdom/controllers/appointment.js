@@ -22,7 +22,7 @@ async function newAppt(req, res, next){
         today = recordsCtrl.formatDateTime(today, 'dt')
         res.render('appointments/new',{title: 'New Medical Record', errMsg: '', user, today});
     }catch(err){
-        console.log(err);
+        res.redirect(`/user/${req.params.id}/appointments`);
     }
 }
 
@@ -34,7 +34,6 @@ async function create(req, res, next){
         await appointment.save();
         res.redirect(`/user/${req.params.id}/appointments`);
     }catch(err){
-        console.log(err)
         res.redirect(`/user/${req.params.id}`);
     }
 }
@@ -47,7 +46,7 @@ async function index(req, res, next){
         const appointments = await Appointment.find({isAvailable: true, date: {$gte: today}}).sort({date: 1});
         res.render('appointments/index', {title: 'Your Availabilities', availabilities, user, appointments})
     }catch(err){
-        console.log(err);
+        res.redirect(`/user/${req.params.id}`);
     }
 }
 
@@ -56,7 +55,6 @@ async function deleteAppt(req, res, next){
         await Appointment.findByIdAndDelete(req.params.id);
         res.redirect(`/user/${req.params.userId}/appointments`);
     }catch(err){
-        console.log(err);
         res.redirect(`/user/${req.params.userId}/appointments`);
     }
 }
@@ -68,7 +66,7 @@ async function petAppt(req, res, next){
         const appointment = await Appointment.findById(req.params.id);
         res.render('appointments/book',{title: "Book Appointment", user, pets, appointment})
     }catch(err){
-        console.log(err);
+        res.redirect(`/user/${req.params.userId}/appointments`);
     }
 }
 
@@ -79,8 +77,7 @@ async function book(req, res, next){
         const appointment = await Appointment.findByIdAndUpdate(req.params.id, req.body);
         res.redirect(`/user/${req.params.userId}`);
     }catch(err){
-        console.log(err);
-        res.redirect(`/user/${req.params.userId}`);
+        res.redirect(`/user/${req.params.userId}/appointments`);
     }
 }
 
@@ -93,7 +90,6 @@ async function cancel(req, res, next){
         appointment.save();
         res.redirect(`/user/${req.params.userId}`)
     }catch(err){
-        console.log(err);
         res.redirect(`/user/${req.params.userId}`);
     }
 }
