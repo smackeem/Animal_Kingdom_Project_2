@@ -19,6 +19,7 @@ const recordsRouter = require("./routes/records");
 const petRouter = require("./routes/pet");
 const userRouter = require("./routes/user");
 const appointmentRouter = require("./routes/appointment");
+const accountRouter = require("./routes/account"); //account routes
 
 const app = express();
 
@@ -37,6 +38,7 @@ app.use("/", indexRouter);
 app.use("/", recordsRouter);
 app.use("/", petRouter);
 app.use("/", appointmentRouter);
+app.use("/", accountRouter); //account routes
 
 app.use("/user", userRouter);
 
