@@ -1,0 +1,37 @@
+<%- include('../partials/header') %>
+
+<section class="edit-pet">
+    <h2>Edit Pet</h2>
+    <form action="/user/<%= user._id%>/pets/<%= pet._id %>?_method=PUT" method="POST">
+        <label for="name">Pet name</label>
+            <input type="text" name="name" value="<%= pet.name %>" required>
+        
+        <label for="species" default="<%= pet.species %>" required>Species</label>
+            <select name="species">
+                <option value="Bird">Bird</option>
+                <option value="Cat">Cat</option>
+                <option value="Dog">Dog</option>
+                <option value="Fish">Fish</option>
+                <option value="Guninea Pig">Guniea Pig</option>
+                <option value="Hamster">Hamster</option>
+                <option value="Lizard">Lizard</option>
+                <option value="Rabbit">Rabbit</option>
+                <option value="Snake">Snake</option>
+                <option value="Turtle">Turtle</option>
+            </select>
+        
+        <label for="breed">Breed</label>
+            <input type="text" name="breed" value="<%= pet.breed%>" required>
+        
+        <label for="age">Age</label>
+            <input type="number" name="age" value="<%= pet.age %>" required>
+        
+        <label for="DOB">DOB</label>
+            <input type="date" name="DOB" value="<%= petDOB %>" required>
+    
+        <button class='btn-save' type="submit">Save Changes</button> 
+    </form>
+    <a href="/user/<%= user._id %>">Cancel</a>
+</section>
+
+<%- include('../partials/footer') %>

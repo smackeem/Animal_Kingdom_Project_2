@@ -1,0 +1,154 @@
+<%- include('../partials/header') %>
+  <%- include('../pets/new.ejs') %>
+    
+
+      <h1>Welcome back, <span class="user-name">
+          <%= user.firstName %>
+        </span></h1>
+
+      <% if(user.userType==="Owner" ){ %>
+        <section class="appointments-overview">
+          <h2>Upcoming Appointments</h2>
+          <div>
+            <% petAppointments.forEach(pa=> { %>
+              <form action="/user/<%= user._id %>/appointments/<%= pa._id %>/cancel?_method=PUT" method="POST">
+
+                <p>
+                  <%= pa.pet.name %>'s Vet visit
+                </p>
+                <div class="date">
+                  <p>
+                    <%= pa.date.toLocaleDateString() %>
+                  </p>
+                  <p>
+                    <%= pa.date.toLocaleTimeString([], { hour: "2-digit" , minute: "2-digit" })%>
+                  </p>
+                </div>
+                <p>With Dr. <%= pa.vet.firstName %>
+                    <%= pa.vet.lastName %>
+                </p>
+
+                <button type="submit">Cancel</button>
+              </form>
+              <% }) %>
+              <% if(pets.length){ %>
+                <div class="book-appt card">
+                  <a href="/user/<%=user._id%>/appointments">Book Appointment</a>
+                </div>
+                <% } else{ %>
+                  <div class="book-appt card">
+                    <p>To Book Appointments, Add Pets.</p>
+                  </div>
+                  <% } %>
+          </div>
+        </section>
+
+        <section class="pet-overview">
+          <h2>Your Pets</h2>
+          <% if(pets.length){ %>
+            <% pets.forEach(p=> { %>
+              <div class="card pet-card">
+                <div>
+                  <img class='pet-img' src="/images/pet.jpg" alt="Pet">
+                  <div class="pet-info">
+                    <h4>
+                      <%= p.name %>
+                    </h4>
+                    <p>
+                      <%= p.species %>, <%= p.breed %>
+                    </p>
+                    <p>
+                      <%= p.age %> Years old
+                    </p>
+                    <p>
+                      DOB: <%= p.DOB.toLocaleDateString() %>
+                    </p>
+                  </div>
+                  <a class='card-btn' href="/user/<%= user._id %>/pets/<%= p._id %>">Medical Records</a>
+                </div>
+                <form id="deleteForm" action="/user/<%= user._id %>/pets/<%= p._id %>?_method=DELETE" method="POST">
+                  <button class="card-delete" type="button" onclick="confirmDelete()"><img src="/images/close.svg" alt="X"></button>
+                </form>
+                <a class='card-edit' href="/user/<%= user._id %>/pets/<%= p._id %>/edit">Edit</a>
+              </div>
+              <% }) %>
+                <% } %>
+                  <div class="card add-pet">
+                    <button class='addpet'>Add a Pet</button>
+                  </div>
+        </section>
+        <% } %>
+
+
+          <% if(user.userType==="Veterinarian" ) { %>
+          
+              <section class="add-availability flex-center-xy">
+                <a href="/user/<%=user._id%>/appointments">Add Availability</a>
+              </section>
+
+            <section class="appointments-overview">
+              <h2>Upcoming Appointments</h2>
+              <div>
+              <% if(vetAppointments.length) { %>
+                <% vetAppointments.forEach(va=> { %>
+                  <form action="/user/<%= user._id %>/appointments/<%= va._id %>/cancel?_method=PUT" method="POST">
+                    <p>
+                      Appointment with <%= va.pet.name %>
+                    </p>
+                    <div class="date">
+                      <p>
+                        <%= va.date.toLocaleDateString() %>
+                      </p>
+                      <p>
+                        <%= va.date.toLocaleTimeString([], { hour: "2-digit" , minute: "2-digit" })%>
+                      </p>
+                    </div>
+
+                    <button type="submit">Cancel</button>
+                  </form>
+                  <% }) %>
+                    <% } else {%>
+                      <p>No Appointments Scheduled</p>
+                      <% } %>
+              </div>
+            </section>
+
+            <section class="pet-overview">
+              <%- include('../records/new.ejs') %>
+              <h2>Your Patients</h2>
+              <% if(patients.length){ %>
+                <% patients.forEach(p=> { %>
+                  <div class="card pet-card">
+                    <div>
+                      <img class='pet-img' src="/images/pet.jpg" alt="Pet">
+                      <div class="pet-info">
+                        <h4>
+                          <%= p._doc.name %>
+                        </h4>
+                        <p>
+                          <%= p._doc.species %>, <%= p._doc.breed %>
+                        </p>
+                        <p>
+                          <%= p._doc.age %> Years old
+                        </p>
+                        <p>
+                          DOB: <%= p._doc.DOB.toLocaleDateString() %>
+                        </p>
+                      </div>
+                      <a class='card-btn' href="/user/<%= user._id %>/pets/<%= p._doc._id %>">Medical Records</a>
+                    </div>
+                  </div>
+                  <% }) %>
+                    <% } else { %>
+                      <div class="card flex-center-xy">
+                        <p>No Existing Patients</p>
+                      </div>
+                      <% } %>
+
+                      <div class="card add-record">
+                        <button class='addrecord'>Add Record</button>
+                      </div>
+                    </section>
+                    <% } %>
+
+              <%- include('../partials/footer') %>

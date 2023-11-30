@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <% title=typeof title !=='undefined' ? title : "Animal Kingdom" %>
+    <title>
+      <%=title%>
+    </title>
+    <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="/images/favicon.ico" type="image/x-icon">
+    <link rel='stylesheet' href='/styles/default.css'>
+    <link rel="stylesheet" href="/styles/main.css">
+</head>
+
+<body class="anonymous">
+  <main class="login">
+    <section class="login-content container">
+      <h1>Log in</h1>
+
+      <form action="/user/login" method="post">
+        <label for="username">Username</label>
+        <input type="text" id="username" name="username" required />
+
+        <label for="password">Password</label>
+        <input type="password" id="password" name="password" required />
+
+        <button class='btn-xl' type="submit">Log in</button>
+      </form>
+
+      <div>
+        <p class="error">
+          <%= errMsg %>
+        </p>
+        <p>Don't have an account? <a href="/user/signup">Sign up</a></p>
+      </div>
+    </section>
+
+    <%- include('../partials/footer') %>

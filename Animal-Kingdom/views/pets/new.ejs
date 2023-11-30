@@ -1,0 +1,35 @@
+<div id='new-pet-popup' class="popup flex-center-xy hidden">
+  <section class="new-pet">
+    <button id='new-pet-close-btn' class="close-btn">
+      <img src="/images/close.svg" alt="X">
+    </button>
+    <h2>New Pet</h2>
+    <form action="/user/<%= user._id %>/pets" method="POST">
+      <label for="name">Pet name</label>
+      <input type="text" name="name" required />
+
+      <label for="species">Species</label>
+      <select name="species" required>
+        <option value="" disabled selected>Select One</option>
+        <option value="Bird">Bird</option>
+        <option value="Cat">Cat</option>
+        <option value="Dog">Dog</option>
+        <option value="Fish">Fish</option>
+        <option value="Guninea Pig">Guniea Pig</option>
+        <option value="Hamster">Hamster</option>
+        <option value="Lizard">Lizard</option>
+        <option value="Rabbit">Rabbit</option>
+        <option value="Snake">Snake</option>
+        <option value="Turtle">Turtle</option>
+      </select>
+
+      <label for="breed">Breed</label>
+      <input type="text" name="breed" required />
+
+      <label for="DOB">DOB</label>
+      <input type="date" name="DOB" id="" required />
+
+      <button class='btn-save' type="submit">Save</button>
+    </form>
+  </section>
+</div>

@@ -1,0 +1,31 @@
+<div id='new-record-popup' class="popup flex-center-xy hidden">
+    <section class="new-record">
+        <button id="new-record-close-btn" class="close-btn">
+            <img src="/images/close.svg" alt="X">
+        </button>
+        <h2>New Medical Record</h2>
+        <form action="/user/<%=user._id %>/records" method="POST">
+            <label for="pet">Pet</label>
+            <select name="pet" id="" required>
+                <% allPets.forEach(p=> { %>
+                    <option value="<%= p._id %>">Name: <%= p.name%> DOB: <%= p.DOB.toLocaleDateString() %>
+                    </option>
+                    <% }) %>
+            </select>
+
+            <label for="date">Date</label>
+            <input type="datetime-local" name="date" required>
+
+            <label for="diagnosis">Diagnosis</label>
+            <input type="text" name="diagnosis" required>
+
+            <label for="treament">Treament</label>
+            <input type="text" name="treatment" required>
+
+            <label for="medication">Medication</label>
+            <input type="text" name="medication" required>
+
+            <button class='btn-save' type="submit">Save</button>
+        </form>
+    </section>
+</div>
