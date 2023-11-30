@@ -81,32 +81,40 @@
 
 
           <% if(user.userType==="Veterinarian" ) { %>
-            <%- include('../records/new.ejs') %>
+          
+              <section class="add-availability flex-center-xy">
+                <a href="/user/<%=user._id%>/appointments">Add Availability</a>
+              </section>
+
             <section class="appointments-overview">
               <h2>Upcoming Appointments</h2>
+              <div>
               <% if(vetAppointments.length) { %>
                 <% vetAppointments.forEach(va=> { %>
                   <form action="/user/<%= user._id %>/appointments/<%= va._id %>/cancel?_method=PUT" method="POST">
                     <p>
-                      <%= va.pet.name %>'s Appointment:
+                      Appointment with <%= va.pet.name %>
                     </p>
-                    <p>
-                      <%= va.date.toLocaleDateString() %>
-                    </p>
-                    <p>
-                      <%= va.date.toLocaleTimeString()%>
-                    </p>
+                    <div class="date">
+                      <p>
+                        <%= va.date.toLocaleDateString() %>
+                      </p>
+                      <p>
+                        <%= va.date.toLocaleTimeString([], { hour: "2-digit" , minute: "2-digit" })%>
+                      </p>
+                    </div>
 
-                    <button type="submit">CANCEL</button>
+                    <button type="submit">Cancel</button>
                   </form>
                   <% }) %>
-                    <% } else{%>
-                      <p>No Appointments Yet.</p>
+                    <% } else {%>
+                      <p>No Appointments Scheduled</p>
                       <% } %>
-
+              </div>
             </section>
 
             <section class="pet-overview">
+              <%- include('../records/new.ejs') %>
               <h2>Your Patients</h2>
               <% if(patients.length){ %>
                 <% patients.forEach(p=> { %>
@@ -132,11 +140,13 @@
                   </div>
                   <% }) %>
                     <% } else { %>
-                      <p>No Existing Patients</p>
+                      <div class="card flex-center-xy">
+                        <p>No Existing Patients</p>
+                      </div>
                       <% } %>
 
-                      <div class="card">
-                        <button class='addrecord'>Create Medical Record</button>
+                      <div class="card add-record">
+                        <button class='addrecord'>Add Record</button>
                       </div>
                     </section>
                     <% } %>
