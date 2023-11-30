@@ -9,6 +9,8 @@ const methodOverride = require("method-override");
 
 //Database config
 require("dotenv").config();
+console.log("Database URL:", process.env.DATABASE_URL); //debugging
+
 require("./config/database");
 
 //Routes
