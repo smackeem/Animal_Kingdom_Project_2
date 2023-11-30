@@ -26,9 +26,9 @@ async function create(req, res) {
   req.body.name = req.body.name.trim();
   req.body.breed = req.body.breed.trim();
   try {
-    const {name, breed} = req.body;
+    const {name, species, breed} = req.body;
     const owner = await User.findById(req.params.id);
-    const existingPet = await Pet.find({ name, breed, owner});
+    const existingPet = await Pet.findOne({ name: name, species: species, breed: breed, owner: owner })
     if(existingPet) return res.redirect(`/user/${req.params.id}`);
     const pet = await Pet.create(req.body);
     pet.owner = owner;
