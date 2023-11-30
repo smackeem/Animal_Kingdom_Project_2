@@ -24,8 +24,7 @@ async function newRecord(req, res, next) {
       user,
     });
   } catch (err) {
-    console.log(err);
-    res.status(500).render("users/show", { errMsg: "Error Loading Page. Try again!"});
+    res.status(500).redirect(`/user/${req.params.id}`);
   }
 }
 
@@ -40,7 +39,6 @@ async function create(req, res, next) {
     await record.save();
     res.redirect(`/user/${req.params.id}`);
   } catch (err) {
-    console.log(err);
     res.status(500).render("records/new", { errMsg: "Error creating Record. Review inputs and try again!" });
   }
 }
@@ -50,8 +48,7 @@ async function index(req, res, next) {
     const records = await Record.find({});
     res.render("records/index", { title: "All Medical Records", records });
   } catch (err) {
-    console.log(err);
-    res.status(500).render("users/show", { errMsg: "Error loading Records. Try again!" });
+    res.status(500).redirect(`/user/${req.params.id}`);
   }
 }
 
@@ -61,7 +58,6 @@ async function deleteRecord(req, res, next) {
     await Record.findByIdAndDelete(req.params.id);
     res.redirect(`/user/${record.vet._id}`);
   } catch (err) {
-    console.log(err);
     res.status(500).render("pets/show", { errMsg: "Error DELETING Record. TRY again!" });
   }
 }
@@ -74,8 +70,7 @@ async function show(req, res, next) {
     const user = record.vet;
     res.render("records/show", { title: "Pet medical record", record, user });
   } catch (err) {
-    console.log(err);
-    res.status(500).render("users/show", { errMsg: "Error loading Record. Try again!" });
+    res.status(500).redirect(`/user/${req.params.id}`);
   }
 }
 
@@ -93,7 +88,6 @@ async function edit(req, res, next) {
      rDate,
     });
   } catch (err) {
-    console.log(err);
     res.status(500).render("pets/show", { errMsg: "Error Loading Page. Try again!" });
   }
 }
@@ -107,7 +101,6 @@ async function update(req, res, next) {
     await Record.findByIdAndUpdate(req.params.id, req.body);
     res.redirect(`/user/${record.vet}`);
   } catch (err) {
-    console.log(err);
     res.status(500).render("pets/show", { errMsg: "Error Updating Record. Try again!" });
   }
 }
