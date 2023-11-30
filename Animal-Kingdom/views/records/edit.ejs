@@ -1,5 +1,7 @@
 <%- include('../partials/header') %>
-
+<nav class="medical-records-nav">
+    <a href="/user/<%=user._id%>">Dashboard</a> > <a href="/user/<%=user._id %>/pets/<%= record.pet._id%>">Medical Records</a> > <span>Editing Record</span>
+</nav>
 <section class="records-create-edit">
     <h2>Editing <%= record.pet.name%>'s Record </h2>
     <form action="/user/<%= user._id%>/records/<%= record._id %>?_method=PUT" method="POST">

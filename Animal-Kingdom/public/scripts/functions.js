@@ -23,8 +23,5 @@ function confirmDelete() {
 	if(isConfirmed){
 		const form = document.querySelector('#deleteForm');
 		form.submit();
-		console.log('Item deleted');
-	}else{
-		console.log('Deletion canceled');
 	}
 }
