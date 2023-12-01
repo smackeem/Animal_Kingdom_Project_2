@@ -120,6 +120,7 @@
         <input value="<%= user.address.zip %>" 
         type="text" name="zip" placeholder="10020" minlength="5" maxlength="5" required pattern="\d{5,5}" />
       </div> 
+  </div>
   <% } else { %>
     
   
@@ -199,13 +200,11 @@
         <label for="zip">Zip Code</label>
         <input type="text" name="zip" placeholder="10020" minlength="5" maxlength="5" required pattern="\d{5,5}" />
       </div> 
+      </div>
     <% } %>
       <label for="phone">Phone</label>
       <input value="<%= user.phone %>" type="tel" name="phone" placeholder="0001112222" required />
       <br>
 
         <button type="submit">Update</button>
-
-
-
 </form>
