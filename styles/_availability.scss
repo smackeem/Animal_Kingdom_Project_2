@@ -1,0 +1,40 @@
+.add-availability {
+	max-width: 16.6875rem;
+	background-color: $gray;
+	border: 1px solid $border-color;
+	padding: 1.25rem;
+	border-radius: 0.5rem;
+	margin-top: 2.38rem;
+	a {
+		display: block;
+		position: relative;
+		font-size: 1.125rem;
+		font-weight: 500;
+		color: $dark-gray;
+		letter-spacing: 0.03375rem;
+		padding: 0;
+		border: 0;
+	}
+	a:before {
+		content: url('/images/add.svg');
+		position: absolute;
+		left: -30px;
+		bottom: -7px;
+	}
+}
+
+.create-av-inputs {
+	display: flex;
+	flex-direction: column;
+
+	.create-av-checkbox {
+		padding-top: 1rem;
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		gap: 0.5rem;
+		input {
+			margin: 0;
+		}
+	}
+}

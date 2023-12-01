@@ -1,3 +1,173 @@
+.btn-save {
+  border-radius: 0;
+  color: #fff;
+  background-color: #009757;
+  padding: 0.7rem 0;
+  margin-top: 1rem;
+  font-weight: 700;
+  font-size: 1rem;
+}
+
+.relative {
+  position: relative;
+}
+
+.flex-center-xy {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.user-name {
+  text-transform: capitalize;
+}
+
+.hidden {
+  display: none !important;
+}
+
+.error {
+  color: #e73b3b;
+}
+
+.btn-xl {
+  background-color: #009757;
+  border: 0;
+  color: #fff;
+  width: 22.25rem;
+  padding: 1.25rem 0;
+  margin-bottom: 1.81rem;
+  border-radius: 0.5625rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 1.5rem;
+  letter-spacing: 0.045rem;
+}
+
+.in-app-nav {
+  color: #2c2c2c;
+  font-size: 0.75rem;
+  font-weight: 400;
+  letter-spacing: 0.0225rem;
+  padding: 2rem 0 1.25rem;
+}
+.in-app-nav a {
+  color: #2c2c2c;
+}
+.in-app-nav a:hover {
+  color: #0057a0;
+}
+.in-app-nav span {
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.card {
+  display: flex;
+  justify-content: center;
+  background-color: #fff;
+  border: 1px solid #dadada;
+  padding: 1.25rem;
+  border-radius: 0.5rem;
+  width: 16.5rem;
+}
+.card .card-edit {
+  position: absolute;
+  left: 1rem;
+  font-size: 1rem;
+}
+.card form {
+  width: auto;
+}
+.card .card-delete {
+  position: absolute;
+  right: 1rem;
+  top: 1.2rem;
+  border: none;
+  background-color: transparent;
+  padding: 0;
+  cursor: pointer;
+}
+.card .card-btn {
+  width: 100%;
+  height: 2.9375rem;
+  letter-spacing: 0.03375rem;
+  font-size: 1.125rem;
+  padding: 0.375rem 0;
+  border: 1px solid #0094ff;
+  border-radius: 2.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.edit-pet,
+.book-appointment,
+.appt-reason,
+.records-create-edit,
+.create-av {
+  padding: 2.88rem 2.62rem;
+  background-color: white;
+  border-radius: 0.5rem;
+  box-shadow: 0px 4px 23px 6px rgba(0, 0, 0, 0.04);
+  max-width: 25rem;
+  margin: 3rem auto;
+}
+.edit-pet h2,
+.edit-pet a,
+.book-appointment h2,
+.book-appointment a,
+.appt-reason h2,
+.appt-reason a,
+.records-create-edit h2,
+.records-create-edit a,
+.create-av h2,
+.create-av a {
+  text-align: center;
+}
+.edit-pet a,
+.book-appointment a,
+.appt-reason a,
+.records-create-edit a,
+.create-av a {
+  display: block;
+  margin-top: 1rem;
+}
+
+.user-account {
+  display: flex;
+  align-items: center;
+  padding: 2.88rem 2.62rem;
+  background-color: white;
+  border-radius: 0.5rem;
+  box-shadow: 0px 4px 23px 6px rgba(0, 0, 0, 0.04);
+  max-width: 27rem;
+  margin: 3rem auto;
+}
+.user-account h2,
+.user-account a {
+  text-align: center;
+}
+.user-account a {
+  display: block;
+  margin-top: 1rem;
+}
+.user-account form .input-group {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.62rem;
+}
+.user-account form .input-group div {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+.user-account form .single-group {
+  flex-direction: column;
+}
+
 .anonymous {
   background-color: #3ddc99;
 }
@@ -102,145 +272,6 @@
 }
 .anonymous .specialization-field {
   display: none;
-}
-
-.user-account {
-  display: flex;
-  align-items: center;
-  padding: 2.88rem 2.62rem;
-  background-color: white;
-  border-radius: 0.5rem;
-  box-shadow: 0px 4px 23px 6px rgba(0, 0, 0, 0.04);
-  max-width: 27rem;
-  margin: 3rem auto;
-}
-.user-account h2,
-.user-account a {
-  text-align: center;
-}
-.user-account a {
-  display: block;
-  margin-top: 1rem;
-}
-.user-account form .input-group {
-  display: flex;
-  justify-content: space-between;
-  gap: 0.62rem;
-}
-.user-account form .input-group div {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-}
-.user-account form .single-group {
-  flex-direction: column;
-}
-
-.card {
-  display: flex;
-  justify-content: center;
-  background-color: #fff;
-  border: 1px solid #dadada;
-  padding: 1.25rem;
-  border-radius: 0.5rem;
-  width: 16.5rem;
-}
-.card .card-edit {
-  position: absolute;
-  left: 1rem;
-  font-size: 1rem;
-}
-.card form {
-  width: auto;
-}
-.card .card-delete {
-  position: absolute;
-  right: 1rem;
-  top: 1.2rem;
-  border: none;
-  background-color: transparent;
-  padding: 0;
-  cursor: pointer;
-}
-.card .card-btn {
-  width: 100%;
-  height: 2.9375rem;
-  letter-spacing: 0.03375rem;
-  font-size: 1.125rem;
-  padding: 0.375rem 0;
-  border: 1px solid #0094ff;
-  border-radius: 2.5rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.header-nav {
-  display: flex;
-  justify-content: space-between;
-  background-color: #fff;
-  padding: 0.75rem 2rem;
-}
-.header-nav ul {
-  list-style: none;
-  display: flex;
-}
-.header-nav .nav-items {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-}
-.header-nav .nav-items a {
-  color: #4c4c4c;
-}
-.header-nav .nav-items a:hover {
-  color: #0057a0;
-}
-.header-nav .nav-items .logo {
-  margin: 0.25rem 0.625rem 0 0;
-  max-height: 2.5rem;
-}
-.header-nav .nav-user {
-  position: relative;
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-}
-.header-nav .nav-user ul {
-  position: absolute;
-  top: 45px;
-  right: 0;
-  font-size: 0.875rem;
-  flex-direction: column;
-  gap: 12px;
-  padding: 16px;
-  background-color: #fff;
-  border-radius: 4px;
-  box-shadow: 1px 1px 10px 2px rgba(0, 0, 0, 0.15);
-  width: 7.8125rem;
-}
-.header-nav .nav-user .notification {
-  position: relative;
-  padding: 0.15rem;
-}
-.header-nav .nav-user .notification .bell {
-  width: 20px;
-  height: 20px;
-}
-.header-nav .nav-user .notification .dot {
-  position: absolute;
-  top: 1.5px;
-  right: 1px;
-  width: 4px;
-  height: 4px;
-  border-radius: 50%;
-  background-color: rgb(241, 2, 2);
-}
-.header-nav .nav-user .avatar {
-  width: 36px;
-  height: 36px;
-  border-radius: 12px;
-  cursor: pointer;
 }
 
 .appointments-overview {
@@ -357,6 +388,46 @@
   padding-top: 0.375rem;
 }
 
+.add-availability {
+  max-width: 16.6875rem;
+  background-color: #e8e8e8;
+  border: 1px solid #dadada;
+  padding: 1.25rem;
+  border-radius: 0.5rem;
+  margin-top: 2.38rem;
+}
+.add-availability a {
+  display: block;
+  position: relative;
+  font-size: 1.125rem;
+  font-weight: 500;
+  color: #4c4c4c;
+  letter-spacing: 0.03375rem;
+  padding: 0;
+  border: 0;
+}
+.add-availability a:before {
+  content: url("/images/add.svg");
+  position: absolute;
+  left: -30px;
+  bottom: -7px;
+}
+
+.create-av-inputs {
+  display: flex;
+  flex-direction: column;
+}
+.create-av-inputs .create-av-checkbox {
+  padding-top: 1rem;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 0.5rem;
+}
+.create-av-inputs .create-av-checkbox input {
+  margin: 0;
+}
+
 .pet-overview {
   display: flex;
   flex-direction: row;
@@ -416,72 +487,6 @@
   bottom: -7px;
 }
 
-.add-availability {
-  max-width: 16.6875rem;
-  background-color: #e8e8e8;
-  border: 1px solid #dadada;
-  padding: 1.25rem;
-  border-radius: 0.5rem;
-  margin-top: 2.38rem;
-}
-.add-availability a {
-  display: block;
-  position: relative;
-  font-size: 1.125rem;
-  font-weight: 500;
-  color: #4c4c4c;
-  letter-spacing: 0.03375rem;
-  padding: 0;
-  border: 0;
-}
-.add-availability a:before {
-  content: url("/images/add.svg");
-  position: absolute;
-  left: -30px;
-  bottom: -7px;
-}
-
-.create-av-inputs {
-  display: flex;
-  flex-direction: column;
-}
-.create-av-inputs .create-av-checkbox {
-  padding-top: 1rem;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  gap: 0.5rem;
-}
-.create-av-inputs .create-av-checkbox input {
-  margin: 0;
-}
-
-.popup {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  z-index: 10;
-  top: 0;
-  left: 0;
-  background-color: rgba(0, 0, 0, 0.7);
-}
-.popup .new-pet,
-.popup .new-record {
-  position: relative;
-  padding: 2.88rem 2.62rem;
-  background-color: white;
-  border-radius: 0.5rem;
-  box-shadow: 0px 4px 23px 6px rgba(0, 0, 0, 0.04);
-  min-width: 25rem;
-}
-.popup .new-pet .close-btn,
-.popup .new-record .close-btn {
-  position: absolute;
-  border: 0;
-  top: 1rem;
-  right: 1rem;
-}
-
 .add-record {
   height: 22.1875rem;
   background-color: #e8e8e8;
@@ -503,55 +508,72 @@
   bottom: -7px;
 }
 
-.edit-pet,
-.book-appointment,
-.appt-reason,
-.records-create-edit,
-.create-av {
-  padding: 2.88rem 2.62rem;
-  background-color: white;
-  border-radius: 0.5rem;
-  box-shadow: 0px 4px 23px 6px rgba(0, 0, 0, 0.04);
-  max-width: 25rem;
-  margin: 3rem auto;
+.header-nav {
+  display: flex;
+  justify-content: space-between;
+  background-color: #fff;
+  padding: 0.75rem 2rem;
 }
-.edit-pet h2,
-.edit-pet a,
-.book-appointment h2,
-.book-appointment a,
-.appt-reason h2,
-.appt-reason a,
-.records-create-edit h2,
-.records-create-edit a,
-.create-av h2,
-.create-av a {
-  text-align: center;
+.header-nav ul {
+  list-style: none;
+  display: flex;
 }
-.edit-pet a,
-.book-appointment a,
-.appt-reason a,
-.records-create-edit a,
-.create-av a {
-  display: block;
-  margin-top: 1rem;
+.header-nav .nav-items {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
 }
-
-.medical-records-nav {
-  color: #2c2c2c;
-  font-size: 0.75rem;
-  font-weight: 400;
-  letter-spacing: 0.0225rem;
-  padding: 2rem 0 1.25rem;
+.header-nav .nav-items a {
+  color: #4c4c4c;
 }
-.medical-records-nav a {
-  color: #2c2c2c;
-}
-.medical-records-nav a:hover {
+.header-nav .nav-items a:hover {
   color: #0057a0;
 }
-.medical-records-nav span {
-  text-decoration: underline;
-  text-underline-offset: 2px;
+.header-nav .nav-items .logo {
+  margin: 0.25rem 0.625rem 0 0;
+  max-height: 2.5rem;
+}
+.header-nav .nav-user {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+.header-nav .nav-user ul {
+  position: absolute;
+  top: 45px;
+  right: 0;
+  font-size: 0.875rem;
+  flex-direction: column;
+  gap: 12px;
+  padding: 16px;
+  background-color: #fff;
+  border-radius: 4px;
+  box-shadow: 1px 1px 10px 2px rgba(0, 0, 0, 0.15);
+  width: 7.8125rem;
+}
+.header-nav .nav-user .notification {
+  position: relative;
+  padding: 0.15rem;
+}
+.header-nav .nav-user .notification .bell {
+  width: 20px;
+  height: 20px;
+}
+.header-nav .nav-user .notification .dot {
+  position: absolute;
+  top: 1.5px;
+  right: 1px;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background-color: rgb(241, 2, 2);
+}
+.header-nav .nav-user .avatar {
+  width: 36px;
+  height: 36px;
+  border-radius: 12px;
+  cursor: pointer;
 }
 
 .medical-records {
@@ -620,50 +642,33 @@
   padding-top: 1rem;
 }
 
-.btn-save {
-  border-radius: 0;
-  color: #fff;
-  background-color: #009757;
-  padding: 0.7rem 0;
-  margin-top: 1rem;
-  font-weight: 700;
-  font-size: 1rem;
-}
-
-.relative {
+.popup-parent {
   position: relative;
+  height: auto;
 }
 
-.flex-center-xy {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.popup {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 10;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.7);
 }
-
-.user-name {
-  text-transform: capitalize;
+.popup .new-pet,
+.popup .new-record {
+  position: relative;
+  padding: 2.88rem 2.62rem;
+  background-color: white;
+  border-radius: 0.5rem;
+  box-shadow: 0px 4px 23px 6px rgba(0, 0, 0, 0.04);
+  min-width: 25rem;
 }
-
-.hidden {
-  display: none !important;
-}
-
-.error {
-  color: #e73b3b;
-}
-
-.btn-xl {
-  background-color: #009757;
+.popup .new-pet .close-btn,
+.popup .new-record .close-btn {
+  position: absolute;
   border: 0;
-  color: #fff;
-  width: 22.25rem;
-  padding: 1.25rem 0;
-  margin-bottom: 1.81rem;
-  border-radius: 0.5625rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-weight: 700;
-  font-size: 1.5rem;
-  letter-spacing: 0.045rem;
+  top: 1rem;
+  right: 1rem;
 }
