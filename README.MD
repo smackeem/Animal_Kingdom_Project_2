@@ -58,7 +58,7 @@ https://tinyurl.com/5cy6dvvc
 
 
 ## Getting Started
-Explore our Animal Kingdom:
+🚀 Explore our Animal Kingdom: https://animalkingdom-67bef32faf2a.herokuapp.com/
 
 * View our Trello Board: https://tinyurl.com/479yud33
 
