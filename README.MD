@@ -77,14 +77,13 @@ https://tinyurl.com/5cy6dvvc
    
 ## Next Steps and Future Enhancements
 1. Digital prescription issuance and management.
-2. Secure Messaging System between Pet Owners and Veterinarians. Facilitate communication between pet owners and veterinarians through a secure messaging system. Discuss treatment plans, ask questions, and receive timely updates on your pet's progress.
-3. Receive timely notifications to stay informed about upcoming appointments.
-4.  Real-Time Notifications. Stay informed with real-time notifications for upcoming appointments, medication reminders, and important updates from your veterinarian.
-5. Educational content about pet health and wellness.
-6. Feature for pet owners to upload and share pet photos or milestones.
-7. Online payment system for clinic services.
-8. Mobile app version for convenient access on the go.
-9. Pet owners can connect with experienced veterinarians specializing in various fields to choose the right professional for your pet's specific needs.
+2. Facilitate communication between pet owners and veterinarians through a secure messaging system. Discuss treatment plans, ask questions, and receive timely updates on your pet's progress.
+3. Real-Time Notifications for upcoming appointments, medication reminders, and important updates from your veterinarian.
+4. Educational content about pet health and wellness.
+5. Feature for pet owners to upload and share pet photos or milestones.
+6. Online payment system for clinic services.
+7. Mobile app version for convenient access on the go.
+8. Pet owners can connect with a community of experienced veterinarians specializing in various fields to choose the right professional for your pet's specific needs.
 
 ## Contact
 Ackeem Smith </br>
