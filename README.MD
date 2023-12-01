@@ -55,6 +55,8 @@ https://tinyurl.com/5cy6dvvc
 ![CSS3](https://img.shields.io/badge/css3-%231572B6.svg?style=for-the-badge&logo=css3&logoColor=white)
 ![Bcrypt.js](https://img.shields.io/badge/Bcrypt.js-darkred?style=for-the-badge)
 ![CookieParser](https://img.shields.io/badge/CookieParser-%20purple?style=for-the-badge)
+![Sweet_Alert2](https://img.shields.io/badge/Sweet_Alert2-pink?style=for-the-badge)
+
 
 
 ## Getting Started
