@@ -12,7 +12,7 @@ module.exports = {
   login,
   show,
 };
-
+// Create a new user
 async function create(req, res, next) {
   try {
     const { username, email } = req.body;
@@ -33,7 +33,7 @@ async function create(req, res, next) {
     res.status(500).render("users/signup", { errMs: error.message });
   }
 }
-
+// Login a user
 async function login(req, res) {
   try {
     const user = await User.findOne({ username: req.body.username }).exec();
@@ -54,7 +54,7 @@ async function login(req, res) {
     res.status(500).render("users/login", { errMsg: "Error Loading Your Profile" });
   }
 }
-
+// Show a user's profile
 async function show(req, res, next) {
   try {
     const user = await User.findById(req.params.id);

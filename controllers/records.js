@@ -10,9 +10,10 @@ module.exports = {
   show,
   edit,
   update,
-  formatDateTime
+  formatDateTime,
 };
 
+// Create a new record
 async function newRecord(req, res, next) {
   try {
     const pets = await Pet.find({});
@@ -39,7 +40,11 @@ async function create(req, res, next) {
     await record.save();
     res.redirect(`/user/${req.params.id}`);
   } catch (err) {
-    res.status(500).render("records/new", { errMsg: "Error creating Record. Review inputs and try again!" });
+    res
+      .status(500)
+      .render("records/new", {
+        errMsg: "Error creating Record. Review inputs and try again!",
+      });
   }
 }
 
@@ -58,7 +63,9 @@ async function deleteRecord(req, res, next) {
     await Record.findByIdAndDelete(req.params.id);
     res.redirect(`/user/${record.vet._id}`);
   } catch (err) {
-    res.status(500).render("pets/show", { errMsg: "Error DELETING Record. TRY again!" });
+    res
+      .status(500)
+      .render("pets/show", { errMsg: "Error DELETING Record. TRY again!" });
   }
 }
 
@@ -78,17 +85,19 @@ async function edit(req, res, next) {
   try {
     const record = await Record.findById(req.params.id).populate("pet");
     const pets = await Pet.find({});
-    rDate = formatDateTime(record.date, 'dt');
+    rDate = formatDateTime(record.date, "dt");
     res.render("records/edit", {
       title: "Edit Medical Record",
       errMsg: "",
       record,
       pets,
       user: record.vet,
-     rDate,
+      rDate,
     });
   } catch (err) {
-    res.status(500).render("pets/show", { errMsg: "Error Loading Page. Try again!" });
+    res
+      .status(500)
+      .render("pets/show", { errMsg: "Error Loading Page. Try again!" });
   }
 }
 
@@ -101,16 +110,18 @@ async function update(req, res, next) {
     await Record.findByIdAndUpdate(req.params.id, req.body);
     res.redirect(`/user/${record.vet}`);
   } catch (err) {
-    res.status(500).render("pets/show", { errMsg: "Error Updating Record. Try again!" });
+    res
+      .status(500)
+      .render("pets/show", { errMsg: "Error Updating Record. Try again!" });
   }
 }
 
 function formatDateTime(date, type) {
   const year = date.getFullYear();
-  const month = (date.getMonth() + 1).toString().padStart(2, '0');
-  const day = date.getDate().toString().padStart(2, '0');
-  const hours = date.getHours().toString().padStart(2, '0');
-  const minutes = date.getMinutes().toString().padStart(2, '0');
-  if(type==='d') return `${year}-${month}-${day}`;
-  if(type==='dt') return `${year}-${month}-${day}T${hours}:${minutes}`;
+  const month = (date.getMonth() + 1).toString().padStart(2, "0");
+  const day = date.getDate().toString().padStart(2, "0");
+  const hours = date.getHours().toString().padStart(2, "0");
+  const minutes = date.getMinutes().toString().padStart(2, "0");
+  if (type === "d") return `${year}-${month}-${day}`;
+  if (type === "dt") return `${year}-${month}-${day}T${hours}:${minutes}`;
 }
