@@ -38,6 +38,7 @@
                                 <tr>
                                     <th>Date</th>
                                     <th>Time</th>
+                                    <th>Veterinarian</th>
                                     <th></th>
                                 </tr>
                             </thead>
@@ -50,6 +51,9 @@
                                         <td>
                                             <%= a.date.toLocaleTimeString([], { hour: "2-digit" , minute: "2-digit" })
                                                 %>
+                                        </td>
+                                        <td>
+                                            Dr. <%= a.vet.firstName %>
                                         </td>
                                         <td><a href="/user/<%=user._id %>/appointments/<%=a._id %>/book">Select</a></td>
                                     </tr>

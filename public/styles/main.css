@@ -352,17 +352,20 @@
   bottom: -7px;
 }
 
+.book-appointment {
+  max-width: 30rem;
+}
 .book-appointment table {
   width: 100%;
   text-align: center;
 }
 .book-appointment table th:first-child,
 .book-appointment table td:first-child {
-  width: 50%;
+  width: 30%;
 }
-.book-appointment table th:nth-child(2),
-.book-appointment table td:nth-child(2) {
-  width: 40%;
+.book-appointment table th:nth-child(3),
+.book-appointment table td:nth-child(3) {
+  width: 30%;
 }
 .book-appointment table th {
   border-bottom: 1px solid #e9e9e9;
@@ -373,6 +376,9 @@
 }
 .book-appointment table a {
   margin: 0;
+}
+.book-appointment table a:hover {
+  color: #0094ff;
 }
 .book-appointment table .appt-action {
   width: 10%;

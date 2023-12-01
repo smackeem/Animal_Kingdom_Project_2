@@ -66,16 +66,17 @@
 }
 
 .book-appointment {
+	max-width: 30rem;
 	table {
 		width: 100%;
 		text-align: center;
 		th:first-child,
 		td:first-child {
-			width: 50%;
+			width: 30%;
 		}
-		th:nth-child(2),
-		td:nth-child(2) {
-			width: 40%;
+		th:nth-child(3),
+		td:nth-child(3) {
+			width: 30%;
 		}
 		th {
 			border-bottom: 1px solid #e9e9e9;
@@ -86,6 +87,9 @@
 		}
 		a {
 			margin: 0;
+			&:hover {
+				color: $blue-secondary;
+			}
 		}
 		.appt-action {
 			width: 10%;

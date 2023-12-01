@@ -43,7 +43,7 @@ async function index(req, res, next){
         const user = await User.findById(req.params.id);
         let today = new Date();
         const availabilities = await Appointment.find({vet: req.params.id, isAvailable: true, date: {$gte: today}}).sort({date: 1});
-        const appointments = await Appointment.find({isAvailable: true, date: {$gte: today}}).sort({date: 1});
+        const appointments = await Appointment.find({isAvailable: true, date: {$gte: today}}).populate("vet").sort({date: 1});
         res.render('appointments/index', {title: 'Your Availabilities', availabilities, user, appointments})
     }catch(err){
         res.redirect(`/user/${req.params.id}`);
