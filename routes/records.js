@@ -7,8 +7,6 @@ const recordsCtrl = require("../controllers/records");
 /* GET users listing. */
 router.get("/user/:id/records", recordsCtrl.index);
 
-// router.get("/user/:id/records/new", recordsCtrl.new);
-
 router.get("/user/:id/records/:id/edit", recordsCtrl.edit);
 
 router.post("/user/:id/records", recordsCtrl.create);
