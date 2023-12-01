@@ -54,6 +54,19 @@
 			left: -30px;
 			bottom: -7px;
 		}
+		&:hover {
+		background-color: $medium-gray;
+		button {
+			color: #000;
+			background-color: transparent;
+		}
+	}
+	}
+}
+
+.edit-pet {
+	a:hover {
+		color: $blue-secondary;
 	}
 }
 
@@ -76,5 +89,12 @@
 		position: absolute;
 		left: -30px;
 		bottom: -7px;
+	}
+	&:hover {
+		background-color: $medium-gray;
+		button {
+			color: #000;
+			background-color: transparent;
+		}
 	}
 }

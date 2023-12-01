@@ -1,13 +1,3 @@
-.btn-save {
-  border-radius: 0;
-  color: #fff;
-  background-color: #009757;
-  padding: 0.7rem 0;
-  margin-top: 1rem;
-  font-weight: 700;
-  font-size: 1rem;
-}
-
 .relative {
   position: relative;
 }
@@ -30,6 +20,20 @@
   color: #e73b3b;
 }
 
+.btn-save {
+  border-radius: 0;
+  color: #fff;
+  background-color: #009757;
+  padding: 0.7rem 0;
+  margin-top: 1rem;
+  font-weight: 700;
+  font-size: 1rem;
+}
+.btn-save:hover {
+  background-color: #00653b;
+  border-color: #00653b;
+}
+
 .btn-xl {
   background-color: #009757;
   border: 0;
@@ -44,6 +48,9 @@
   font-weight: 700;
   font-size: 1.5rem;
   letter-spacing: 0.045rem;
+}
+.btn-xl:hover {
+  background-color: #00653b;
 }
 
 .in-app-nav {
@@ -78,6 +85,9 @@
   left: 1rem;
   font-size: 1rem;
 }
+.card .card-edit:hover {
+  color: #0094ff;
+}
 .card form {
   width: auto;
 }
@@ -101,6 +111,10 @@
   display: flex;
   align-items: center;
   justify-content: center;
+}
+.card .card-btn:hover {
+  background-color: #0057a0;
+  color: #fff;
 }
 
 .edit-pet,
@@ -137,6 +151,7 @@
 }
 
 .trash {
+  background-color: transparent;
   border: 0;
   padding: 0;
   height: 24px;
@@ -145,6 +160,9 @@
 .trash:before {
   content: url("/images/trash.svg");
   margin: 0 0.375rem;
+}
+.trash:hover {
+  background-color: transparent;
 }
 
 .user-account {
@@ -328,7 +346,9 @@
 }
 .appointments-overview div form button:hover {
   text-decoration: underline;
+  color: #0094ff;
   text-underline-offset: 2px;
+  background-color: transparent;
 }
 .appointments-overview div .book-appt {
   width: 16.6875rem;
@@ -350,6 +370,13 @@
   position: absolute;
   left: -30px;
   bottom: -7px;
+}
+.appointments-overview div .book-appt:hover {
+  background-color: #bababa;
+}
+.appointments-overview div .book-appt:hover a {
+  color: #000;
+  background-color: transparent;
 }
 
 .book-appointment {
@@ -404,6 +431,9 @@
 .book-appointment .add-av {
   padding-top: 0.375rem;
 }
+.book-appointment .add-av:hover {
+  color: #0094ff;
+}
 
 .add-availability {
   max-width: 16.6875rem;
@@ -429,9 +459,18 @@
   left: -30px;
   bottom: -7px;
 }
+.add-availability:hover {
+  background-color: #bababa;
+}
+.add-availability:hover a {
+  color: #000;
+}
 
 .create-av button {
   margin-top: 2rem;
+}
+.create-av a:hover {
+  color: #0094ff;
 }
 
 .pet-overview {
@@ -492,6 +531,17 @@
   left: -30px;
   bottom: -7px;
 }
+.pet-overview .add-pet:hover {
+  background-color: #bababa;
+}
+.pet-overview .add-pet:hover button {
+  color: #000;
+  background-color: transparent;
+}
+
+.edit-pet a:hover {
+  color: #0094ff;
+}
 
 .add-record {
   height: 22.1875rem;
@@ -512,6 +562,13 @@
   position: absolute;
   left: -30px;
   bottom: -7px;
+}
+.add-record:hover {
+  background-color: #bababa;
+}
+.add-record:hover button {
+  color: #000;
+  background-color: transparent;
 }
 
 .header-nav {
@@ -658,6 +715,10 @@
   padding-bottom: 1rem;
 }
 
+.records-create-edit a:hover {
+  color: #0094ff;
+}
+
 .popup-parent {
   position: relative;
   height: auto;
@@ -688,4 +749,8 @@
   border: 0;
   top: 1rem;
   right: 1rem;
+}
+.popup .new-pet .close-btn:hover,
+.popup .new-record .close-btn:hover {
+  background-color: transparent;
 }

@@ -37,7 +37,7 @@
                 </div>
                 <% } else{ %>
                   <div class="book-appt card">
-                    <p>To Book Appointments, Add Pets.</p>
+                    <p>Add Pets to Book Appointments</p>
                   </div>
                   <% } %>
           </div>
@@ -81,7 +81,6 @@
 
 
           <% if(user.userType==="Veterinarian" ) { %>
-          
               <section class="add-availability flex-center-xy">
                 <a href="/user/<%=user._id%>/appointments">Add Availability</a>
               </section>

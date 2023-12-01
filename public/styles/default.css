@@ -29,7 +29,7 @@ body {
   font-size       : 16px;
   background-color: var(--bg-default);
   color           : var(--font-color);
-  padding-bottom: 2rem;
+  padding-bottom  : 2rem;
 }
 
 main {
@@ -49,6 +49,11 @@ button {
   border-radius   : 1rem;
   cursor          : pointer;
   padding         : .25rem .75rem;
+}
+
+button:hover {
+  background-color: var(--blue-primary);
+  color           : #fff;
 }
 
 h1 {

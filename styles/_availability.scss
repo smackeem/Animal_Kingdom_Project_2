@@ -14,17 +14,26 @@
 		letter-spacing: 0.03375rem;
 		padding: 0;
 		border: 0;
+		&:before {
+			content: url('/images/add.svg');
+			position: absolute;
+			left: -30px;
+			bottom: -7px;
+		}
 	}
-	a:before {
-		content: url('/images/add.svg');
-		position: absolute;
-		left: -30px;
-		bottom: -7px;
+	&:hover {
+		background-color: $medium-gray;
+		a {
+			color: #000;
+		}
 	}
 }
 
 .create-av {
 	button {
-        margin-top: 2rem;
-    }
+		margin-top: 2rem;
+	}
+	a:hover {
+		color: $blue-secondary;
+	}
 }

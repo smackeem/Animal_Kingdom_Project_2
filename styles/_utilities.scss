@@ -1,33 +1,37 @@
-.btn-save {
-	border-radius: 0;
-	color: #fff;
-	background-color: $lime;
-	padding: 0.7rem 0;
-	margin-top: 1rem;
-	font-weight: 700;
-	font-size: 1rem;
-}
-
 .relative {
-	position: relative;
+    position: relative;
 }
 
 .flex-center-xy {
-	display: flex;
+    display: flex;
 	justify-content: center;
 	align-items: center;
 }
 
 .user-name {
-	text-transform: capitalize;
+    text-transform: capitalize;
 }
 
 .hidden {
-	display: none !important;
+    display: none !important;
 }
 
 .error {
-	color: $danger;
+    color: $danger;
+}
+
+.btn-save {
+    border-radius: 0;
+    color: #fff;
+    background-color: $lime;
+    padding: 0.7rem 0;
+    margin-top: 1rem;
+    font-weight: 700;
+    font-size: 1rem;
+    &:hover {
+        background-color: $dark-lime;
+        border-color: $dark-lime;
+    }
 }
 
 .btn-xl {
@@ -44,6 +48,9 @@
 	font-weight: 700;
 	font-size: 1.5rem;
 	letter-spacing: 0.045rem;
+    &:hover {
+        background-color: $dark-lime;
+    }
 }
 
 .in-app-nav {
@@ -76,6 +83,9 @@
 		position: absolute;
 		left: 1rem;
 		font-size: 1rem;
+        &:hover {
+            color: $blue-secondary;
+        }
 	}
 	form {
 		width: auto;
@@ -100,6 +110,10 @@
 		display: flex;
 		align-items: center;
 		justify-content: center;
+        &:hover{
+            background-color: $blue-primary;
+            color: #fff;
+        }
 	}
 }
 
@@ -125,6 +139,7 @@
 }
 
 .trash {
+    background-color: transparent;
 	border: 0;
 	padding: 0;
 	height: 24px;
@@ -133,4 +148,7 @@
 		content: url('/images/trash.svg');
 		margin: 0 0.375rem;
 	}
+    &:hover{
+        background-color: transparent;
+    }
 }
