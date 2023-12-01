@@ -1,19 +1,19 @@
 <%- include('../partials/header') %>
 
-<nav class="in-app-nav">
-    <a href="/user/<%=user._id%>">Dashboard</a> > <span>Medical Records</span>
-</nav>
-<section class="create-av">
-    <h2>New Availability</h2>
-    <form action="/user/<%=user._id %>/appointments" method="POST">
-    
-        <label for="date">Date & Time: 
-            <input type="datetime-local" name="date" min="<%= today %>" required>
-        </label><br/><br/>
-    
-        <button type="submit">Add Availability</button>
-    </form>
-    <a href="/user/<%= user._id %>">Cancel</a>
-</section>
+    <nav class="in-app-nav">
+        <a href="/user/<%=user._id%>">Dashboard</a> > <a href="/user/<%=user._id%>/appointments">Appointments</a> > </span> <span>New Availability</span>
+    </nav>
 
-<%- include('../partials/footer') %>
+    <section class="create-av">
+        <h2>New Availability</h2>
+        <form action="/user/<%=user._id %>/appointments" method="POST">
+
+            <label for="date">Date & Time</label>
+            <input type="datetime-local" name="date" min="<%= today %>" required>
+            
+            <button class='btn-save' type="submit">Save</button>
+        </form>
+        <a href="/user/<%= user._id %>">Cancel</a>
+    </section>
+
+    <%- include('../partials/footer') %>

@@ -5,7 +5,7 @@
 
   <section class="user-account">
     <form action="/user/<%= user._id %>/myaccount?_method=PUT" method="POST">
-      <h2>Profile Info</h2>
+      <h2><%= user.firstName %>'s Account</h2>
       <div class="input-group">
         <div>
           <label for="firstName">First name</label>

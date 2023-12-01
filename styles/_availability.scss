@@ -23,18 +23,8 @@
 	}
 }
 
-.create-av-inputs {
-	display: flex;
-	flex-direction: column;
-
-	.create-av-checkbox {
-		padding-top: 1rem;
-		display: flex;
-		flex-direction: row;
-		align-items: center;
-		gap: 0.5rem;
-		input {
-			margin: 0;
-		}
-	}
+.create-av {
+	button {
+        margin-top: 2rem;
+    }
 }
