@@ -39,6 +39,12 @@
 			border-radius: 4px;
 			box-shadow: 1px 1px 10px 2px rgba(0, 0, 0, 0.15);
 			width: 7.8125rem;
+			a {
+				color: $font-color;
+                &:hover {
+                    color: $blue-secondary;
+                }
+			}
 		}
 		.notification {
 			position: relative;

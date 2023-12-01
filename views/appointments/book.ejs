@@ -1,14 +1,16 @@
 <%- include('../partials/header') %>
-<nav class="in-app-nav">
-    <a href="/user/<%=user._id%>">Dashboard</a> > <a href="/user/<%=user._id %>/appointments">Appointments</a> > <span>Book Appointment</span>
-</nav>
+    <nav class="in-app-nav">
+        <a href="/user/<%=user._id%>">Dashboard</a> > <a href="/user/<%=user._id %>/appointments">Appointments</a> >
+        <span>Appointment Details</span>
+    </nav>
+    
     <section class="appt-reason">
         <h2>Appointment Details</h2>
         <form action="/user/<%= user._id%>/appointments/<%= appointment._id %>?_method=PUT" method="POST">
 
             <label for="pet">Pet</label>
             <select name="pet" id="" required>
-            <option value="" disabled selected>Select Pet</option>
+                <option value="" disabled selected>Select Pet</option>
                 <% pets.forEach(p=> { %>
                     <option value="<%= p._id %>">Name <%= p.name%>, DOB <%= p.DOB.toLocaleDateString() %>
                     </option>

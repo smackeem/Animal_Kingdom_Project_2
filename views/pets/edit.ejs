@@ -1,5 +1,9 @@
 <%- include('../partials/header') %>
 
+<nav class="in-app-nav">
+    <a href="/user/<%=user._id%>">Dashboard</a> > <span>Edit Pet</span>
+</nav>
+
 <section class="edit-pet">
     <h2>Edit Pet</h2>
     <form action="/user/<%= user._id%>/pets/<%= pet._id %>?_method=PUT" method="POST">

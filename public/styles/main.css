@@ -552,6 +552,12 @@
   box-shadow: 1px 1px 10px 2px rgba(0, 0, 0, 0.15);
   width: 7.8125rem;
 }
+.header-nav .nav-user ul a {
+  color: #333333;
+}
+.header-nav .nav-user ul a:hover {
+  color: #0094ff;
+}
 .header-nav .nav-user .notification {
   position: relative;
   padding: 0.15rem;
@@ -640,6 +646,10 @@
 }
 .medical-records .no-records {
   padding-top: 1rem;
+}
+
+.new-record h2 {
+  padding-bottom: 1rem;
 }
 
 .popup-parent {
