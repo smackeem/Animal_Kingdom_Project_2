@@ -17,6 +17,6 @@ router.get("/user/:id/records/:id", recordsCtrl.show);
 
 router.delete("/user/:id/records/:id", recordsCtrl.delete);
 
-router.put("/user/:id/records/:id", recordsCtrl.update);
+router.put("/user/:userId/records/:id", recordsCtrl.update);
 
 module.exports = router;

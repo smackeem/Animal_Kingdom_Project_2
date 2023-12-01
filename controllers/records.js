@@ -99,7 +99,7 @@ async function update(req, res, next) {
     req.body.medication = req.body.medication.trim();
     const record = await Record.findById(req.params.id);
     await Record.findByIdAndUpdate(req.params.id, req.body);
-    res.redirect(`/user/${record.vet}`);
+    res.redirect(`/user/${req.params.userId}/pets/${req.params.id}`);
   } catch (err) {
     res.status(500).render("pets/show", { errMsg: "Error Updating Record. Try again!" });
   }
