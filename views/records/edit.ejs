@@ -1,26 +1,43 @@
+<!--views/records/edit.ejs-->
 <%- include('../partials/header') %>
 <nav class="medical-records-nav">
-    <a href="/user/<%=user._id%>">Dashboard</a> > <a href="/user/<%=user._id %>/pets/<%= record.pet._id%>">Medical Records</a> > <span>Editing Record</span>
+  <a href="/user/<%=user._id%>">Dashboard</a> >
+  <a href="/user/<%=user._id %>/pets/<%= record.pet._id%>">Medical Records</a> >
+  <span>Editing Record</span>
 </nav>
 <section class="records-create-edit">
-    <h2>Editing <%= record.pet.name%>'s Record </h2>
-    <form action="/user/<%= user._id%>/records/<%= record._id %>?_method=PUT" method="POST">
-        
-        <label for="date">Date</label>
-            <input type="datetime-local" name="date" value="<%= rDate %>" required>
-    
-        <label for="diagnosis">Diagnosis</label>
-            <input type="text" name="diagnosis" value="<%= record.diagnosis %>" required>
-    
-        <label for="treament">Treament</label>
-            <textarea  name="treatment" rows="5" cols="33" required><%= record.treatment %></textarea>
-    
-        <label for="medication">Medication</label>
-            <input type="text" name="medication" value="<%= record.medication %>" required>
-    
-        <button class='btn-save' type="submit">Update</button>
-    </form>
-    <a href="/user/<%= user._id %>">Cancel</a>
+  <h2>Editing <%= record.pet.name%>'s Record</h2>
+  <form
+    action="/user/<%= user._id%>/records/<%= record._id %>?_method=PUT"
+    method="POST"
+  >
+    <label for="date">Date</label>
+    <input type="datetime-local" name="date" value="<%= rDate %>" required />
+
+    <label for="diagnosis">Diagnosis</label>
+    <input
+      type="text"
+      name="diagnosis"
+      value="<%= record.diagnosis %>"
+      required
+    />
+
+    <label for="treament">Treament</label>
+    <textarea name="treatment" rows="5" cols="33" required>
+<%= record.treatment %></textarea
+    >
+
+    <label for="medication">Medication</label>
+    <input
+      type="text"
+      name="medication"
+      value="<%= record.medication %>"
+      required
+    />
+
+    <button class="btn-save" type="submit">Update</button>
+  </form>
+  <a href="/user/<%= user._id %>">Cancel</a>
 </section>
 
 <%- include('../partials/footer') %>
