@@ -21,11 +21,25 @@ function toggleSpecializationField() {
 }
 
 function confirmDelete() {
-  const isConfirmed = window.confirm("Are you sure you want to delete?");
-  if (isConfirmed) {
-    const form = document.querySelector("#deleteForm");
-    form.submit();
-  }
+  Swal.fire({
+    title: 'Are you sure?',
+    text: 'You won\'t be able to revert this!',
+    icon: 'warning',
+    showCancelButton: true,
+    confirmButtonText: 'Yes, delete it!',
+    cancelButtonText: 'No, cancel!',
+    reverseButtons: true,
+  }).then((result) => {
+    if (result.isConfirmed) {
+      // Handle confirmed action
+      const form = document.querySelector("#deleteForm");
+      form.submit();
+      Swal.fire('Deleted!', 'Your pet has been deleted.', 'success');
+    } else if (result.dismiss === Swal.DismissReason.cancel) {
+      // Handle canceled action
+      Swal.fire('Cancelled', 'Your pet is safe :)', 'info');
+    }
+  });
 }
 
 // Inside functions.js
