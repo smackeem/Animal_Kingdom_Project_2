@@ -14,7 +14,7 @@ const addressSchema = new Schema(
     timestamps: true,
   }
 );
-
+// User Schema
 const userSchema = new Schema({
   firstName: { type: String, required: true },
   lastName: { type: String, required: true },
