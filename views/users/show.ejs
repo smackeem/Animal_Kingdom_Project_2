@@ -49,7 +49,17 @@
             <% pets.forEach(p=> { %>
               <div class="card pet-card">
                 <div>
-                  <img class='pet-img' src="/images/pet.jpg" alt="Pet">
+
+                  <% if(p.species === 'Bird'){ %>
+                    <img class='pet-img' src="/images/bird.jpg" alt="Bird">
+                  <% } else if(p.species === 'Cat'){ %>
+                  <img class='pet-img' src="/images/cat.jpg" alt="Cat">
+                  <% } else if(p.species==='Lizard' ){ %>
+                    <img class='pet-img' src="/images/lizard.jpg" alt="Lizard">
+                  <% } else { %>
+                    <img class='pet-img' src="/images/dog.jpg" alt="Dog">
+                  <% } %>
+
                   <div class="pet-info">
                     <h4>
                       <%= p.name %>
@@ -119,7 +129,17 @@
                 <% patients.forEach(p=> { %>
                   <div class="card pet-card">
                     <div>
-                      <img class='pet-img' src="/images/pet.jpg" alt="Pet">
+
+                      <% if(p._doc.species==='Bird' ){ %>
+                        <img class='pet-img' src="/images/bird.jpg" alt="Bird">
+                        <% } else if(p._doc.species==='Cat' ){ %>
+                          <img class='pet-img' src="/images/cat.jpg" alt="Cat">
+                          <% } else if(p._doc.species==='Lizard' ){ %>
+                            <img class='pet-img' src="/images/lizard.jpg" alt="Lizard">
+                            <% } else { %>
+                              <img class='pet-img' src="/images/dog.jpg" alt="Dog">
+                              <% } %>
+
                       <div class="pet-info">
                         <h4>
                           <%= p._doc.name %>
